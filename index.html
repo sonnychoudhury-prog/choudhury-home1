@@ -13,7 +13,9 @@
 <meta name="description" content="The Choudhury Family Home App — গৃহ সহায়ক">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon.png">
+
 <style>
+
 /* ── PWA INSTALL BANNER ── */
 #pwa-banner{
   display:none;
@@ -74,9 +76,8 @@
   color:white;border-radius:14px;font-family:'DM Sans',sans-serif;
   font-size:16px;font-weight:600;cursor:pointer;
 }
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-<style>
+
+
 /* ═══════════════════════════════════════════
    DESIGN TOKENS — Jade, Ivory & Rose Gold
    Inspired by Bengal terracotta pottery,
@@ -375,6 +376,8 @@ header{
 .ab-red{background:linear-gradient(135deg,var(--crimson-lt),#F5D8D8);border:1px solid rgba(168,37,42,0.18);}
 .ab-red .ab-label{color:var(--crimson);}
 .ab-lotus{background:linear-gradient(135deg,var(--rose-lt),#F5D8E2);border:1px solid rgba(181,85,106,0.18);}
+.ab-rose{background:linear-gradient(135deg,var(--rose-lt),#F5D8E2);border:1px solid rgba(181,85,106,0.18);}
+.ab-rose .ab-label{color:var(--rose);}
 .ab-lotus .ab-label{color:var(--rose);}
 .ab-ink{background:linear-gradient(135deg,#F0EDE8,#E8E2DA);border:1px solid rgba(22,18,16,0.1);}
 .ab-ink .ab-label{color:var(--ink-soft);}
@@ -503,7 +506,192 @@ header{
   font-size:60px;opacity:0.08;pointer-events:none;
   transform:rotate(15deg);
 }
+
+/* ══ SETTINGS / PROFILE ══ */
+.settings-tab-row{
+  display:flex;gap:6px;overflow-x:auto;
+  padding-bottom:4px;margin-bottom:16px;
+  scrollbar-width:none;
+}
+.settings-tab-row::-webkit-scrollbar{display:none;}
+.stab{
+  flex-shrink:0;padding:9px 16px;border-radius:30px;
+  border:1.5px solid var(--border);background:var(--card);
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  color:var(--ink-soft);cursor:pointer;transition:all 0.15s;
+  white-space:nowrap;
+}
+.stab.on{background:var(--ink);border-color:var(--ink);color:white;}
+
+.settings-panel{display:none;}
+.settings-panel.active{display:block;}
+
+.profile-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:16px;margin-bottom:10px;
+  position:relative;
+}
+.profile-card-head{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:12px;
+}
+.profile-card-icon{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.profile-card-title{font-size:15px;font-weight:700;color:var(--ink);}
+.profile-card-sub{font-size:12px;color:var(--ink-soft);margin-top:1px;}
+.profile-card-edit{
+  position:absolute;top:14px;right:14px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:5px 10px;
+  font-size:12px;font-weight:600;color:var(--ink-soft);
+  cursor:pointer;
+}
+
+.field-group{margin-bottom:10px;}
+.field-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:var(--ink-faint);
+  margin-bottom:4px;display:block;
+}
+.field-input{
+  width:100%;padding:11px 13px;border-radius:11px;
+  border:1.5px solid var(--border);background:var(--bg);
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  color:var(--ink);outline:none;transition:border-color 0.15s;
+}
+.field-input:focus{border-color:var(--jade);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+
+.save-card-btn{
+  width:100%;padding:12px;border-radius:11px;
+  background:var(--jade);color:white;border:none;
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  font-weight:700;cursor:pointer;margin-top:6px;
+  transition:background 0.15s;
+}
+.save-card-btn:hover{background:var(--jade2);}
+
+.add-new-btn{
+  width:100%;padding:13px;border-radius:13px;
+  border:2px dashed var(--border);background:transparent;
+  font-family:'DM Sans',sans-serif;font-size:14px;
+  font-weight:600;color:var(--jade);cursor:pointer;
+  margin-bottom:10px;transition:background 0.15s;
+}
+.add-new-btn:hover{background:var(--jade-lt);}
+
+.delete-btn{
+  background:var(--crimson-lt);color:var(--crimson);
+  border:1px solid rgba(168,37,42,0.2);border-radius:8px;
+  padding:5px 10px;font-size:12px;font-weight:600;
+  cursor:pointer;margin-left:auto;
+}
+
+.maps-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 12px;border-radius:10px;
+  background:var(--jade-lt);color:var(--jade);
+  border:1px solid rgba(29,107,90,0.2);
+  font-size:12px;font-weight:600;cursor:pointer;
+  text-decoration:none;margin-top:6px;
+}
+
+.cal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;
+}
+.cal-header h3{font-size:18px;font-weight:700;color:var(--ink);}
+.cal-nav{
+  display:flex;gap:6px;
+}
+.cal-nav button{
+  background:var(--bg3);border:none;border-radius:10px;
+  width:36px;height:36px;font-size:16px;cursor:pointer;
+  color:var(--ink-soft);display:flex;align-items:center;justify-content:center;
+}
+.cal-grid{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  gap:2px;margin-bottom:16px;
+}
+.cal-day-label{
+  text-align:center;font-size:11px;font-weight:700;
+  color:var(--ink-faint);padding:6px 0;letter-spacing:0.5px;
+}
+.cal-cell{
+  aspect-ratio:1;display:flex;align-items:center;
+  justify-content:center;border-radius:10px;
+  font-size:14px;font-weight:500;cursor:pointer;
+  position:relative;transition:background 0.15s;
+  color:var(--ink-soft);
+}
+.cal-cell:hover{background:var(--bg3);}
+.cal-cell.today{
+  background:var(--jade);color:white;font-weight:700;
+}
+.cal-cell.has-event::after{
+  content:'';position:absolute;bottom:3px;
+  width:4px;height:4px;border-radius:50%;
+  background:var(--rose);
+}
+.cal-cell.today.has-event::after{background:var(--gold-bright);}
+.cal-cell.other-month{color:var(--ink-faint);opacity:0.4;}
+
+/* EVENT LIST */
+.event-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:13px 14px;background:var(--card);
+  border-radius:14px;margin-bottom:8px;
+  border:1px solid var(--border);
+}
+.event-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.event-title{font-size:15px;font-weight:600;color:var(--ink);}
+.event-time{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+
+/* ADD EVENT FORM */
+.add-event-form{
+  background:var(--bg2);border-radius:16px;
+  padding:16px;margin-top:4px;
+  border:1px solid var(--border);
+}
+.add-event-form input, .add-event-form select{
+  width:100%;padding:12px 14px;border-radius:12px;
+  border:1.5px solid var(--border);background:var(--card);
+  font-family:'DM Sans',sans-serif;font-size:15px;
+  color:var(--ink);margin-bottom:10px;outline:none;
+  transition:border-color 0.15s;
+}
+.add-event-form input:focus{border-color:var(--jade);}
+.add-event-btn{
+  width:100%;padding:13px;border-radius:12px;
+  background:var(--jade);color:white;border:none;
+  font-family:'DM Sans',sans-serif;font-size:16px;
+  font-weight:700;cursor:pointer;
+}
+
+/* ══ TRAVEL SEARCH BOX ══ */
+.travel-search{
+  background:var(--bg2);border-radius:16px;
+  padding:14px;margin-bottom:14px;
+  border:1px solid var(--border);
+}
+.travel-search input{
+  width:100%;padding:12px 14px;border-radius:12px;
+  border:1.5px solid var(--border);background:var(--card);
+  font-family:'DM Sans',sans-serif;font-size:15px;
+  color:var(--ink);margin-bottom:8px;outline:none;
+}
+.travel-search input:focus{border-color:var(--jade);}
+.travel-search-btn{
+  width:100%;padding:12px;border-radius:12px;
+  background:linear-gradient(135deg,var(--jade),var(--jade2));
+  color:white;border:none;font-family:'DM Sans',sans-serif;
+  font-size:15px;font-weight:700;cursor:pointer;
+}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -521,6 +709,10 @@ header{
       <div class="clock-pill">
         <div class="t" id="clock">--:--</div>
         <div class="ap" id="ampm">AM</div>
+      </div>
+      <div class="clock-pill" style="border-color:rgba(232,184,75,0.3);cursor:default;" title="India Standard Time">
+        <div class="t" id="ist-clock" style="color:var(--gold-bright);font-size:16px;">--:--</div>
+        <div class="ap" style="color:rgba(232,184,75,0.6);">IST 🇮🇳</div>
       </div>
       <button class="lang-toggle" onclick="toggleLang()">বাং / EN</button>
     </div>
@@ -682,6 +874,68 @@ header{
       <div class="tile-sub" id="ts-security">Alarm.com · Arm · Disarm · Cameras</div>
     </div>
     <div class="tile-arrow">›</div>
+  </div>
+</div>
+
+<!-- SECTION: CALENDAR & TRAVEL -->
+<div class="section-label" id="sl-travel">Calendar & Travel</div>
+<div class="tile-grid">
+
+  <!-- CALENDAR -->
+  <div class="tile" onclick="open_modal('calendar')" style="grid-column:1/-1;flex-direction:row;align-items:center;padding:16px 18px;">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--jade),var(--jade2))"></div>
+    <div class="tile-icon-wrap" style="background:var(--jade-lt);font-size:28px;">📅</div>
+    <div style="margin-left:12px;flex:1;">
+      <div class="tile-name" id="t-calendar">Family Calendar</div>
+      <div class="tile-sub" id="ts-calendar">Events · Appointments · Add Reminders · পারিবারিক সূচি</div>
+    </div>
+    <div class="tile-badge" id="cal-badge" style="position:relative;top:auto;right:auto;">3 This Week</div>
+  </div>
+
+  <!-- FLIGHTS -->
+  <div class="tile" onclick="open_modal('flights')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#1A3A6A,#2A5AA0)"></div>
+    <div class="tile-icon-wrap" style="background:#EEF2FA;">✈️</div>
+    <div class="tile-name" id="t-flights">Flights</div>
+    <div class="tile-sub" id="ts-flights">US · India · বিমান</div>
+  </div>
+
+  <!-- HOTELS & VACATION -->
+  <div class="tile" onclick="open_modal('hotels')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--rose),#8A2040)"></div>
+    <div class="tile-icon-wrap" style="background:var(--rose-lt);">🏨</div>
+    <div class="tile-name" id="t-hotels">Stay</div>
+    <div class="tile-sub" id="ts-hotels">Hotels · Vacation Rentals · আবাসন</div>
+  </div>
+
+  <!-- CAR RENTAL -->
+  <div class="tile" onclick="open_modal('carrental')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--gold),#906010)"></div>
+    <div class="tile-icon-wrap" style="background:var(--gold-lt);">🚙</div>
+    <div class="tile-name" id="t-car">Car Rental</div>
+    <div class="tile-sub" id="ts-car">Enterprise · Hertz · গাড়ি ভাড়া</div>
+  </div>
+
+  <!-- VACATIONS -->
+  <div class="tile" onclick="open_modal('vacations')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#1A6A5A,#2A9A80)"></div>
+    <div class="tile-icon-wrap" style="background:var(--jade-lt);">🌴</div>
+    <div class="tile-name" id="t-vac">Vacations</div>
+    <div class="tile-sub" id="ts-vac">Packages · India · ভ্রমণ</div>
+  </div>
+
+</div>
+
+<!-- SETTINGS TILE -->
+<div class="tile-grid" style="padding-top:0;">
+  <div class="tile wide" onclick="open_modal('settings')" style="background:linear-gradient(135deg,var(--ink),#2A2018);">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--gold),var(--gold-bright))"></div>
+    <div class="tile-icon-wrap" style="background:rgba(232,184,75,0.12);font-size:26px;">⚙️</div>
+    <div class="tile-body" style="margin-left:12px;">
+      <div class="tile-name" style="color:var(--gold-bright);" id="t-settings">My Profile & Settings</div>
+      <div class="tile-sub" style="color:rgba(255,255,255,0.5);" id="ts-settings">Doctors · Medicines · Addresses · Family · তথ্য সম্পাদনা</div>
+    </div>
+    <div class="tile-arrow" style="color:var(--gold-bright);">›</div>
   </div>
 </div>
 
@@ -1373,6 +1627,369 @@ header{
   </div>
 </div>
 
+<!-- CALENDAR -->
+<div class="overlay" id="ov-calendar">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>📅 Family Calendar</h2><p>পারিবারিক সূচি · Events & Reminders</p></div>
+      <button class="modal-close" onclick="close_modal('calendar')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="cal-header">
+        <h3 id="cal-month-label">June 2026</h3>
+        <div class="cal-nav">
+          <button onclick="calNav(-1)">‹</button>
+          <button onclick="calNav(1)">›</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+      <div class="m-divider">UPCOMING EVENTS · আসন্ন অনুষ্ঠান</div>
+      <div id="event-list"></div>
+      <div class="m-divider">ADD EVENT · ইভেন্ট যোগ করুন</div>
+      <div class="add-event-form">
+        <input type="text" id="ev-title" placeholder="Event name · অনুষ্ঠানের নাম">
+        <input type="date" id="ev-date">
+        <input type="time" id="ev-time" placeholder="Time (optional)">
+        <button class="add-event-btn" onclick="addEvent()">＋ Add to Calendar</button>
+      </div>
+      <button class="back-btn" onclick="close_modal('calendar')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLIGHTS -->
+<div class="overlay" id="ov-flights">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>✈️ Flights</h2><p>বিমান · US & India · Search & Book</p></div>
+      <button class="modal-close" onclick="close_modal('flights')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="travel-search">
+        <input type="text" id="fl-from" placeholder="From — e.g. Washington DC (IAD)">
+        <input type="text" id="fl-to" placeholder="To — e.g. Kolkata (CCU)">
+        <input type="date" id="fl-date">
+        <button class="travel-search-btn" onclick="searchFlights()">🔍 Search Flights</button>
+      </div>
+      <div class="m-divider">FAVOURITE ROUTES · প্রিয় রুট</div>
+      <a class="action-btn ab-teal" href="https://www.google.com/travel/flights/search?tfs=CBwQAhooagcIARIDSUFEEgoyMDI1LTEyLTAxagcIARIDQ0NVGgoyMDI1LTEyLTIwQAFIAXABggELCP___________wGYAQI" target="_blank">
+        <span class="ab-icon">✈️</span>
+        <div class="ab-text"><div class="ab-label">Washington DC → Kolkata</div><div class="ab-sub">IAD → CCU · Round trip · Google Flights</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.google.com/travel/flights/search?tfs=CBwQAhooagcIARIDSUFEEgoyMDI1LTEyLTAxagcIARIDREVMGgoyMDI1LTEyLTIwQAFIAXABggELCP___________wGYAQI" target="_blank">
+        <span class="ab-icon">✈️</span>
+        <div class="ab-text"><div class="ab-label">Washington DC → Delhi</div><div class="ab-sub">IAD → DEL · Round trip · Google Flights</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.google.com/travel/flights/search?tfs=CBwQAhooagcIARIDSUFEEgoyMDI1LTEyLTAxagcIARIDTUlBGgoyMDI1LTEyLTIwQAFIAXABggELCP___________wGYAQI" target="_blank">
+        <span class="ab-icon">✈️</span>
+        <div class="ab-text"><div class="ab-label">Washington DC → Miami</div><div class="ab-sub">IAD → MIA · Domestic · Google Flights</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">BOOK ON</div>
+      <a class="action-btn ab-teal" href="https://www.google.com/travel/flights" target="_blank">
+        <span class="ab-icon">🔍</span>
+        <div class="ab-text"><div class="ab-label">Google Flights</div><div class="ab-sub">Best price comparison · Easy to use</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.airindiaexpress.com" target="_blank">
+        <span class="ab-icon">🇮🇳</span>
+        <div class="ab-text"><div class="ab-label">Air India Express</div><div class="ab-sub">Direct India flights · Best fares</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.kayak.com/flights" target="_blank">
+        <span class="ab-icon">🗓️</span>
+        <div class="ab-text"><div class="ab-label">Kayak</div><div class="ab-sub">Compare all airlines · Price alerts</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('flights')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- HOTELS & VACATION RENTALS -->
+<div class="overlay" id="ov-hotels">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🏨 Stay</h2><p>Hotels · Vacation Rentals · আবাসন</p></div>
+      <button class="modal-close" onclick="close_modal('hotels')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="travel-search">
+        <input type="text" id="ht-dest" placeholder="Destination · গন্তব্য">
+        <input type="date" id="ht-checkin">
+        <input type="date" id="ht-checkout">
+        <button class="travel-search-btn" onclick="searchHotels()">🔍 Search Hotels</button>
+      </div>
+      <div class="m-divider">HOTELS · হোটেল</div>
+      <a class="action-btn ab-teal" href="https://www.booking.com" target="_blank">
+        <span class="ab-icon">🏨</span>
+        <div class="ab-text"><div class="ab-label">Booking.com</div><div class="ab-sub">Best hotel rates · Free cancellation</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.hotels.com" target="_blank">
+        <span class="ab-icon">🛎️</span>
+        <div class="ab-text"><div class="ab-label">Hotels.com</div><div class="ab-sub">Earn free nights · Wide selection</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.marriott.com/search/default.mi" target="_blank">
+        <span class="ab-icon">⭐</span>
+        <div class="ab-text"><div class="ab-label">Marriott Hotels</div><div class="ab-sub">Loyalty points · Premium comfort</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">VACATION RENTALS · ভ্রমণ আবাসন</div>
+      <a class="action-btn ab-rose" href="https://www.airbnb.com" target="_blank">
+        <span class="ab-icon">🏡</span>
+        <div class="ab-text"><div class="ab-label">Airbnb</div><div class="ab-sub">Whole homes · Family friendly stays</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.vrbo.com" target="_blank">
+        <span class="ab-icon">🏠</span>
+        <div class="ab-text"><div class="ab-label">VRBO</div><div class="ab-sub">Vacation homes · Great for family trips</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">INDIA STAYS · ভারতে আবাসন</div>
+      <a class="action-btn ab-teal" href="https://www.makemytrip.com/hotels/" target="_blank">
+        <span class="ab-icon">🇮🇳</span>
+        <div class="ab-text"><div class="ab-label">MakeMyTrip — India Hotels</div><div class="ab-sub">Kolkata · Delhi · Mumbai · Best rates</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.oyo.com" target="_blank">
+        <span class="ab-icon">🏩</span>
+        <div class="ab-text"><div class="ab-label">OYO Rooms India</div><div class="ab-sub">Budget & premium · All cities</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('hotels')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- CAR RENTAL -->
+<div class="overlay" id="ov-carrental">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🚙 Car Rental</h2><p>গাড়ি ভাড়া · US & India</p></div>
+      <button class="modal-close" onclick="close_modal('carrental')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="travel-search">
+        <input type="text" id="cr-loc" placeholder="Pickup location · যেখান থেকে">
+        <input type="date" id="cr-from">
+        <input type="date" id="cr-to">
+        <button class="travel-search-btn" onclick="searchCars()">🔍 Search Cars</button>
+      </div>
+      <div class="m-divider">US CAR RENTAL</div>
+      <a class="action-btn ab-teal" href="https://www.enterprise.com/en/car-rental/locations/us/dc.html" target="_blank">
+        <span class="ab-icon">🚗</span>
+        <div class="ab-text"><div class="ab-label">Enterprise — DC Metro</div><div class="ab-sub">Nearest Rockville locations · Reliable</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.hertz.com/rentacar/reservation/" target="_blank">
+        <span class="ab-icon">🚗</span>
+        <div class="ab-text"><div class="ab-label">Hertz</div><div class="ab-sub">Wide vehicle selection · Easy booking</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.avis.com/en/reservation" target="_blank">
+        <span class="ab-icon">🚗</span>
+        <div class="ab-text"><div class="ab-label">Avis</div><div class="ab-sub">Preferred rates · Good for longer trips</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.kayak.com/cars" target="_blank">
+        <span class="ab-icon">🔍</span>
+        <div class="ab-text"><div class="ab-label">Kayak — Compare All</div><div class="ab-sub">Find the best car rental price</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">INDIA CAR RENTAL · ভারতে গাড়ি</div>
+      <a class="action-btn ab-teal" href="https://www.savaari.com" target="_blank">
+        <span class="ab-icon">🇮🇳</span>
+        <div class="ab-text"><div class="ab-label">Savaari — India Outstation</div><div class="ab-sub">Kolkata · Delhi · Chauffeur driven</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.zoomcar.com" target="_blank">
+        <span class="ab-icon">🚘</span>
+        <div class="ab-text"><div class="ab-label">Zoomcar India</div><div class="ab-sub">Self-drive · Major Indian cities</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('carrental')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- VACATIONS -->
+<div class="overlay" id="ov-vacations">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🌴 Vacations</h2><p>ভ্রমণ পরিকল্পনা · Packages & Inspiration</p></div>
+      <button class="modal-close" onclick="close_modal('vacations')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-divider">INDIA & SOUTH ASIA · ভারত ভ্রমণ</div>
+      <a class="action-btn ab-gold" href="https://www.makemytrip.com/holidays-india/" target="_blank">
+        <span class="ab-icon">🇮🇳</span>
+        <div class="ab-text"><div class="ab-label">India Holiday Packages</div><div class="ab-sub">MakeMyTrip · Kolkata, Kerala, Rajasthan</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.thomascook.in/holidays/" target="_blank">
+        <span class="ab-icon">✈️</span>
+        <div class="ab-text"><div class="ab-label">Thomas Cook India Holidays</div><div class="ab-sub">All-inclusive packages · Senior friendly</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.irctctourism.com" target="_blank">
+        <span class="ab-icon">🚂</span>
+        <div class="ab-text"><div class="ab-label">IRCTC Tourism — Train Packages</div><div class="ab-sub">Senior discounts · All-India rail tours</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">US VACATIONS · আমেরিকায় ভ্রমণ</div>
+      <a class="action-btn ab-teal" href="https://www.expedia.com/vacation-packages" target="_blank">
+        <span class="ab-icon">🌎</span>
+        <div class="ab-text"><div class="ab-label">Expedia Vacation Packages</div><div class="ab-sub">Flight + Hotel bundles · Best value</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.aarp.org/travel/" target="_blank">
+        <span class="ab-icon">🧳</span>
+        <div class="ab-text"><div class="ab-label">AARP Travel — Senior Deals</div><div class="ab-sub">Senior discounts · Group travel</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-rose" href="https://www.tripadvisor.com/Vacation_Packages" target="_blank">
+        <span class="ab-icon">⭐</span>
+        <div class="ab-text"><div class="ab-label">TripAdvisor Packages</div><div class="ab-sub">Reviewed & rated · Family picks</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">PLAN WITH SONNY</div>
+      <a class="action-btn ab-saffron" href="tel:2025218700">
+        <span class="ab-icon">📞</span>
+        <div class="ab-text"><div class="ab-label">Call Sonny to Plan a Trip</div><div class="ab-sub">202-521-8700 · Let's plan together</div></div>
+        <span class="ab-arr">›</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('vacations')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div class="overlay" id="ov-settings">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>⚙️ My Profile & Settings</h2><p>Edit your personal information · তথ্য সম্পাদনা</p></div>
+      <button class="modal-close" onclick="close_modal('settings')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- TAB ROW -->
+      <div class="settings-tab-row">
+        <button class="stab on" onclick="switchSettingsTab('doctors',this)">🏥 Doctors</button>
+        <button class="stab" onclick="switchSettingsTab('meds',this)">💊 Medicines</button>
+        <button class="stab" onclick="switchSettingsTab('addresses',this)">📍 Addresses</button>
+        <button class="stab" onclick="switchSettingsTab('emergency',this)">🚨 Emergency</button>
+        <button class="stab" onclick="switchSettingsTab('family',this)">👨‍👩‍👧 Family</button>
+        <button class="stab" onclick="switchSettingsTab('personal',this)">👤 Personal</button>
+      </div>
+
+      <!-- DOCTORS -->
+      <div class="settings-panel active" id="sp-doctors">
+        <div id="doctors-list"></div>
+        <button class="add-new-btn" onclick="addDoctorCard()">＋ Add New Doctor</button>
+        <div class="m-divider">NEARBY DOCTORS · কাছের ডাক্তার</div>
+        <a class="action-btn ab-teal" href="https://www.zocdoc.com/search?address=Rockville+MD&insurance_carrier=-1&language=Hindi" target="_blank">
+          <span class="ab-icon">🔍</span>
+          <div class="ab-text"><div class="ab-label">Find Indian-Speaking Doctors</div><div class="ab-sub">ZocDoc · Rockville, MD area</div></div>
+          <span class="ab-arr">↗</span>
+        </a>
+        <a class="action-btn ab-gold" href="https://www.google.com/maps/search/doctor+near+Rockville+MD" target="_blank">
+          <span class="ab-icon">🗺️</span>
+          <div class="ab-text"><div class="ab-label">Find Doctors on Google Maps</div><div class="ab-sub">Nearest clinics · Reviews · Directions</div></div>
+          <span class="ab-arr">↗</span>
+        </a>
+      </div>
+
+      <!-- MEDICINES -->
+      <div class="settings-panel" id="sp-meds">
+        <div id="meds-list"></div>
+        <button class="add-new-btn" onclick="addMedCard()">＋ Add New Medicine</button>
+        <div class="m-divider">PHARMACY · ফার্মেসি</div>
+        <a class="action-btn ab-teal" href="https://www.cvs.com/store-locator/cvs-pharmacy-locations/Maryland/Rockville" target="_blank">
+          <span class="ab-icon">🏪</span>
+          <div class="ab-text"><div class="ab-label">CVS Pharmacy — Rockville</div><div class="ab-sub">Find nearest location · Hours</div></div>
+          <span class="ab-arr">↗</span>
+        </a>
+        <a class="action-btn ab-gold" href="https://www.walgreens.com/storelocator/find.jsp?requestType=locator&city=Rockville&state=MD" target="_blank">
+          <span class="ab-icon">🏪</span>
+          <div class="ab-text"><div class="ab-label">Walgreens — Rockville</div><div class="ab-sub">24hr pharmacy locations nearby</div></div>
+          <span class="ab-arr">↗</span>
+        </a>
+      </div>
+
+      <!-- ADDRESSES -->
+      <div class="settings-panel" id="sp-addresses">
+        <div id="addresses-list"></div>
+        <button class="add-new-btn" onclick="addAddressCard()">＋ Add New Address</button>
+      </div>
+
+      <!-- EMERGENCY -->
+      <div class="settings-panel" id="sp-emergency">
+        <div id="emergency-list"></div>
+        <button class="add-new-btn" onclick="addEmergencyCard()">＋ Add Emergency Contact</button>
+        <div class="m-divider">QUICK NUMBERS</div>
+        <div class="profile-card">
+          <div class="field-group">
+            <label class="field-label">Your Home Address (for 911)</label>
+            <input class="field-input" id="home-address-911" placeholder="Enter your full home address" onchange="saveQuick()">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Medical ID / Blood Type</label>
+            <input class="field-input" id="blood-type" placeholder="e.g. B+" onchange="saveQuick()">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Allergies</label>
+            <input class="field-input" id="allergies" placeholder="e.g. Penicillin, Shellfish" onchange="saveQuick()">
+          </div>
+        </div>
+      </div>
+
+      <!-- FAMILY -->
+      <div class="settings-panel" id="sp-family">
+        <div id="family-list"></div>
+        <button class="add-new-btn" onclick="addFamilyCard()">＋ Add Family Member</button>
+      </div>
+
+      <!-- PERSONAL -->
+      <div class="settings-panel" id="sp-personal">
+        <div class="profile-card">
+          <div class="profile-card-head">
+            <div class="profile-card-icon" style="background:var(--gold-lt);">👤</div>
+            <div><div class="profile-card-title">Personal Information</div><div class="profile-card-sub">Your basic details</div></div>
+          </div>
+          <div class="field-group"><label class="field-label">Full Name · পুরো নাম</label><input class="field-input" id="p-name" placeholder="Your name"></div>
+          <div class="field-row">
+            <div class="field-group"><label class="field-label">Date of Birth</label><input class="field-input" id="p-dob" type="date"></div>
+            <div class="field-group"><label class="field-label">Language Preference</label>
+              <select class="field-input" id="p-lang">
+                <option value="en">English</option>
+                <option value="bn">Bengali (বাংলা)</option>
+                <option value="both">Both</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-group"><label class="field-label">Phone Number</label><input class="field-input" id="p-phone" placeholder="Your phone number" type="tel"></div>
+          <div class="field-group"><label class="field-label">Insurance Provider</label><input class="field-input" id="p-insurance" placeholder="e.g. Blue Cross Blue Shield"></div>
+          <div class="field-group"><label class="field-label">Insurance ID Number</label><input class="field-input" id="p-insid" placeholder="Member ID"></div>
+          <div class="field-group"><label class="field-label">Primary Care Doctor</label><input class="field-input" id="p-pcp" placeholder="Doctor name and number"></div>
+          <button class="save-card-btn" onclick="savePersonal()">💾 Save Personal Info</button>
+        </div>
+      </div>
+
+      <button class="back-btn" onclick="close_modal('settings')">← Back</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ══════════════════════════════════════════
 //  CLOCK
@@ -1382,6 +1999,13 @@ function tick(){
   const ap=h>=12?'PM':'AM',hh=h%12||12;
   document.getElementById('clock').textContent=hh+':'+String(m).padStart(2,'0');
   document.getElementById('ampm').textContent=ap;
+
+  // India Standard Time — UTC+5:30
+  const utc=n.getTime()+(n.getTimezoneOffset()*60000);
+  const ist=new Date(utc+(5.5*3600000));
+  const ih=ist.getHours(),im=ist.getMinutes();
+  const iap=ih>=12?'PM':'AM',ihh=ih%12||12;
+  document.getElementById('ist-clock').textContent=ihh+':'+String(im).padStart(2,'0')+' '+iap;
 }
 tick();setInterval(tick,1000);
 
@@ -1436,6 +2060,19 @@ const TRANS={
   'ts-golf':['Courses · Tee Times · Lessons · Live Scores','কোর্স · টি টাইম · লাইভ স্কোর'],
   't-security':['Home Security','গৃহ নিরাপত্তা'],
   'ts-security':['Alarm.com · Arm · Disarm · Cameras','Alarm.com · সিকিউরিটি'],
+  'sl-travel':['Calendar & Travel','ক্যালেন্ডার ও ভ্রমণ'],
+  't-calendar':['Family Calendar','পারিবারিক ক্যালেন্ডার'],
+  'ts-calendar':['Events · Appointments · Add Reminders · পারিবারিক সূচি','ইভেন্ট · অ্যাপয়েন্টমেন্ট · স্মরণ'],
+  't-flights':['Flights','বিমান'],
+  'ts-flights':['US · India · বিমান','US · ভারত · Flights'],
+  't-hotels':['Stay','আবাসন'],
+  'ts-hotels':['Hotels · Vacation Rentals · আবাসন','হোটেল · ছুটির আবাসন'],
+  't-car':['Car Rental','গাড়ি ভাড়া'],
+  'ts-car':['Enterprise · Hertz · গাড়ি ভাড়া','Enterprise · Hertz'],
+  't-vac':['Vacations','ভ্রমণ'],
+  'ts-vac':['Packages · India · ভ্রমণ','প্যাকেজ · ভারত'],
+  't-settings':['My Profile & Settings','আমার প্রোফাইল ও সেটিংস'],
+  'ts-settings':['Doctors · Medicines · Addresses · Family · তথ্য সম্পাদনা','ডাক্তার · ওষুধ · ঠিকানা · পরিবার'],
   't-weather':['Weather','আবহাওয়া'],
   'ts-weather':['Rockville, MD · 5-Day Forecast · আবহাওয়া','Rockville, MD · ৫ দিনের পূর্বাভাস'],
 };
@@ -1554,6 +2191,11 @@ function handleVoice(t){
   else if(t.includes('family')||t.includes('son')||t.includes('call')||t.includes('পরিবার'))open_modal('family');
   else if(t.includes('golf')||t.includes('tee')||t.includes('গল্ফ'))open_modal('golf');
   else if(t.includes('security')||t.includes('alarm')||t.includes('lock')||t.includes('camera')||t.includes('নিরাপত্তা'))open_modal('security');
+  else if(t.includes('calendar')||t.includes('schedule')||t.includes('event')||t.includes('ক্যালেন্ডার'))open_modal('calendar');
+  else if(t.includes('flight')||t.includes('plane')||t.includes('fly')||t.includes('বিমান'))open_modal('flights');
+  else if(t.includes('hotel')||t.includes('stay')||t.includes('airbnb')||t.includes('আবাসন'))open_modal('hotels');
+  else if(t.includes('car rental')||t.includes('rent a car')||t.includes('গাড়ি'))open_modal('carrental');
+  else if(t.includes('vacation')||t.includes('holiday')||t.includes('trip')||t.includes('ভ্রমণ'))open_modal('vacations');
   else if(t.includes('weather')||t.includes('আবহাওয়া'))open_modal('weather');
   else if(t.includes('emergency')||t.includes('help')||t.includes('911'))open_modal('emergency');
 }
@@ -1563,6 +2205,395 @@ function handleVoice(t){
 // ══════════════════════════════════════════
 function gCheck(cb){cb.closest('.g-item').classList.toggle('done',cb.checked);}
 function chipOn(el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on');}
+
+// ══════════════════════════════════════════
+//  SETTINGS — localStorage persistence
+// ══════════════════════════════════════════
+
+// Default data
+const DEFAULTS = {
+  doctors: [
+    { name:'Dr. Mehta', specialty:'Primary Care', phone:'301-555-0192',
+      address:'1234 Rockville Pike, Rockville, MD 20852', notes:'Annual checkup · Speaks Hindi' },
+  ],
+  meds: [
+    { name:'Metformin 500mg', schedule:'8:00 AM', instructions:'With breakfast', refillDate:'', pharmacy:'CVS Rockville' },
+    { name:'Blood Pressure Pill', schedule:'1:00 PM', instructions:'With lunch', refillDate:'', pharmacy:'CVS Rockville' },
+    { name:'Vitamin D + Calcium', schedule:'9:00 PM', instructions:'After dinner', refillDate:'', pharmacy:'CVS Rockville' },
+  ],
+  addresses: [
+    { label:'Home 🏠', address:'', notes:'Current residence' },
+    { label:'Grocery — Patel Brothers', address:'1331 University Blvd E, Silver Spring, MD 20903', notes:'Indian grocery' },
+    { label:'Temple / Mandir', address:'4340 Pickett Rd, Fairfax, VA 22032', notes:'Hindu Temple of Metropolitan Washington' },
+    { label:'CVS Pharmacy', address:'1 Research Ct, Rockville, MD 20850', notes:'Nearest pharmacy' },
+  ],
+  emergency: [
+    { name:'Sonny (Son)', phone:'202-521-8700', relation:'Son', notes:'Rockville, MD' },
+    { name:'Soma (Daughter)', phone:'917-331-8002', relation:'Daughter', notes:'New York City, NY' },
+  ],
+  family: [
+    { name:'Sonny', phone:'202-521-8700', relation:'Son', birthday:'', notes:'Rockville, MD' },
+    { name:'Soma', phone:'917-331-8002', relation:'Daughter', birthday:'', notes:'New York City, NY' },
+  ],
+  personal: { name:'', dob:'', lang:'en', phone:'', insurance:'', insid:'', pcp:'' },
+  quick: { address911:'', bloodType:'', allergies:'' },
+};
+
+function loadData(key){ try{ const v=localStorage.getItem('ch_'+key); return v?JSON.parse(v):DEFAULTS[key]; }catch(e){ return DEFAULTS[key]; } }
+function saveData(key,val){ try{ localStorage.setItem('ch_'+key,JSON.stringify(val)); }catch(e){} }
+
+// ── SETTINGS TABS ──
+function switchSettingsTab(tab, el){
+  document.querySelectorAll('.stab').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.settings-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('sp-'+tab).classList.add('active');
+  renderSettingsPanel(tab);
+}
+
+function renderSettingsPanel(tab){
+  if(tab==='doctors') renderDoctors();
+  else if(tab==='meds') renderMeds();
+  else if(tab==='addresses') renderAddresses();
+  else if(tab==='emergency') renderEmergency();
+  else if(tab==='family') renderFamily();
+  else if(tab==='personal') renderPersonal();
+}
+
+// ══ DOCTORS ══
+function renderDoctors(){
+  const data=loadData('doctors');
+  document.getElementById('doctors-list').innerHTML=data.map((d,i)=>`
+    <div class="profile-card">
+      <div class="profile-card-head">
+        <div class="profile-card-icon" style="background:var(--jade-lt);">🏥</div>
+        <div style="flex:1">
+          <div class="profile-card-title">${d.name||'Doctor '+(i+1)}</div>
+          <div class="profile-card-sub">${d.specialty||'Specialty not set'}</div>
+        </div>
+        <button class="delete-btn" onclick="deleteItem('doctors',${i})">✕</button>
+      </div>
+      <div class="field-group"><label class="field-label">Doctor Name</label>
+        <input class="field-input" value="${d.name}" onchange="updateItem('doctors',${i},'name',this.value)" placeholder="Dr. Full Name"></div>
+      <div class="field-row">
+        <div class="field-group"><label class="field-label">Specialty</label>
+          <input class="field-input" value="${d.specialty}" onchange="updateItem('doctors',${i},'specialty',this.value)" placeholder="e.g. Cardiologist"></div>
+        <div class="field-group"><label class="field-label">Phone</label>
+          <input class="field-input" value="${d.phone}" onchange="updateItem('doctors',${i},'phone',this.value)" placeholder="301-xxx-xxxx" type="tel"></div>
+      </div>
+      <div class="field-group"><label class="field-label">Address</label>
+        <input class="field-input" value="${d.address}" onchange="updateItem('doctors',${i},'address',this.value)" placeholder="Full clinic address"></div>
+      <div class="field-group"><label class="field-label">Notes</label>
+        <input class="field-input" value="${d.notes}" onchange="updateItem('doctors',${i},'notes',this.value)" placeholder="e.g. Speaks Bengali, bring insurance card"></div>
+      ${d.address?`<a class="maps-btn" href="https://www.google.com/maps/search/${encodeURIComponent(d.address)}" target="_blank">🗺️ Open in Google Maps</a>`:''}
+      ${d.phone?`<a class="maps-btn" href="tel:${d.phone.replace(/\D/g,'')}">📞 Call ${d.name}</a>`:''}
+    </div>`).join('');
+}
+function addDoctorCard(){
+  const data=loadData('doctors');
+  data.push({name:'',specialty:'',phone:'',address:'',notes:''});
+  saveData('doctors',data); renderDoctors();
+}
+
+// ══ MEDICINES ══
+function renderMeds(){
+  const data=loadData('meds');
+  document.getElementById('meds-list').innerHTML=data.map((m,i)=>`
+    <div class="profile-card">
+      <div class="profile-card-head">
+        <div class="profile-card-icon" style="background:var(--gold-lt);">💊</div>
+        <div style="flex:1">
+          <div class="profile-card-title">${m.name||'Medicine '+(i+1)}</div>
+          <div class="profile-card-sub">${m.schedule||'Schedule not set'}</div>
+        </div>
+        <button class="delete-btn" onclick="deleteItem('meds',${i})">✕</button>
+      </div>
+      <div class="field-group"><label class="field-label">Medicine Name · ওষুধের নাম</label>
+        <input class="field-input" value="${m.name}" onchange="updateItem('meds',${i},'name',this.value)" placeholder="e.g. Metformin 500mg"></div>
+      <div class="field-row">
+        <div class="field-group"><label class="field-label">Time · সময়</label>
+          <input class="field-input" value="${m.schedule}" onchange="updateItem('meds',${i},'schedule',this.value)" placeholder="e.g. 8:00 AM" type="time"></div>
+        <div class="field-group"><label class="field-label">Refill Date</label>
+          <input class="field-input" value="${m.refillDate}" onchange="updateItem('meds',${i},'refillDate',this.value)" type="date"></div>
+      </div>
+      <div class="field-group"><label class="field-label">Instructions · নির্দেশনা</label>
+        <input class="field-input" value="${m.instructions}" onchange="updateItem('meds',${i},'instructions',this.value)" placeholder="e.g. Take with food"></div>
+      <div class="field-group"><label class="field-label">Pharmacy</label>
+        <input class="field-input" value="${m.pharmacy}" onchange="updateItem('meds',${i},'pharmacy',this.value)" placeholder="e.g. CVS Rockville"></div>
+    </div>`).join('');
+}
+function addMedCard(){
+  const data=loadData('meds');
+  data.push({name:'',schedule:'',instructions:'',refillDate:'',pharmacy:''});
+  saveData('meds',data); renderMeds();
+}
+
+// ══ ADDRESSES ══
+function renderAddresses(){
+  const data=loadData('addresses');
+  document.getElementById('addresses-list').innerHTML=data.map((a,i)=>`
+    <div class="profile-card">
+      <div class="profile-card-head">
+        <div class="profile-card-icon" style="background:var(--rose-lt);">📍</div>
+        <div style="flex:1">
+          <div class="profile-card-title">${a.label||'Location '+(i+1)}</div>
+          <div class="profile-card-sub">${a.notes||''}</div>
+        </div>
+        <button class="delete-btn" onclick="deleteItem('addresses',${i})">✕</button>
+      </div>
+      <div class="field-group"><label class="field-label">Label · নাম</label>
+        <input class="field-input" value="${a.label}" onchange="updateItem('addresses',${i},'label',this.value)" placeholder="e.g. Home, Doctor, Temple"></div>
+      <div class="field-group"><label class="field-label">Full Address · সম্পূর্ণ ঠিকানা</label>
+        <input class="field-input" value="${a.address}" onchange="updateItem('addresses',${i},'address',this.value)" placeholder="Street, City, State, ZIP"></div>
+      <div class="field-group"><label class="field-label">Notes</label>
+        <input class="field-input" value="${a.notes}" onchange="updateItem('addresses',${i},'notes',this.value)" placeholder="e.g. Park in rear, 2nd floor"></div>
+      ${a.address?`<a class="maps-btn" href="https://www.google.com/maps/search/${encodeURIComponent(a.address)}" target="_blank">🗺️ Open in Google Maps</a>
+      <a class="maps-btn" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(a.address)}" target="_blank">🚗 Get Directions</a>`:''}
+    </div>`).join('');
+}
+function addAddressCard(){
+  const data=loadData('addresses');
+  data.push({label:'',address:'',notes:''});
+  saveData('addresses',data); renderAddresses();
+}
+
+// ══ EMERGENCY ══
+function renderEmergency(){
+  const data=loadData('emergency');
+  document.getElementById('emergency-list').innerHTML=data.map((e,i)=>`
+    <div class="profile-card">
+      <div class="profile-card-head">
+        <div class="profile-card-icon" style="background:var(--crimson-lt);">🚨</div>
+        <div style="flex:1">
+          <div class="profile-card-title">${e.name||'Contact '+(i+1)}</div>
+          <div class="profile-card-sub">${e.relation||''}</div>
+        </div>
+        <button class="delete-btn" onclick="deleteItem('emergency',${i})">✕</button>
+      </div>
+      <div class="field-row">
+        <div class="field-group"><label class="field-label">Name</label>
+          <input class="field-input" value="${e.name}" onchange="updateItem('emergency',${i},'name',this.value)" placeholder="Full name"></div>
+        <div class="field-group"><label class="field-label">Relation</label>
+          <input class="field-input" value="${e.relation}" onchange="updateItem('emergency',${i},'relation',this.value)" placeholder="e.g. Son, Doctor"></div>
+      </div>
+      <div class="field-group"><label class="field-label">Phone Number</label>
+        <input class="field-input" value="${e.phone}" onchange="updateItem('emergency',${i},'phone',this.value)" placeholder="Phone number" type="tel"></div>
+      <div class="field-group"><label class="field-label">Notes</label>
+        <input class="field-input" value="${e.notes}" onchange="updateItem('emergency',${i},'notes',this.value)" placeholder="Location, availability etc."></div>
+      ${e.phone?`<a class="maps-btn" href="tel:${e.phone.replace(/\D/g,'')}">📞 Call ${e.name}</a>`:''}
+    </div>`).join('');
+  // load quick info
+  const q=loadData('quick');
+  document.getElementById('home-address-911').value=q.address911||'';
+  document.getElementById('blood-type').value=q.bloodType||'';
+  document.getElementById('allergies').value=q.allergies||'';
+}
+function addEmergencyCard(){
+  const data=loadData('emergency');
+  data.push({name:'',phone:'',relation:'',notes:''});
+  saveData('emergency',data); renderEmergency();
+}
+function saveQuick(){
+  saveData('quick',{
+    address911:document.getElementById('home-address-911').value,
+    bloodType:document.getElementById('blood-type').value,
+    allergies:document.getElementById('allergies').value,
+  });
+}
+
+// ══ FAMILY ══
+function renderFamily(){
+  const data=loadData('family');
+  document.getElementById('family-list').innerHTML=data.map((f,i)=>`
+    <div class="profile-card">
+      <div class="profile-card-head">
+        <div class="profile-card-icon" style="background:var(--copper-lt);">👤</div>
+        <div style="flex:1">
+          <div class="profile-card-title">${f.name||'Family Member '+(i+1)}</div>
+          <div class="profile-card-sub">${f.relation||''} · ${f.notes||''}</div>
+        </div>
+        <button class="delete-btn" onclick="deleteItem('family',${i})">✕</button>
+      </div>
+      <div class="field-row">
+        <div class="field-group"><label class="field-label">Name</label>
+          <input class="field-input" value="${f.name}" onchange="updateItem('family',${i},'name',this.value)" placeholder="Full name"></div>
+        <div class="field-group"><label class="field-label">Relation</label>
+          <input class="field-input" value="${f.relation}" onchange="updateItem('family',${i},'relation',this.value)" placeholder="e.g. Son, Daughter"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-group"><label class="field-label">Phone</label>
+          <input class="field-input" value="${f.phone}" onchange="updateItem('family',${i},'phone',this.value)" placeholder="Phone" type="tel"></div>
+        <div class="field-group"><label class="field-label">Birthday</label>
+          <input class="field-input" value="${f.birthday}" onchange="updateItem('family',${i},'birthday',this.value)" type="date"></div>
+      </div>
+      <div class="field-group"><label class="field-label">Location / Notes</label>
+        <input class="field-input" value="${f.notes}" onchange="updateItem('family',${i},'notes',this.value)" placeholder="City, special notes"></div>
+      ${f.phone?`<a class="maps-btn" href="tel:${f.phone.replace(/\D/g,'')}">📞 Call ${f.name}</a>`:''}
+    </div>`).join('');
+}
+function addFamilyCard(){
+  const data=loadData('family');
+  data.push({name:'',phone:'',relation:'',birthday:'',notes:''});
+  saveData('family',data); renderFamily();
+}
+
+// ══ PERSONAL ══
+function renderPersonal(){
+  const p=loadData('personal');
+  document.getElementById('p-name').value=p.name||'';
+  document.getElementById('p-dob').value=p.dob||'';
+  document.getElementById('p-phone').value=p.phone||'';
+  document.getElementById('p-insurance').value=p.insurance||'';
+  document.getElementById('p-insid').value=p.insid||'';
+  document.getElementById('p-pcp').value=p.pcp||'';
+  document.getElementById('p-lang').value=p.lang||'en';
+}
+function savePersonal(){
+  saveData('personal',{
+    name:document.getElementById('p-name').value,
+    dob:document.getElementById('p-dob').value,
+    lang:document.getElementById('p-lang').value,
+    phone:document.getElementById('p-phone').value,
+    insurance:document.getElementById('p-insurance').value,
+    insid:document.getElementById('p-insid').value,
+    pcp:document.getElementById('p-pcp').value,
+  });
+  alert('✅ Personal information saved!');
+}
+
+// ══ SHARED HELPERS ══
+function updateItem(key,idx,field,val){
+  const data=loadData(key);
+  data[idx][field]=val;
+  saveData(key,data);
+}
+function deleteItem(key,idx){
+  if(!confirm('Remove this entry?')) return;
+  const data=loadData(key);
+  data.splice(idx,1);
+  saveData(key,data);
+  renderSettingsPanel(key==='doctors'?'doctors':key==='meds'?'meds':key==='addresses'?'addresses':key==='emergency'?'emergency':key==='family'?'family':'personal');
+}
+
+// Open settings → render first tab
+const _origOpen = open_modal;
+window.open_modal = function(id){
+  _origOpen(id);
+  if(id==='settings') setTimeout(()=>renderDoctors(),100);
+  if(id==='calendar') setTimeout(renderCalendar,100);
+}
+const MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
+let calDate = new Date();
+
+// Pre-loaded family events
+let familyEvents = [
+  { date:'2026-06-17', title:'Doctor Appointment — Dr. Mehta', time:'2:00 PM', color:'#1D6B5A' },
+  { date:'2026-06-20', title:'Blood Pressure Check', time:'10:00 AM', color:'#B8862A' },
+  { date:'2026-06-21', title:'Call Soma — Sunday family call', time:'6:00 PM', color:'#B5556A' },
+  { date:'2026-06-28', title:'Golf Outing — Redgate', time:'8:00 AM', color:'#2D6A2D' },
+  { date:'2026-07-04', title:'Independence Day — Family BBQ', time:'5:00 PM', color:'#A8252A' },
+];
+
+function renderCalendar() {
+  const y = calDate.getFullYear(), m = calDate.getMonth();
+  document.getElementById('cal-month-label').textContent = MONTH_NAMES[m] + ' ' + y;
+  const grid = document.getElementById('cal-grid');
+  const dayLabels = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+  let html = dayLabels.map(d=>`<div class="cal-day-label">${d}</div>`).join('');
+  const first = new Date(y,m,1).getDay();
+  const daysInMonth = new Date(y,m+1,0).getDate();
+  const prevDays = new Date(y,m,0).getDate();
+  const today = new Date();
+  // prev month filler
+  for(let i=first-1;i>=0;i--) html+=`<div class="cal-cell other-month">${prevDays-i}</div>`;
+  // current month
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr = y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const isToday = d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear();
+    const hasEv = familyEvents.some(e=>e.date===dateStr);
+    html+=`<div class="cal-cell${isToday?' today':''}${hasEv?' has-event':''}" onclick="showDayEvents('${dateStr}')">${d}</div>`;
+  }
+  // next month filler
+  const remaining=(7-((first+daysInMonth)%7))%7;
+  for(let d=1;d<=remaining;d++) html+=`<div class="cal-cell other-month">${d}</div>`;
+  grid.innerHTML=html;
+  renderEvents();
+}
+
+function renderEvents() {
+  const y=calDate.getFullYear(),m=calDate.getMonth();
+  const monthStr=y+'-'+String(m+1).padStart(2,'0');
+  const upcoming=familyEvents
+    .filter(e=>e.date.startsWith(monthStr)||e.date>=new Date().toISOString().split('T')[0])
+    .sort((a,b)=>a.date.localeCompare(b.date))
+    .slice(0,6);
+  const list=document.getElementById('event-list');
+  if(!upcoming.length){list.innerHTML='<div style="color:var(--ink-faint);font-size:14px;padding:10px 0;">No events this month.</div>';return;}
+  list.innerHTML=upcoming.map(e=>`
+    <div class="event-item">
+      <div class="event-dot" style="background:${e.color}"></div>
+      <div>
+        <div class="event-title">${e.title}</div>
+        <div class="event-time">${formatDate(e.date)}${e.time?' · '+e.time:''}</div>
+      </div>
+    </div>`).join('');
+}
+
+function formatDate(str){
+  const d=new Date(str+'T12:00:00');
+  return DAYS[d.getDay()]+', '+MONTH_NAMES[d.getMonth()]+' '+d.getDate();
+}
+
+function showDayEvents(dateStr){
+  const evs=familyEvents.filter(e=>e.date===dateStr);
+  if(evs.length) alert('📅 '+formatDate(dateStr)+'\n\n'+evs.map(e=>e.title+(e.time?' — '+e.time:'')).join('\n'));
+}
+
+function calNav(dir){
+  calDate=new Date(calDate.getFullYear(),calDate.getMonth()+dir,1);
+  renderCalendar();
+}
+
+function addEvent(){
+  const title=document.getElementById('ev-title').value.trim();
+  const date=document.getElementById('ev-date').value;
+  const time=document.getElementById('ev-time').value;
+  if(!title||!date){alert('Please enter an event name and date.');return;}
+  familyEvents.push({date,title,time:time||'',color:'#1D6B5A'});
+  familyEvents.sort((a,b)=>a.date.localeCompare(b.date));
+  document.getElementById('ev-title').value='';
+  document.getElementById('ev-date').value='';
+  document.getElementById('ev-time').value='';
+  renderCalendar();
+  alert('✅ Added: '+title+' on '+formatDate(date));
+}
+
+// Open calendar → render (handled by window.open_modal above)
+
+
+// ══════════════════════════════════════════
+//  TRAVEL SEARCH
+// ══════════════════════════════════════════
+function searchFlights(){
+  const from=document.getElementById('fl-from').value||'Washington DC IAD';
+  const to=document.getElementById('fl-to').value||'Kolkata CCU';
+  const date=document.getElementById('fl-date').value||'';
+  const q=encodeURIComponent(from+' to '+to+(date?' on '+date:''));
+  window.open('https://www.google.com/travel/flights?q=flights+'+q,'_blank');
+}
+function searchHotels(){
+  const dest=document.getElementById('ht-dest').value||'Kolkata India';
+  const ci=document.getElementById('ht-checkin').value||'';
+  const co=document.getElementById('ht-checkout').value||'';
+  const q=encodeURIComponent('hotels in '+dest+(ci?' check in '+ci:'')+(co?' check out '+co:''));
+  window.open('https://www.google.com/travel/hotels?q='+q,'_blank');
+}
+function searchCars(){
+  const loc=document.getElementById('cr-loc').value||'Rockville MD';
+  const from=document.getElementById('cr-from').value||'';
+  const q=encodeURIComponent('car rental '+loc+(from?' '+from:''));
+  window.open('https://www.kayak.com/cars/'+encodeURIComponent(loc),'_blank');
+}
 
 // ══════════════════════════════════════════
 //  PWA INSTALL
