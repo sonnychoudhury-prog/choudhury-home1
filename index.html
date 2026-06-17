@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Choudhury Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS — Jade, Ivory & Rose Gold
+   Inspired by Bengal terracotta pottery,
+   Baluchari silk weave, and temple marble
+═══════════════════════════════════════════ */
+:root {
+  --ink:       #161210;
+  --ink-soft:  #4A3F38;
+  --ink-faint: #9C8880;
+  --bg:        #F8F3ED;
+  --bg2:       #F0E8DC;
+  --bg3:       #E6DAC8;
+  --jade:      #1D6B5A;
+  --jade2:     #0F4A3C;
+  --jade-lt:   #DFF2EC;
+  --rose:      #B5556A;
+  --rose-lt:   #FAE8ED;
+  --gold:      #B8862A;
+  --gold-lt:   #FBF0D8;
+  --gold-bright:#E8B84B;
+  --copper:    #A0522D;
+  --copper-lt: #FAF0E6;
+  --plum:      #6B3F6B;
+  --plum-lt:   #F5EEF5;
+  --crimson:   #A8252A;
+  --crimson-lt:#FAEAEA;
+  --card:      #FFFFFF;
+  --border:    rgba(160,120,80,0.18);
+  --shadow-sm: 0 2px 14px rgba(80,50,20,0.08);
+  --shadow:    0 6px 28px rgba(80,50,20,0.12);
+  --shadow-lg: 0 14px 50px rgba(80,50,20,0.16);
+  --r:         20px;
+  --r-lg:      28px;
+}
+
+/* ── RESET ── */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ═══ ALPONA PATTERN (CSS only, top of header) ═══ */
+.alpona{
+  width:100%;height:5px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--jade) 0px, var(--jade) 10px,
+    var(--gold-bright) 10px, var(--gold-bright) 20px,
+    var(--rose) 20px, var(--rose) 30px,
+    var(--gold-bright) 30px, var(--gold-bright) 40px
+  );
+}
+
+/* ═══ HEADER ═══ */
+header{
+  background:linear-gradient(180deg,#0F1F1A 0%,#162A22 100%);
+  position:sticky;top:0;z-index:100;
+  border-bottom:1px solid rgba(232,184,75,0.15);
+}
+.header-inner{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding:14px 20px 12px;
+  gap:12px;
+}
+.header-brand{}
+.header-brand h1{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;
+  color:var(--gold-bright);
+  line-height:1;letter-spacing:-0.3px;
+}
+.header-brand p{
+  font-family:'Tiro Bangla',serif;
+  font-size:13px;color:rgba(255,255,255,0.5);
+  margin-top:2px;
+}
+.header-right{display:flex;gap:8px;align-items:center;}
+.clock-pill{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:12px;padding:6px 12px;
+  text-align:center;
+}
+.clock-pill .t{font-size:20px;font-weight:700;color:var(--gold-bright);line-height:1;}
+.clock-pill .ap{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;}
+.lang-toggle{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.75);
+  border-radius:20px;padding:7px 14px;
+  font-size:13px;font-weight:600;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  transition:all 0.2s;
+}
+.lang-toggle:hover{background:rgba(255,255,255,0.15);}
+
+/* ═══ GREETING STRIP ═══ */
+.greet-strip{
+  background:linear-gradient(135deg,var(--jade) 0%,#2A8A72 100%);
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.greet-strip .greet{
+  font-family:'Playfair Display',serif;
+  font-size:20px;color:white;font-weight:700;
+}
+.greet-strip .date{font-size:13px;color:rgba(255,255,255,0.8);margin-top:1px;font-weight:500;}
+.weather-chip{
+  background:rgba(255,255,255,0.22);
+  border:1px solid rgba(255,255,255,0.35);
+  border-radius:30px;padding:8px 14px;
+  display:flex;align-items:center;gap:7px;
+  color:white;font-size:14px;font-weight:600;
+  cursor:pointer;transition:background 0.2s;
+}
+.weather-chip:hover{background:rgba(255,255,255,0.35);}
+.weather-chip .temp{font-size:18px;font-weight:700;}
+
+/* ═══ EMERGENCY ═══ */
+.emergency{
+  margin:16px 16px 0;
+  background:linear-gradient(135deg,#8B1A1E 0%,#5C0F12 100%);
+  border-radius:var(--r);
+  padding:16px 20px;
+  display:flex;align-items:center;gap:14px;
+  cursor:pointer;
+  box-shadow:0 4px 24px rgba(139,26,30,0.35);
+  transition:transform 0.15s;
+  border:1px solid rgba(255,120,120,0.15);
+}
+.emergency:active{transform:scale(0.98);}
+.emergency .em-icon{font-size:36px;flex-shrink:0;}
+.emergency .em-text h2{color:white;font-size:20px;font-weight:700;letter-spacing:0.3px;}
+.emergency .em-text p{color:rgba(255,255,255,0.8);font-size:13px;margin-top:2px;}
+.em-pulse{
+  margin-left:auto;width:14px;height:14px;border-radius:50%;
+  background:#FF8080;flex-shrink:0;
+  animation:pulse 1.4s infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.5);opacity:0.5;}}
+
+/* ═══ SECTION LABEL ═══ */
+.section-label{
+  padding:18px 20px 8px;
+  font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--jade);
+  display:flex;align-items:center;gap:8px;
+}
+.section-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(29,107,90,0.25),transparent);
+}
+
+/* ═══ TILE GRID ═══ */
+.tile-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding:0 16px;
+}
+.tile{
+  background:var(--card);
+  border-radius:var(--r);
+  padding:18px 14px 16px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-sm);
+  cursor:pointer;
+  transition:transform 0.14s, box-shadow 0.14s;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:flex-start;gap:8px;
+  text-align:left;
+}
+.tile:active{transform:scale(0.97);box-shadow:var(--shadow);}
+.tile-accent{
+  position:absolute;top:0;left:0;right:0;
+  height:4px;border-radius:var(--r) var(--r) 0 0;
+}
+.tile-icon-wrap{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;flex-shrink:0;
+}
+.tile-name{font-size:16px;font-weight:700;color:var(--ink);line-height:1.1;}
+.tile-sub{font-size:12px;color:var(--ink-faint);margin-top:1px;line-height:1.3;}
+.tile-badge{
+  position:absolute;top:12px;right:12px;
+  background:var(--sindoor);color:white;
+  border-radius:20px;padding:2px 8px;
+  font-size:11px;font-weight:700;
+}
+
+/* Wide tile (full width) */
+.tile.wide{grid-column:1/-1;flex-direction:row;align-items:center;padding:16px 18px;}
+.tile.wide .tile-body{flex:1;}
+.tile.wide .tile-arrow{
+  font-size:20px;color:var(--ink-faint);
+  margin-left:auto;flex-shrink:0;
+}
+
+/* ═══ BOTTOM PADDING ═══ */
+.bottom-pad{height:100px;}
+
+/* ═══ VOICE FAB ═══ */
+.voice-fab{
+  position:fixed;bottom:24px;right:20px;
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,var(--jade) 0%,var(--jade2) 100%);
+  color:white;font-size:28px;border:none;
+  cursor:pointer;z-index:200;
+  box-shadow:0 6px 28px rgba(29,107,90,0.45);
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.voice-fab.on{
+  background:linear-gradient(135deg,var(--crimson),#6B0F12);
+  animation:voiceGlow 1s infinite;
+}
+@keyframes voiceGlow{
+  0%,100%{box-shadow:0 6px 28px rgba(168,37,42,0.5);}
+  50%{box-shadow:0 6px 44px rgba(168,37,42,0.85);}
+}
+.voice-hint{
+  position:fixed;bottom:108px;right:16px;
+  background:var(--ink);color:white;
+  padding:8px 14px;border-radius:12px;
+  font-size:13px;font-weight:600;
+  opacity:0;pointer-events:none;transition:opacity 0.2s;
+}
+.voice-hint.show{opacity:1;}
+
+/* ═══════════════════════════
+   MODAL SYSTEM
+═══════════════════════════ */
+.overlay{
+  position:fixed;inset:0;background:rgba(28,20,16,0.6);
+  z-index:300;display:none;align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(3px);
+}
+.overlay.open{display:flex;}
+.modal{
+  background:var(--bg);
+  border-radius:28px 28px 0 0;
+  width:100%;max-width:560px;
+  max-height:92vh;overflow-y:auto;
+  padding:0 0 40px;
+  animation:slideUp 0.32s cubic-bezier(0.32,0.72,0,1);
+}
+@keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.modal-drag{
+  width:44px;height:4px;background:var(--bg3);
+  border-radius:2px;margin:12px auto 0;
+}
+.modal-head{
+  padding:16px 20px 14px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:space-between;
+}
+.modal-head h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;}
+.modal-head p{font-size:13px;color:var(--ink-soft);margin-top:3px;}
+.modal-close{
+  background:var(--bg3);border:none;color:var(--ink-soft);
+  width:32px;height:32px;border-radius:50%;font-size:16px;
+  cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+}
+.modal-body{padding:16px 20px 0;}
+
+/* ═══ MODAL COMPONENTS ═══ */
+.action-btn{
+  width:100%;display:flex;align-items:center;gap:14px;
+  padding:16px 18px;border-radius:16px;border:none;
+  font-family:'DM Sans',sans-serif;font-size:17px;font-weight:600;
+  cursor:pointer;margin-bottom:10px;text-align:left;
+  transition:transform 0.12s, box-shadow 0.12s;
+  text-decoration:none;color:inherit;
+}
+.action-btn:active{transform:scale(0.98);}
+.action-btn .ab-icon{font-size:24px;flex-shrink:0;}
+.action-btn .ab-text{}
+.action-btn .ab-label{font-size:17px;font-weight:600;}
+.action-btn .ab-sub{font-size:12px;opacity:0.7;margin-top:1px;}
+.action-btn .ab-arr{margin-left:auto;opacity:0.4;font-size:16px;}
+
+.ab-saffron{background:linear-gradient(135deg,var(--copper-lt),#F5E8D8);border:1px solid rgba(160,82,45,0.18);}
+.ab-saffron .ab-label{color:var(--copper);}
+.ab-gold{background:linear-gradient(135deg,var(--gold-lt),#F5E8C0);border:1px solid rgba(184,134,42,0.2);}
+.ab-gold .ab-label{color:var(--gold);}
+.ab-teal{background:linear-gradient(135deg,var(--jade-lt),#C8EDE4);border:1px solid rgba(29,107,90,0.18);}
+.ab-teal .ab-label{color:var(--jade);}
+.ab-red{background:linear-gradient(135deg,var(--crimson-lt),#F5D8D8);border:1px solid rgba(168,37,42,0.18);}
+.ab-red .ab-label{color:var(--crimson);}
+.ab-lotus{background:linear-gradient(135deg,var(--rose-lt),#F5D8E2);border:1px solid rgba(181,85,106,0.18);}
+.ab-lotus .ab-label{color:var(--rose);}
+.ab-ink{background:linear-gradient(135deg,#F0EDE8,#E8E2DA);border:1px solid rgba(22,18,16,0.1);}
+.ab-ink .ab-label{color:var(--ink-soft);}
+
+/* INFO ROWS */
+.info-row{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;background:var(--card);
+  border-radius:14px;margin-bottom:8px;
+  border:1px solid var(--border);
+}
+.info-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.info-title{font-size:16px;font-weight:600;}
+.info-sub{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+.info-badge{
+  margin-left:auto;padding:4px 10px;border-radius:20px;
+  font-size:11px;font-weight:700;
+}
+
+/* CONTACT CARD */
+.contact-card{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;background:var(--card);
+  border-radius:16px;margin-bottom:10px;
+  border:1px solid var(--border);
+  cursor:pointer;transition:box-shadow 0.15s;
+}
+.contact-avatar{
+  width:50px;height:50px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+}
+.contact-name{font-size:17px;font-weight:700;}
+.contact-rel{font-size:12px;color:var(--ink-soft);margin-top:1px;}
+.call-mini{
+  margin-left:auto;background:var(--jade-lt);
+  color:var(--jade);border:none;border-radius:10px;
+  padding:8px 12px;font-size:20px;cursor:pointer;
+  text-decoration:none;
+}
+
+/* MUSIC PLAYER */
+.player{
+  background:linear-gradient(135deg,var(--jade2) 0%,#0A2A20 100%);
+  border-radius:20px;padding:20px;margin-bottom:14px;
+}
+.player-label{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:6px;}
+.player-track{font-family:'Playfair Display',serif;font-size:19px;color:white;font-weight:700;}
+.player-artist{font-size:13px;color:rgba(255,255,255,0.6);margin-top:3px;}
+.player-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;}
+.pc-btn{
+  background:rgba(255,255,255,0.1);border:none;color:white;
+  border-radius:50%;width:48px;height:48px;font-size:18px;
+  cursor:pointer;transition:background 0.2s;
+}
+.pc-btn.play{width:60px;height:60px;font-size:24px;background:var(--saffron);}
+.pc-btn:hover{background:rgba(255,255,255,0.2);}
+
+/* GENRE CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.chip{
+  padding:9px 16px;border-radius:30px;
+  border:1.5px solid var(--border);background:var(--card);
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all 0.15s;color:var(--ink-soft);
+}
+.chip.on{background:var(--jade);border-color:var(--jade);color:white;}
+
+/* GROCERY CHECK LIST */
+.g-item{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 15px;background:var(--card);
+  border-radius:13px;margin-bottom:8px;
+  border:1px solid var(--border);
+}
+.g-item input[type=checkbox]{
+  width:22px;height:22px;cursor:pointer;
+  accent-color:var(--teal);flex-shrink:0;
+}
+.g-item .g-name{font-size:16px;font-weight:500;}
+.g-item.done .g-name{text-decoration:line-through;color:var(--ink-faint);}
+
+/* WEATHER CARDS */
+.wx-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;}
+.wx-card{
+  background:var(--card);border-radius:14px;
+  padding:12px 8px;text-align:center;
+  border:1px solid var(--border);
+}
+.wx-card .wx-day{font-size:11px;font-weight:700;color:var(--ink-faint);margin-bottom:6px;}
+.wx-card .wx-icon{font-size:26px;}
+.wx-card .wx-temp{font-size:15px;font-weight:700;margin-top:4px;}
+.wx-card .wx-desc{font-size:10px;color:var(--ink-faint);margin-top:2px;}
+
+/* SECTION DIVIDER inside modal */
+.m-divider{
+  font-size:11px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--jade);
+  padding:14px 0 8px;
+  border-top:1px solid var(--border);margin-top:8px;
+}
+
+/* BACK BTN */
+.back-btn{
+  width:100%;padding:14px;border-radius:14px;
+  border:1.5px solid var(--border);background:transparent;
+  font-family:'DM Sans',sans-serif;font-size:16px;
+  font-weight:600;color:var(--ink-soft);cursor:pointer;
+  margin-top:14px;
+}
+
+/* NEWS CARD */
+.news-card{
+  background:var(--card);border-radius:14px;
+  padding:14px 15px;margin-bottom:10px;
+  border:1px solid var(--border);cursor:pointer;
+}
+.news-source{font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px;}
+.news-title{font-size:15px;font-weight:700;line-height:1.35;color:var(--ink);}
+.news-time{font-size:11px;color:var(--ink-faint);margin-top:4px;}
+
+/* PUJA TILE special */
+.puja-mandala{
+  position:absolute;right:-10px;bottom:-10px;
+  font-size:60px;opacity:0.08;pointer-events:none;
+  transform:rotate(15deg);
+}
+</style>
+</head>
+<body>
+
+<!-- ALPONA STRIPE -->
+<div class="alpona"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-brand">
+      <h1>Choudhury Home</h1>
+      <p>গৃহ সহায়ক · The Choudhury Family</p>
+    </div>
+    <div class="header-right">
+      <div class="clock-pill">
+        <div class="t" id="clock">--:--</div>
+        <div class="ap" id="ampm">AM</div>
+      </div>
+      <button class="lang-toggle" onclick="toggleLang()">বাং / EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- GREETING -->
+<div class="greet-strip">
+  <div>
+    <div class="greet" id="greet">Good morning 🙏</div>
+    <div class="date" id="dateStr"></div>
+  </div>
+  <div class="weather-chip" onclick="open_modal('weather')">
+    <span id="wx-icon">☀️</span>
+    <span class="temp" id="wx-temp">--°F</span>
+    <span id="wx-desc">Loading</span>
+  </div>
+</div>
+
+<!-- EMERGENCY -->
+<div class="emergency" onclick="open_modal('emergency')">
+  <div class="em-icon">🚨</div>
+  <div class="em-text">
+    <h2 id="em-h">Emergency Help</h2>
+    <p id="em-p">Tap to call Sonny or 911 immediately</p>
+  </div>
+  <div class="em-pulse"></div>
+</div>
+
+<!-- SECTION: DAILY NEEDS -->
+<div class="section-label" id="sl-daily">Daily Needs</div>
+<div class="tile-grid">
+
+  <!-- AMAZON -->
+  <div class="tile" onclick="open_modal('amazon')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#C07020,#A05A18)"></div>
+    <div class="tile-icon-wrap" style="background:var(--gold-lt);">🛒</div>
+    <div class="tile-name" id="t-amazon">Shopping</div>
+    <div class="tile-sub" id="ts-amazon">Amazon · কেনাকাটা</div>
+  </div>
+
+  <!-- UBER -->
+  <div class="tile" onclick="open_modal('uber')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#1A1410,#2A2018)"></div>
+    <div class="tile-icon-wrap" style="background:#F2EDE6;">🚗</div>
+    <div class="tile-name" id="t-uber">Get a Ride</div>
+    <div class="tile-sub" id="ts-uber">Uber · যাতায়াত</div>
+  </div>
+
+  <!-- DOCTOR -->
+  <div class="tile" onclick="open_modal('doctor')">
+    <div class="tile-badge" id="appt-badge">Today</div>
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--jade),var(--jade2))"></div>
+    <div class="tile-icon-wrap" style="background:var(--jade-lt);">🏥</div>
+    <div class="tile-name" id="t-doctor">Doctor</div>
+    <div class="tile-sub" id="ts-doctor">ডাক্তার · Appointments</div>
+  </div>
+
+  <!-- MEDICINES -->
+  <div class="tile" onclick="open_modal('meds')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#C9882A,#F0C060)"></div>
+    <div class="tile-icon-wrap" style="background:var(--gold-lt);">💊</div>
+    <div class="tile-name" id="t-meds">Medicines</div>
+    <div class="tile-sub" id="ts-meds">ওষুধ · Reminders</div>
+  </div>
+
+</div>
+
+<!-- SECTION: ENTERTAINMENT -->
+<div class="section-label" id="sl-ent">Entertainment</div>
+<div class="tile-grid">
+
+  <!-- YOUTUBE MUSIC -->
+  <div class="tile" onclick="open_modal('music')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#B01010,#DC2020)"></div>
+    <div class="tile-icon-wrap" style="background:var(--crimson-lt);">🎵</div>
+    <div class="tile-name" id="t-music">Music</div>
+    <div class="tile-sub" id="ts-music">YouTube · বাংলা গান</div>
+  </div>
+
+  <!-- FILMS & SERIALS -->
+  <div class="tile" onclick="open_modal('films')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--rose),var(--plum))"></div>
+    <div class="tile-icon-wrap" style="background:var(--rose-lt);">🎬</div>
+    <div class="tile-name" id="t-films">Films & Serials</div>
+    <div class="tile-sub" id="ts-films">Bollywood · বাংলা ছবি</div>
+  </div>
+
+  <!-- NEWS -->
+  <div class="tile" onclick="open_modal('news')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--plum),#4A2A4A)"></div>
+    <div class="tile-icon-wrap" style="background:var(--plum-lt);">📰</div>
+    <div class="tile-name" id="t-news">News</div>
+    <div class="tile-sub" id="ts-news">বাংলা · World · Sports</div>
+  </div>
+
+  <!-- PUJA & DEVOTION -->
+  <div class="tile" onclick="open_modal('puja')" style="background:linear-gradient(135deg,var(--gold-lt),#F0E4B8);">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--gold-bright),#D4A030)"></div>
+    <div class="tile-icon-wrap" style="background:rgba(184,134,42,0.12);">🪔</div>
+    <div class="tile-name" id="t-puja">Puja & Devotion</div>
+    <div class="tile-sub" id="ts-puja">আরতি · Bhajans · Mantras</div>
+    <div class="puja-mandala">🌸</div>
+  </div>
+
+</div>
+
+<!-- SECTION: FAMILY & CARE -->
+<div class="section-label" id="sl-care">Family & Care</div>
+<div class="tile-grid">
+
+  <!-- FAMILY -->
+  <div class="tile" onclick="open_modal('family')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--copper),#C8763A)"></div>
+    <div class="tile-icon-wrap" style="background:var(--copper-lt);">👨‍👩‍👧‍👦</div>
+    <div class="tile-name" id="t-family">Family</div>
+    <div class="tile-sub" id="ts-family">Call · Video · পরিবার</div>
+  </div>
+
+  <!-- REMINDERS -->
+  <div class="tile" onclick="open_modal('reminders')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--jade),#2AA882)"></div>
+    <div class="tile-icon-wrap" style="background:var(--jade-lt);">⏰</div>
+    <div class="tile-name" id="t-remind">Reminders</div>
+    <div class="tile-sub" id="ts-remind">Daily Schedule · সময়সূচি</div>
+  </div>
+
+  <!-- GOLF -->
+  <div class="tile" onclick="open_modal('golf')" style="grid-column:1/-1;flex-direction:row;align-items:center;padding:16px 18px;">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#2D6A2D,#5A9E3A)"></div>
+    <div class="tile-icon-wrap" style="background:var(--jade-lt);font-size:30px;">⛳</div>
+    <div style="margin-left:12px;flex:1;">
+      <div class="tile-name" id="t-golf">Golf</div>
+      <div class="tile-sub" id="ts-golf">Courses · Tee Times · Lessons · Live Scores</div>
+    </div>
+    <div class="tile-arrow">›</div>
+  </div>
+
+</div>
+
+<!-- WIDE TILES -->
+<div class="tile-grid" style="padding-top:0;">
+  <div class="tile wide" onclick="open_modal('weather')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--jade),#1A9A80)"></div>
+    <div class="tile-icon-wrap" style="background:var(--jade-lt);">🌤️</div>
+    <div class="tile-body" style="margin-left:4px">
+      <div class="tile-name" id="t-weather">Weather</div>
+      <div class="tile-sub" id="ts-weather">Rockville, MD · 5-Day Forecast · আবহাওয়া</div>
+    </div>
+    <div class="tile-arrow">›</div>
+  </div>
+
+  <!-- SECURITY -->
+  <div class="tile wide" onclick="open_modal('security')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#1A2A5A,#2A3A7A)"></div>
+    <div class="tile-icon-wrap" style="background:#EEF0FA;">🔒</div>
+    <div class="tile-body" style="margin-left:4px">
+      <div class="tile-name" id="t-security">Home Security</div>
+      <div class="tile-sub" id="ts-security">Alarm.com · Arm · Disarm · Cameras</div>
+    </div>
+    <div class="tile-arrow">›</div>
+  </div>
+</div>
+
+<div class="bottom-pad"></div>
+
+<!-- VOICE FAB -->
+<div class="voice-hint" id="voiceHint">Listening · বলুন...</div>
+<button class="voice-fab" id="voiceFab" onclick="toggleVoice()">🎙️</button>
+
+<!-- ════════════════════════════════════
+     MODALS
+════════════════════════════════════ -->
+
+<!-- EMERGENCY -->
+<div class="overlay" id="ov-emergency">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🚨 Emergency Help</h2><p>জরুরী সাহায্য · Choose who to call</p></div>
+      <button class="modal-close" onclick="close_modal('emergency')">✕</button>
+    </div>
+    <div class="modal-body">
+      <a class="action-btn ab-red" href="tel:911">
+        <span class="ab-icon">🚑</span>
+        <div class="ab-text"><div class="ab-label">Call 911</div><div class="ab-sub">Ambulance · Police · Fire</div></div>
+        <span class="ab-arr">›</span>
+      </a>
+      <a class="action-btn ab-saffron" href="tel:2025218700">
+        <span class="ab-icon">👨</span>
+        <div class="ab-text"><div class="ab-label">Call Sonny</div><div class="ab-sub">202-521-8700 · Your son</div></div>
+        <span class="ab-arr">›</span>
+      </a>
+      <div class="action-btn ab-lotus" onclick="alert('Opening WhatsApp family group...')">
+        <span class="ab-icon">💬</span>
+        <div class="ab-text"><div class="ab-label">WhatsApp Family Group</div><div class="ab-sub">Message everyone at once</div></div>
+        <span class="ab-arr">›</span>
+      </div>
+      <a class="action-btn ab-ink" href="tel:18002221222">
+        <span class="ab-icon">☠️</span>
+        <div class="ab-text"><div class="ab-label">Poison Control</div><div class="ab-sub">1-800-222-1222 · 24 hours</div></div>
+        <span class="ab-arr">›</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('emergency')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- AMAZON -->
+<div class="overlay" id="ov-amazon">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🛒 Amazon Shopping</h2><p>কেনাকাটা · Delivered to your door</p></div>
+      <button class="modal-close" onclick="close_modal('amazon')">✕</button>
+    </div>
+    <div class="modal-body">
+      <a class="action-btn ab-saffron" href="https://www.amazon.com/s?k=indian+groceries+bengali" target="_blank">
+        <span class="ab-icon">🛒</span>
+        <div class="ab-text"><div class="ab-label">Bengali & Indian Groceries</div><div class="ab-sub">Rice, spices, lentils, fish · বাজার করুন</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.amazon.com/s?k=ayurvedic+medicine+indian" target="_blank">
+        <span class="ab-icon">🌿</span>
+        <div class="ab-text"><div class="ab-label">Ayurvedic & Indian Medicine</div><div class="ab-sub">Chyawanprash, Triphala, supplements</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.amazon.com/s?k=indian+puja+items+worship" target="_blank">
+        <span class="ab-icon">🪔</span>
+        <div class="ab-text"><div class="ab-label">Puja Items</div><div class="ab-sub">Diyas, incense, marigold, camphor</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-lotus" href="https://www.amazon.com/s?k=bengali+saree+clothing" target="_blank">
+        <span class="ab-icon">👗</span>
+        <div class="ab-text"><div class="ab-label">Bengali Saree & Clothing</div><div class="ab-sub">Dhonekhali, tant, cotton sarees</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.amazon.com/s?k=senior+health+aids+elderly" target="_blank">
+        <span class="ab-icon">♿</span>
+        <div class="ab-text"><div class="ab-label">Health & Comfort Aids</div><div class="ab-sub">Walking aids, heating pads, supports</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">MY SHOPPING LIST · আমার তালিকা</div>
+      <div id="g-list">
+        <div class="g-item"><input type="checkbox" onchange="gCheck(this)"><span class="g-name">🐟 Rohu Fish (রুই মাছ)</span></div>
+        <div class="g-item"><input type="checkbox" onchange="gCheck(this)"><span class="g-name">🌾 Gobindobhog Rice (গোবিন্দভোগ চাল)</span></div>
+        <div class="g-item"><input type="checkbox" onchange="gCheck(this)"><span class="g-name">🫘 Masoor Dal (মসুর ডাল)</span></div>
+        <div class="g-item"><input type="checkbox" onchange="gCheck(this)"><span class="g-name">🌶️ Green Chili (কাঁচা লংকা)</span></div>
+        <div class="g-item"><input type="checkbox" onchange="gCheck(this)"><span class="g-name">🧅 Shallots (ছোট পেঁয়াজ)</span></div>
+        <div class="g-item"><input type="checkbox" onchange="gCheck(this)"><span class="g-name">🌿 Neem oil (নিম তেল)</span></div>
+      </div>
+      <button class="back-btn" onclick="close_modal('amazon')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- UBER -->
+<div class="overlay" id="ov-uber">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🚗 Get a Ride</h2><p>যাতায়াত · Book Uber · Saved places ready</p></div>
+      <button class="modal-close" onclick="close_modal('uber')">✕</button>
+    </div>
+    <div class="modal-body">
+      <a class="action-btn ab-ink" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Rockville+Medical+Center+MD" target="_blank">
+        <span class="ab-icon">🏥</span>
+        <div class="ab-text"><div class="ab-label">Ride to Doctor</div><div class="ab-sub">Rockville Medical · Opens Uber</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Patel+Brothers+Rockville+MD" target="_blank">
+        <span class="ab-icon">🛒</span>
+        <div class="ab-text"><div class="ab-label">Ride to Indian Grocery</div><div class="ab-sub">Patel Brothers · Rockville</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Mandir+Hindu+Temple+Rockville+MD" target="_blank">
+        <span class="ab-icon">🛕</span>
+        <div class="ab-text"><div class="ab-label">Ride to Temple / Mandir</div><div class="ab-sub">Hindu Temple · Maryland</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location" target="_blank">
+        <span class="ab-icon">🚗</span>
+        <div class="ab-text"><div class="ab-label">Open Uber App</div><div class="ab-sub">Enter any destination yourself</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-lotus" href="tel:2025218700">
+        <span class="ab-icon">📞</span>
+        <div class="ab-text"><div class="ab-label">Ask Sonny for a Ride</div><div class="ab-sub">Call directly · 202-521-8700</div></div>
+        <span class="ab-arr">›</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('uber')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- DOCTOR -->
+<div class="overlay" id="ov-doctor">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🏥 Doctor</h2><p>ডাক্তার · Appointments & telehealth</p></div>
+      <button class="modal-close" onclick="close_modal('doctor')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-row">
+        <div class="info-dot" style="background:#1A7A6E"></div>
+        <div><div class="info-title">Dr. Mehta — Annual Checkup</div><div class="info-sub">Today · 2:00 PM · Rockville Clinic</div></div>
+        <div class="info-badge" style="background:#E0F2EE;color:#1A7A6E;">Today</div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot" style="background:#C9882A"></div>
+        <div><div class="info-title">Blood Pressure Check</div><div class="info-sub">Friday · 10:00 AM</div></div>
+        <div class="info-badge" style="background:#FFF3E0;color:#C9882A;">Fri</div>
+      </div>
+      <div class="m-divider">ACTIONS</div>
+      <a class="action-btn ab-teal" href="tel:3015550192">
+        <span class="ab-icon">📞</span>
+        <div class="ab-text"><div class="ab-label">Call Doctor's Office</div><div class="ab-sub">301-555-0192</div></div>
+        <span class="ab-arr">›</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.zocdoc.com" target="_blank">
+        <span class="ab-icon">📅</span>
+        <div class="ab-text"><div class="ab-label">Schedule Appointment (ZocDoc)</div><div class="ab-sub">Find Indian-speaking doctors nearby</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.teladoc.com" target="_blank">
+        <span class="ab-icon">💻</span>
+        <div class="ab-text"><div class="ab-label">Video Call a Doctor (Teladoc)</div><div class="ab-sub">See a doctor from home now</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('doctor')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- MEDICINES -->
+<div class="overlay" id="ov-meds">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>💊 Medicines</h2><p>ওষুধ · Daily schedule</p></div>
+      <button class="modal-close" onclick="close_modal('meds')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-row">
+        <div class="info-dot" style="background:#1A7A6E"></div>
+        <div><div class="info-title">Morning Medicines</div><div class="info-sub">Metformin 500mg · Vitamin D · 8:00 AM with breakfast</div></div>
+        <div class="info-badge" style="background:#E0F2EE;color:#1A7A6E;">✓ Done</div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot" style="background:#C0392B"></div>
+        <div><div class="info-title">Afternoon Pill</div><div class="info-sub">Blood Pressure · 1:00 PM with lunch</div></div>
+        <div class="info-badge" style="background:#FFE0DC;color:#C0392B;">⏰ Due</div>
+      </div>
+      <div class="info-row">
+        <div class="info-dot" style="background:#5C4A3A"></div>
+        <div><div class="info-title">Evening Calcium</div><div class="info-sub">Calcium + Magnesium · 9:00 PM after dinner</div></div>
+        <div class="info-badge" style="background:background:var(--plum-lt);color:var(--plum);">9 PM</div>
+      </div>
+      <div class="m-divider">ACTIONS</div>
+      <div class="action-btn ab-teal" onclick="alert('Marked taken! ✅')">
+        <span class="ab-icon">✅</span>
+        <div class="ab-text"><div class="ab-label">I Took My Medicine</div><div class="ab-sub">Mark afternoon dose complete</div></div>
+      </div>
+      <a class="action-btn ab-saffron" href="https://www.cvs.com/pharmacy/refillprescriptions" target="_blank">
+        <span class="ab-icon">🏪</span>
+        <div class="ab-text"><div class="ab-label">Order Refill — CVS Pharmacy</div><div class="ab-sub">Refill and deliver to home</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('meds')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- MUSIC -->
+<div class="overlay" id="ov-music">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🎵 Music</h2><p>বাংলা গান · YouTube Music</p></div>
+      <button class="modal-close" onclick="close_modal('music')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="chips">
+        <button class="chip on" onclick="chipOn(this)">Rabindra Sangeet</button>
+        <button class="chip" onclick="chipOn(this)">Nazrul Geeti</button>
+        <button class="chip" onclick="chipOn(this)">Adhunik Bangla</button>
+        <button class="chip" onclick="chipOn(this)">Kirtan · কীর্তন</button>
+        <button class="chip" onclick="chipOn(this)">Hemanta</button>
+        <button class="chip" onclick="chipOn(this)">Lata Mangeshkar</button>
+        <button class="chip" onclick="chipOn(this)">Kishore Kumar</button>
+        <button class="chip" onclick="chipOn(this)">Bhajans · ভজন</button>
+      </div>
+      <a class="action-btn ab-red" href="https://www.youtube.com/results?search_query=rabindra+sangeet+playlist" target="_blank">
+        <span class="ab-icon">▶️</span>
+        <div class="ab-text"><div class="ab-label">Play Rabindra Sangeet</div><div class="ab-sub">YouTube · রবীন্দ্র সংগীত</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.youtube.com/results?search_query=nazrul+geeti+best+collection" target="_blank">
+        <span class="ab-icon">▶️</span>
+        <div class="ab-text"><div class="ab-label">Play Nazrul Geeti</div><div class="ab-sub">YouTube · নজরুল গীতি</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.youtube.com/results?search_query=hemanta+mukhopadhyay+best+songs" target="_blank">
+        <span class="ab-icon">▶️</span>
+        <div class="ab-text"><div class="ab-label">Hemanta Mukhopadhyay</div><div class="ab-sub">YouTube · হেমন্ত মুখোপাধ্যায়</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-lotus" href="https://www.youtube.com/results?search_query=durga+puja+kirtan+bengali+devotional" target="_blank">
+        <span class="ab-icon">🪔</span>
+        <div class="ab-text"><div class="ab-label">Durga Puja Kirtan & Bhajan</div><div class="ab-sub">YouTube · ভক্তিমূলক সংগীত</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://music.youtube.com" target="_blank">
+        <span class="ab-icon">🎧</span>
+        <div class="ab-text"><div class="ab-label">Open YouTube Music</div><div class="ab-sub">Browse all Bengali & Hindi music</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('music')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- FILMS & SERIALS -->
+<div class="overlay" id="ov-films">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🎬 Films & Serials</h2><p>বাংলা ছবি · Bollywood · Streaming</p></div>
+      <button class="modal-close" onclick="close_modal('films')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-divider">BENGALI FILMS & SERIALS · বাংলা</div>
+      <a class="action-btn ab-lotus" href="https://www.youtube.com/results?search_query=bengali+serial+2024+full+episode" target="_blank">
+        <span class="ab-icon">📺</span>
+        <div class="ab-text"><div class="ab-label">Bengali Serials (YouTube)</div><div class="ab-sub">Latest episodes free · বাংলা ধারাবাহিক</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.hoichoi.tv" target="_blank">
+        <span class="ab-icon">🎭</span>
+        <div class="ab-text"><div class="ab-label">Hoichoi — Bengali Streaming</div><div class="ab-sub">Bengali films, web series, originals</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.zee5.com/global/collection/bengali" target="_blank">
+        <span class="ab-icon">📡</span>
+        <div class="ab-text"><div class="ab-label">ZEE5 — Bengali & Hindi</div><div class="ab-sub">Star Jalsha, Zee Bangla serials</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">BOLLYWOOD · হিন্দি ছবি</div>
+      <a class="action-btn ab-red" href="https://www.youtube.com/results?search_query=bollywood+classic+full+movie+free" target="_blank">
+        <span class="ab-icon">🎞️</span>
+        <div class="ab-text"><div class="ab-label">Classic Bollywood (Free)</div><div class="ab-sub">YouTube · পুরোনো হিন্দি ছবি</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.primevideo.com" target="_blank">
+        <span class="ab-icon">📦</span>
+        <div class="ab-text"><div class="ab-label">Amazon Prime Video</div><div class="ab-sub">Hindi & Bengali movies included</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.netflix.com/browse/genre/10463" target="_blank">
+        <span class="ab-icon">🔴</span>
+        <div class="ab-text"><div class="ab-label">Netflix — Bollywood & Indian</div><div class="ab-sub">Indian originals and films</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('films')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div class="overlay" id="ov-news">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>📰 News</h2><p>বাংলা · World · Sports</p></div>
+      <button class="modal-close" onclick="close_modal('news')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-divider">BENGALI NEWS · বাংলা সংবাদ</div>
+      <a class="action-btn ab-saffron" href="https://www.anandabazar.com" target="_blank">
+        <span class="ab-icon">📰</span>
+        <div class="ab-text"><div class="ab-label">Ananda Bazar Patrika</div><div class="ab-sub">আনন্দবাজার · West Bengal's #1 paper</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.ebela.in" target="_blank">
+        <span class="ab-icon">📄</span>
+        <div class="ab-text"><div class="ab-label">Ebela · এবেলা</div><div class="ab-sub">Bengali news · entertainment · lifestyle</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.bbc.com/bengali" target="_blank">
+        <span class="ab-icon">📡</span>
+        <div class="ab-text"><div class="ab-label">BBC Bangla</div><div class="ab-sub">World news in Bengali · বিশ্ব সংবাদ</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">US & WORLD NEWS</div>
+      <a class="action-btn ab-ink" href="https://www.washingtonpost.com" target="_blank">
+        <span class="ab-icon">🗞️</span>
+        <div class="ab-text"><div class="ab-label">Washington Post</div><div class="ab-sub">Local DC & Maryland news</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-lotus" href="https://www.bbc.com/news" target="_blank">
+        <span class="ab-icon">🌍</span>
+        <div class="ab-text"><div class="ab-label">BBC World News</div><div class="ab-sub">International headlines</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">SPORTS · ক্রিকেট · খেলাধুলা</div>
+      <a class="action-btn ab-teal" href="https://www.espncricinfo.com" target="_blank">
+        <span class="ab-icon">🏏</span>
+        <div class="ab-text"><div class="ab-label">Cricket — ESPNcricinfo</div><div class="ab-sub">Live scores · India matches · ক্রিকেট</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.espn.com" target="_blank">
+        <span class="ab-icon">🏈</span>
+        <div class="ab-text"><div class="ab-label">ESPN — All US Sports</div><div class="ab-sub">NFL, NBA, MLB scores & news</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('news')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- PUJA -->
+<div class="overlay" id="ov-puja">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🪔 Puja & Devotion</h2><p>আরতি · ভজন · মন্ত্র · Hindu devotional</p></div>
+      <button class="modal-close" onclick="close_modal('puja')">✕</button>
+    </div>
+    <div class="modal-body">
+      <a class="action-btn ab-gold" href="https://www.youtube.com/results?search_query=durga+puja+aarti+bengali" target="_blank">
+        <span class="ab-icon">🌸</span>
+        <div class="ab-text"><div class="ab-label">Durga Puja Aarti</div><div class="ab-sub">YouTube · দুর্গা পূজার আরতি</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.youtube.com/results?search_query=saraswati+puja+mantra+bengali" target="_blank">
+        <span class="ab-icon">📿</span>
+        <div class="ab-text"><div class="ab-label">Saraswati Mantra & Stotram</div><div class="ab-sub">সরস্বতী মন্ত্র · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-lotus" href="https://www.youtube.com/results?search_query=chalisa+hanuman+bengali+devotional" target="_blank">
+        <span class="ab-icon">🙏</span>
+        <div class="ab-text"><div class="ab-label">Hanuman Chalisa</div><div class="ab-sub">হনুমান চালিসা · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.youtube.com/results?search_query=bengali+kirtan+full+hd" target="_blank">
+        <span class="ab-icon">🎶</span>
+        <div class="ab-text"><div class="ab-label">Bengali Kirtan</div><div class="ab-sub">কীর্তন সংগীত · Full sessions</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.youtube.com/results?search_query=vishnu+sahasranama+bengali" target="_blank">
+        <span class="ab-icon">🕉️</span>
+        <div class="ab-text"><div class="ab-label">Vishnu Sahasranama</div><div class="ab-sub">বিষ্ণু সহস্রনাম · সম্পূর্ণ পাঠ</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.amazon.com/s?k=puja+items+indian+hindu+worship" target="_blank">
+        <span class="ab-icon">🪷</span>
+        <div class="ab-text"><div class="ab-label">Order Puja Supplies (Amazon)</div><div class="ab-sub">Agarbatti, diyas, gangajal, flowers</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('puja')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAMILY -->
+<div class="overlay" id="ov-family">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>👨‍👩‍👧‍👦 Family</h2><p>পরিবার · Call · Video · Message</p></div>
+      <button class="modal-close" onclick="close_modal('family')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="contact-card">
+        <div class="contact-avatar" style="background:var(--copper-lt);">👨</div>
+        <div><div class="contact-name">Sonny</div><div class="contact-rel">ছেলে · Rockville, MD</div></div>
+        <a href="tel:2025218700" class="call-mini">📞</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-avatar" style="background:#FDF0FA;">👩</div>
+        <div><div class="contact-name">Soma</div><div class="contact-rel">মেয়ে · New York City, NY</div></div>
+        <a href="tel:9173318002" class="call-mini">📞</a>
+      </div>
+      <a class="action-btn ab-teal" href="https://wa.me" target="_blank">
+        <span class="ab-icon">💬</span>
+        <div class="ab-text"><div class="ab-label">WhatsApp Family Group</div><div class="ab-sub">Message everyone · ওয়াটসঅ্যাপ</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://facetime.apple.com" target="_blank">
+        <span class="ab-icon">📹</span>
+        <div class="ab-text"><div class="ab-label">FaceTime Video Call</div><div class="ab-sub">Video call on iPhone · Apple</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://meet.google.com" target="_blank">
+        <span class="ab-icon">💻</span>
+        <div class="ab-text"><div class="ab-label">Google Meet Video Call</div><div class="ab-sub">Works on any phone or tablet</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('family')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- REMINDERS -->
+<div class="overlay" id="ov-reminders">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>⏰ Reminders</h2><p>স্মরণ · Today's schedule</p></div>
+      <button class="modal-close" onclick="close_modal('reminders')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="info-row"><div class="info-dot" style="background:#1A7A6E"></div><div><div class="info-title">Morning Walk 🚶</div><div class="info-sub">7:00 AM</div></div><div class="info-badge" style="background:#E0F2EE;color:#1A7A6E;">✓ Done</div></div>
+      <div class="info-row"><div class="info-dot" style="background:#1A7A6E"></div><div><div class="info-title">Metformin 500mg 💊</div><div class="info-sub">8:00 AM with breakfast</div></div><div class="info-badge" style="background:#E0F2EE;color:#1A7A6E;">✓ Done</div></div>
+      <div class="info-row"><div class="info-dot" style="background:#C0392B"></div><div><div class="info-title">Blood Pressure Pill 💊</div><div class="info-sub">1:00 PM with lunch</div></div><div class="info-badge" style="background:#FFE0DC;color:#C0392B;">⏰ Due</div></div>
+      <div class="info-row"><div class="info-dot" style="background:#1A7A6E"></div><div><div class="info-title">Doctor Appointment 🏥</div><div class="info-sub">2:00 PM · Dr. Mehta</div></div><div class="info-badge" style="background:#E0F2EE;color:#1A7A6E;">Today</div></div>
+      <div class="info-row"><div class="info-dot" style="background:#C9882A"></div><div><div class="info-title">Evening Puja 🪔</div><div class="info-sub">6:00 PM</div></div><div class="info-badge" style="background:#FFF3E0;color:#C9882A;">6 PM</div></div>
+      <div class="info-row"><div class="info-dot" style="background:#5C4A3A"></div><div><div class="info-title">Call Sonny 📞</div><div class="info-sub">7:00 PM · Evening check-in</div></div><div class="info-badge" style="background:background:var(--plum-lt);color:var(--plum);">7 PM</div></div>
+      <div class="info-row"><div class="info-dot" style="background:#5C4A3A"></div><div><div class="info-title">Calcium + Magnesium 💊</div><div class="info-sub">9:00 PM after dinner</div></div><div class="info-badge" style="background:background:var(--plum-lt);color:var(--plum);">9 PM</div></div>
+      <button class="back-btn" onclick="close_modal('reminders')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- WEATHER -->
+<div class="overlay" id="ov-weather">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🌤️ Weather</h2><p>Rockville, MD · আবহাওয়া</p></div>
+      <button class="modal-close" onclick="close_modal('weather')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="wx-loading" style="text-align:center;padding:30px;color:var(--ink-faint);font-size:15px;">Loading weather...</div>
+      <div id="wx-main" style="display:none">
+        <div class="wx-row" id="wx-cards"></div>
+        <div class="info-row" id="wx-advice-row">
+          <span style="font-size:24px">💡</span>
+          <div><div class="info-title" id="wx-advice">Checking conditions...</div><div class="info-sub">Based on today's forecast</div></div>
+        </div>
+      </div>
+      <a class="action-btn ab-teal" href="https://weather.com/weather/today/l/Rockville+MD+USMD0661:1:US" target="_blank" style="margin-top:14px">
+        <span class="ab-icon">📱</span>
+        <div class="ab-text"><div class="ab-label">Full Forecast — Weather.com</div><div class="ab-sub">10-day detailed forecast</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('weather')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- GOLF -->
+<div class="overlay" id="ov-golf">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>⛳ Golf</h2><p>Courses · Tee Times · Tips · Scores</p></div>
+      <button class="modal-close" onclick="close_modal('golf')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="m-divider">TEE TIMES — BOOK A ROUND</div>
+      <a class="action-btn ab-teal" href="https://www.golfnow.com/tee-times/search#searchType=keyword&searchValue=Rockville+MD" target="_blank">
+        <span class="ab-icon">🕐</span>
+        <div class="ab-text"><div class="ab-label">Book Tee Time — GolfNow</div><div class="ab-sub">Rockville & Maryland courses · Best rates</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.golfnow.com/tee-times/search#searchType=keyword&searchValue=Redgate+Golf+Rockville" target="_blank">
+        <span class="ab-icon">📍</span>
+        <div class="ab-text"><div class="ab-label">Redgate Golf Course</div><div class="ab-sub">Rockville, MD · Public · Book directly</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.golfnow.com/tee-times/search#searchType=keyword&searchValue=Falls+Road+Golf+Course+Potomac+MD" target="_blank">
+        <span class="ab-icon">📍</span>
+        <div class="ab-text"><div class="ab-label">Falls Road Golf Course</div><div class="ab-sub">Potomac, MD · Nearby · Book tee time</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.golfnow.com/tee-times/search#searchType=keyword&searchValue=Maryland+golf+courses" target="_blank">
+        <span class="ab-icon">🗺️</span>
+        <div class="ab-text"><div class="ab-label">All Maryland Courses</div><div class="ab-sub">Browse every course nearby · GolfNow</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">IMPROVE YOUR GAME — YOUTUBE TIPS</div>
+      <a class="action-btn ab-teal" href="https://www.youtube.com/results?search_query=golf+swing+tips+for+seniors" target="_blank">
+        <span class="ab-icon">🏌️</span>
+        <div class="ab-text"><div class="ab-label">Swing Tips for Seniors</div><div class="ab-sub">YouTube · Age-appropriate technique</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.youtube.com/results?search_query=golf+putting+tips+beginners+seniors" target="_blank">
+        <span class="ab-icon">⛳</span>
+        <div class="ab-text"><div class="ab-label">Putting & Short Game</div><div class="ab-sub">YouTube · Improve scoring fast</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.youtube.com/@MeandMyGolf" target="_blank">
+        <span class="ab-icon">▶️</span>
+        <div class="ab-text"><div class="ab-label">Me and My Golf (YouTube)</div><div class="ab-sub">Top-rated instruction channel</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-lotus" href="https://www.youtube.com/results?search_query=golf+tips+driver+accuracy+seniors" target="_blank">
+        <span class="ab-icon">🏌️‍♂️</span>
+        <div class="ab-text"><div class="ab-label">Driver Accuracy Tips</div><div class="ab-sub">YouTube · Hit it straighter every time</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">LIVE SCORES & NEWS</div>
+      <a class="action-btn ab-ink" href="https://www.pgatour.com/leaderboard" target="_blank">
+        <span class="ab-icon">🏆</span>
+        <div class="ab-text"><div class="ab-label">PGA Tour Live Leaderboard</div><div class="ab-sub">Current tournament scores · Live</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.espn.com/golf/" target="_blank">
+        <span class="ab-icon">📊</span>
+        <div class="ab-text"><div class="ab-label">ESPN Golf</div><div class="ab-sub">Scores · News · Highlights</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.golfchannel.com" target="_blank">
+        <span class="ab-icon">📺</span>
+        <div class="ab-text"><div class="ab-label">Golf Channel</div><div class="ab-sub">Watch live coverage · News & shows</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">EQUIPMENT & GEAR</div>
+      <a class="action-btn ab-saffron" href="https://www.amazon.com/s?k=senior+golf+clubs+set" target="_blank">
+        <span class="ab-icon">🛒</span>
+        <div class="ab-text"><div class="ab-label">Golf Clubs & Gear (Amazon)</div><div class="ab-sub">Senior flex clubs · Gloves · Balls</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <button class="back-btn" onclick="close_modal('golf')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- SECURITY -->
+<div class="overlay" id="ov-security">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🔒 Home Security</h2><p>Alarm.com · Choudhury Home System</p></div>
+      <button class="modal-close" onclick="close_modal('security')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="m-divider">OPEN THE APP</div>
+      <a class="action-btn ab-ink" href="https://apps.apple.com/us/app/alarm-com/id314719010" target="_blank">
+        <span class="ab-icon">📱</span>
+        <div class="ab-text">
+          <div class="ab-label">Open Alarm.com — iPhone</div>
+          <div class="ab-sub">Opens the app directly on your phone</div>
+        </div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android" target="_blank">
+        <span class="ab-icon">📱</span>
+        <div class="ab-text">
+          <div class="ab-label">Open Alarm.com — Android</div>
+          <div class="ab-sub">Opens the app directly on your phone</div>
+        </div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">WEB PORTAL — ARM · DISARM · CAMERAS</div>
+      <a class="action-btn ab-teal" href="https://www.alarm.com/login.aspx" target="_blank">
+        <span class="ab-icon">🔒</span>
+        <div class="ab-text">
+          <div class="ab-label">Arm / Disarm System</div>
+          <div class="ab-sub">Alarm.com web portal · Log in to control</div>
+        </div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.alarm.com/login.aspx" target="_blank">
+        <span class="ab-icon">📹</span>
+        <div class="ab-text">
+          <div class="ab-label">View Cameras</div>
+          <div class="ab-sub">Live video feeds · Alarm.com portal</div>
+        </div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.alarm.com/login.aspx" target="_blank">
+        <span class="ab-icon">🚪</span>
+        <div class="ab-text">
+          <div class="ab-label">Door Locks & Lights</div>
+          <div class="ab-sub">Smart home controls · Alarm.com portal</div>
+        </div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">NEED HELP?</div>
+      <a class="action-btn ab-red" href="tel:2025218700">
+        <span class="ab-icon">📞</span>
+        <div class="ab-text">
+          <div class="ab-label">Call Sonny</div>
+          <div class="ab-sub">202-521-8700 · For any security questions</div>
+        </div>
+        <span class="ab-arr">›</span>
+      </a>
+      <a class="action-btn ab-lotus" href="tel:9173318002">
+        <span class="ab-icon">📞</span>
+        <div class="ab-text">
+          <div class="ab-label">Call Soma</div>
+          <div class="ab-sub">917-331-8002 · New York City</div>
+        </div>
+        <span class="ab-arr">›</span>
+      </a>
+
+      <button class="back-btn" onclick="close_modal('security')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+//  CLOCK
+// ══════════════════════════════════════════
+function tick(){
+  const n=new Date(),h=n.getHours(),m=n.getMinutes();
+  const ap=h>=12?'PM':'AM',hh=h%12||12;
+  document.getElementById('clock').textContent=hh+':'+String(m).padStart(2,'0');
+  document.getElementById('ampm').textContent=ap;
+}
+tick();setInterval(tick,1000);
+
+// ══════════════════════════════════════════
+//  GREETING & DATE
+// ══════════════════════════════════════════
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const BN_DAYS=['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+const BN_MONTHS=['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+
+const now=new Date(),hr=now.getHours();
+const enGreets=['Good morning 🙏','Good afternoon 🙏','Good evening 🙏'];
+const bnGreets=['শুভ সকাল 🙏','শুভ বিকেল 🙏','শুভ সন্ধ্যা 🙏'];
+const gi=hr<12?0:hr<17?1:2;
+document.getElementById('greet').textContent=enGreets[gi];
+document.getElementById('dateStr').textContent=
+  DAYS[now.getDay()]+', '+MONTHS[now.getMonth()]+' '+now.getDate()+', '+now.getFullYear();
+
+// ══════════════════════════════════════════
+//  LANGUAGE TOGGLE
+// ══════════════════════════════════════════
+let isBn=false;
+const TRANS={
+  'greet':[enGreets[gi],bnGreets[gi]],
+  'em-h':['Emergency Help','জরুরী সাহায্য'],
+  'em-p':['Tap to call Sonny or 911 immediately','Sonny বা ৯১১ কল করুন'],
+  'sl-daily':['Daily Needs','দৈনন্দিন প্রয়োজন'],
+  'sl-ent':['Entertainment','বিনোদন'],
+  'sl-care':['Family & Care','পরিবার ও যত্ন'],
+  't-amazon':['Shopping','কেনাকাটা'],
+  'ts-amazon':['Amazon · কেনাকাটা','Amazon · Shopping'],
+  't-uber':['Get a Ride','যাতায়াত'],
+  'ts-uber':['Uber · যাতায়াত','Uber · Rides'],
+  't-doctor':['Doctor','ডাক্তার'],
+  'ts-doctor':['ডাক্তার · Appointments','Appointments'],
+  't-meds':['Medicines','ওষুধ'],
+  'ts-meds':['ওষুধ · Reminders','Reminders'],
+  't-music':['Music','গান'],
+  'ts-music':['YouTube · বাংলা গান','YouTube · Bengali Songs'],
+  't-films':['Films & Serials','ছবি ও ধারাবাহিক'],
+  'ts-films':['Bollywood · বাংলা ছবি','Bengali & Bollywood'],
+  't-news':['News','সংবাদ'],
+  'ts-news':['বাংলা · World · Sports','Bengali · World · Sports'],
+  't-puja':['Puja & Devotion','পূজা ও ভক্তি'],
+  'ts-puja':['আরতি · Bhajans · Mantras','Arati · Bhajans · Mantras'],
+  't-family':['Family','পরিবার'],
+  'ts-family':['Call · Video · পরিবার','Call · Video'],
+  't-remind':['Reminders','স্মরণ'],
+  'ts-remind':['Daily Schedule · সময়সূচি','Daily Schedule'],
+  't-golf':['Golf','গল্ফ'],
+  'ts-golf':['Courses · Tee Times · Lessons · Live Scores','কোর্স · টি টাইম · লাইভ স্কোর'],
+  't-security':['Home Security','গৃহ নিরাপত্তা'],
+  'ts-security':['Alarm.com · Arm · Disarm · Cameras','Alarm.com · সিকিউরিটি'],
+  't-weather':['Weather','আবহাওয়া'],
+  'ts-weather':['Rockville, MD · 5-Day Forecast · আবহাওয়া','Rockville, MD · ৫ দিনের পূর্বাভাস'],
+};
+function toggleLang(){
+  isBn=!isBn;const i=isBn?1:0;
+  for(const[id,vals]of Object.entries(TRANS)){
+    const el=document.getElementById(id);if(el)el.textContent=vals[i];
+  }
+}
+
+// ══════════════════════════════════════════
+//  MODAL
+// ══════════════════════════════════════════
+function open_modal(id){
+  const ov=document.getElementById('ov-'+id);
+  if(ov){ov.classList.add('open');if(id==='weather')loadWeather();}
+}
+function close_modal(id){
+  const ov=document.getElementById('ov-'+id);if(ov)ov.classList.remove('open');
+}
+document.querySelectorAll('.overlay').forEach(ov=>{
+  ov.addEventListener('click',e=>{if(e.target===ov)ov.classList.remove('open');});
+});
+
+// ══════════════════════════════════════════
+//  LIVE WEATHER (Open-Meteo, no API key)
+// ══════════════════════════════════════════
+async function loadWeather(){
+  const main=document.getElementById('wx-main');
+  const load=document.getElementById('wx-loading');
+  if(main.style.display==='block')return; // already loaded
+  try{
+    // Rockville MD: lat 39.0840, lon -77.1528
+    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=39.084&longitude=-77.153&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=5');
+    const d=await r.json();
+    const days=d.daily;
+    const WX={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',61:'🌧️',71:'🌨️',80:'🌦️',95:'⛈️'};
+    const WDESC={0:'Sunny',1:'Mostly Clear',2:'Partly Cloudy',3:'Cloudy',45:'Foggy',48:'Foggy',51:'Drizzle',61:'Rainy',71:'Snowy',80:'Showers',95:'Thunderstorm'};
+    const dayNames=['Today','Sat','Sun','Mon','Tue','Wed','Thu','Fri'].slice(0,5);
+    let html='';
+    for(let i=0;i<5;i++){
+      const code=days.weathercode[i];
+      const hi=Math.round(days.temperature_2m_max[i]);
+      const lo=Math.round(days.temperature_2m_min[i]);
+      const icon=WX[code]||'🌡️';
+      const desc=WDESC[code]||'Variable';
+      html+=`<div class="wx-card"><div class="wx-day">${i===0?'TODAY':DAYS[(new Date().getDay()+i)%7].slice(0,3).toUpperCase()}</div><div class="wx-icon">${icon}</div><div class="wx-temp">${hi}°/${lo}°</div><div class="wx-desc">${desc}</div></div>`;
+      if(i===0){
+        // update greeting strip
+        document.getElementById('wx-icon').textContent=icon;
+        document.getElementById('wx-temp').textContent=hi+'°F';
+        document.getElementById('wx-desc').textContent=desc;
+        // outdoor advice
+        const advice=hi>=70&&code<=2?'Great day for a walk outside! 🌿':code>=61?'Rain expected — stay indoors. ☔':hi<45?'Cold today — dress warmly. 🧥':'Comfortable day. Enjoy! 🌸';
+        document.getElementById('wx-advice').textContent=advice;
+      }
+    }
+    document.getElementById('wx-cards').innerHTML=html;
+    load.style.display='none';main.style.display='block';
+  }catch(e){
+    load.textContent='Weather unavailable. Tap the link below for forecast.';
+  }
+}
+// preload weather in background after 1s
+setTimeout(()=>{
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=39.084&longitude=-77.153&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=5')
+    .then(r=>r.json()).then(d=>{
+      const code=d.daily.weathercode[0];
+      const hi=Math.round(d.daily.temperature_2m_max[0]);
+      const WX={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',61:'🌧️',71:'🌨️',95:'⛈️'};
+      const WDESC={0:'Sunny',1:'Mostly Clear',2:'Partly Cloudy',3:'Cloudy',45:'Foggy',61:'Rainy',71:'Snowy',95:'Stormy'};
+      document.getElementById('wx-icon').textContent=WX[code]||'🌡️';
+      document.getElementById('wx-temp').textContent=hi+'°F';
+      document.getElementById('wx-desc').textContent=WDESC[code]||'Variable';
+    }).catch(()=>{});
+},1000);
+
+// ══════════════════════════════════════════
+//  VOICE
+// ══════════════════════════════════════════
+let voiceOn=false;
+function toggleVoice(){
+  voiceOn=!voiceOn;
+  const fab=document.getElementById('voiceFab');
+  const hint=document.getElementById('voiceHint');
+  if(voiceOn){
+    fab.classList.add('on');fab.textContent='⏹️';hint.classList.add('show');
+    if('webkitSpeechRecognition'in window||'SpeechRecognition'in window){
+      const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+      const rec=new SR();rec.lang=isBn?'bn-IN':'en-US';
+      rec.onresult=e=>{
+        const t=e.results[0][0].transcript.toLowerCase();
+        hint.textContent='"'+t+'"';
+        handleVoice(t);
+        setTimeout(()=>{stopVoice();},1800);
+      };
+      rec.onerror=()=>stopVoice();rec.start();
+    } else {setTimeout(stopVoice,2000);}
+  } else {stopVoice();}
+}
+function stopVoice(){
+  voiceOn=false;
+  const fab=document.getElementById('voiceFab');
+  fab.classList.remove('on');fab.textContent='🎙️';
+  document.getElementById('voiceHint').classList.remove('show');
+}
+function handleVoice(t){
+  if(t.includes('shop')||t.includes('amazon')||t.includes('grocery')||t.includes('বাজার'))open_modal('amazon');
+  else if(t.includes('uber')||t.includes('ride')||t.includes('car'))open_modal('uber');
+  else if(t.includes('doctor')||t.includes('ডাক্তার'))open_modal('doctor');
+  else if(t.includes('medicine')||t.includes('pill')||t.includes('ওষুধ'))open_modal('meds');
+  else if(t.includes('music')||t.includes('song')||t.includes('গান'))open_modal('music');
+  else if(t.includes('film')||t.includes('serial')||t.includes('movie')||t.includes('ছবি'))open_modal('films');
+  else if(t.includes('news')||t.includes('সংবাদ'))open_modal('news');
+  else if(t.includes('puja')||t.includes('prayer')||t.includes('পূজা')||t.includes('ভক্তি'))open_modal('puja');
+  else if(t.includes('family')||t.includes('son')||t.includes('call')||t.includes('পরিবার'))open_modal('family');
+  else if(t.includes('golf')||t.includes('tee')||t.includes('গল্ফ'))open_modal('golf');
+  else if(t.includes('security')||t.includes('alarm')||t.includes('lock')||t.includes('camera')||t.includes('নিরাপত্তা'))open_modal('security');
+  else if(t.includes('weather')||t.includes('আবহাওয়া'))open_modal('weather');
+  else if(t.includes('emergency')||t.includes('help')||t.includes('911'))open_modal('emergency');
+}
+
+// ══════════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════════
+function gCheck(cb){cb.closest('.g-item').classList.toggle('done',cb.checked);}
+function chipOn(el){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on');}
+</script>
+</body>
+</html>
