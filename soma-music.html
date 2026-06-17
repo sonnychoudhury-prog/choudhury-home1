@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0A0A0F">
+<title>Soma's Place</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   SOMA'S PLACE
+   Aesthetic: Obsidian + Rose Quartz + 24K
+   Dark luxury — R&B backstage meets NYC
+   boutique. The one risk: a full-bleed
+   animated gradient mesh as the living
+   background — no static surfaces anywhere.
+══════════════════════════════════════════ */
+:root {
+  --obsidian:  #0A0A0F;
+  --obsidian2: #111118;
+  --obsidian3: #1A1A26;
+  --rose:      #D4587A;
+  --rose2:     #E87A9A;
+  --rose-dim:  rgba(212,88,122,0.15);
+  --gold:      #C8962A;
+  --gold2:     #E8B84B;
+  --gold-dim:  rgba(200,150,42,0.15);
+  --afro:      #2AAA6A;
+  --afro2:     #45CC88;
+  --afro-dim:  rgba(42,170,106,0.12);
+  --plum:      #7B4FA6;
+  --plum2:     #A070D0;
+  --text:      #F0EAF5;
+  --text-soft: rgba(240,234,245,0.55);
+  --text-faint:rgba(240,234,245,0.3);
+  --border:    rgba(240,234,245,0.08);
+  --border2:   rgba(240,234,245,0.14);
+  --card:      rgba(255,255,255,0.04);
+  --card2:     rgba(255,255,255,0.07);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--obsidian);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ── LIVING MESH BACKGROUND ── */
+.mesh{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 20%, rgba(212,88,122,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 70%, rgba(42,170,106,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 60% 10%, rgba(123,79,166,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 40% at 10% 80%, rgba(200,150,42,0.10) 0%, transparent 60%);
+  animation:meshShift 12s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes meshShift{
+  0%{filter:hue-rotate(0deg) brightness(1);}
+  33%{filter:hue-rotate(15deg) brightness(1.05);}
+  66%{filter:hue-rotate(-10deg) brightness(0.98);}
+  100%{filter:hue-rotate(8deg) brightness(1.03);}
+}
+
+/* ── NOISE GRAIN OVERLAY ── */
+.grain{
+  position:fixed;inset:0;z-index:1;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;opacity:0.6;
+}
+
+/* ── MAIN LAYOUT ── */
+.wrap{
+  position:relative;z-index:10;
+  max-width:480px;margin:0 auto;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+}
+
+/* ══ HERO ══ */
+.hero{
+  padding:52px 24px 32px;
+  position:relative;
+}
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:4px;
+  text-transform:uppercase;color:var(--text-faint);
+  margin-bottom:10px;
+}
+.hero-name{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(48px,12vw,68px);
+  font-weight:800;line-height:0.95;
+  letter-spacing:-2px;
+  background:linear-gradient(135deg,var(--text) 0%,var(--rose2) 45%,var(--gold2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:nameShimmer 6s ease-in-out infinite;
+}
+@keyframes nameShimmer{
+  0%,100%{filter:brightness(1);}
+  50%{filter:brightness(1.15);}
+}
+.hero-tagline{
+  font-size:16px;font-weight:300;font-style:italic;
+  color:var(--text-soft);margin-top:10px;letter-spacing:0.3px;
+}
+.hero-line{
+  width:60px;height:2px;
+  background:linear-gradient(90deg,var(--rose),var(--gold2));
+  border-radius:1px;margin-top:18px;
+  animation:lineGrow 1.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes lineGrow{from{width:0;opacity:0;}to{width:60px;opacity:1;}}
+
+/* Now playing bar at top */
+.np-bar{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card2);border:1px solid var(--border2);
+  border-radius:50px;padding:10px 16px;
+  margin:0 24px 0;cursor:pointer;
+  transition:background 0.2s;
+}
+.np-bar:hover{background:rgba(255,255,255,0.1);}
+.np-eq{display:flex;align-items:flex-end;gap:2px;height:16px;flex-shrink:0;}
+.np-bar-line{
+  width:3px;border-radius:2px;
+  background:var(--rose2);
+  animation:eq 0.8s ease-in-out infinite alternate;
+}
+.np-bar-line:nth-child(1){height:6px;animation-delay:0s;}
+.np-bar-line:nth-child(2){height:14px;animation-delay:0.15s;}
+.np-bar-line:nth-child(3){height:10px;animation-delay:0.3s;}
+.np-bar-line:nth-child(4){height:16px;animation-delay:0.1s;}
+.np-bar-line:nth-child(5){height:8px;animation-delay:0.25s;}
+@keyframes eq{from{transform:scaleY(0.4);}to{transform:scaleY(1);}}
+.np-info{flex:1;overflow:hidden;}
+.np-track{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.np-artist{font-size:11px;color:var(--text-soft);margin-top:1px;}
+.np-open{font-size:18px;color:var(--text-faint);}
+
+/* ══ SECTION ══ */
+.section{padding:24px 24px 0;}
+.section-label{
+  font-family:'Syne',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--text-faint);
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,var(--border2),transparent);
+}
+
+/* ══ MUSIC PLAYER CARD ══ */
+.player-card{
+  background:var(--card2);border:1px solid var(--border2);
+  border-radius:24px;overflow:hidden;
+  margin-bottom:12px;
+}
+.player-vis{
+  height:120px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(212,88,122,0.3),rgba(123,79,166,0.3),rgba(42,170,106,0.2));
+}
+.player-vis canvas{width:100%;height:100%;}
+.player-vis-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(17,17,24,0.95) 100%);
+}
+.player-body{padding:18px 18px 20px;}
+.player-track{
+  font-family:'Syne',sans-serif;
+  font-size:20px;font-weight:700;
+  color:var(--text);margin-bottom:3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.player-artist{font-size:13px;color:var(--text-soft);margin-bottom:16px;}
+.player-controls{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;
+}
+.pc-btn{
+  background:none;border:none;color:var(--text-soft);
+  font-size:20px;cursor:pointer;padding:8px;
+  transition:color 0.2s,transform 0.15s;
+}
+.pc-btn:active{transform:scale(0.88);}
+.pc-play{
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose),var(--plum));
+  color:white;font-size:22px;
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(212,88,122,0.4);
+  transition:transform 0.15s,box-shadow 0.15s;
+}
+.pc-play:active{transform:scale(0.94);box-shadow:0 2px 10px rgba(212,88,122,0.3);}
+.pc-play.playing{background:linear-gradient(135deg,var(--afro),var(--afro2));}
+.pc-like{color:var(--rose2)!important;}
+
+/* ══ GENRE PILLS ══ */
+.genre-row{
+  display:flex;gap:8px;overflow-x:auto;
+  padding-bottom:4px;margin-bottom:0;
+  scrollbar-width:none;
+}
+.genre-row::-webkit-scrollbar{display:none;}
+.gpill{
+  flex-shrink:0;padding:9px 18px;border-radius:30px;
+  border:1px solid var(--border2);background:var(--card);
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  color:var(--text-soft);cursor:pointer;transition:all 0.18s;
+  white-space:nowrap;
+}
+.gpill.on{border-color:transparent;color:white;}
+.gpill.rnb.on{background:linear-gradient(135deg,var(--rose),var(--plum));}
+.gpill.afro.on{background:linear-gradient(135deg,var(--afro),#1A8050);}
+.gpill.gold.on{background:linear-gradient(135deg,var(--gold),#A07020);}
+
+/* ══ PLAYLIST ROWS ══ */
+.playlist{
+  display:flex;flex-direction:column;gap:4px;
+  margin-top:12px;
+}
+.pl-item{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 14px;border-radius:14px;
+  cursor:pointer;transition:background 0.15s;
+  border:1px solid transparent;
+}
+.pl-item:hover,.pl-item:active{background:var(--card2);border-color:var(--border);}
+.pl-item.active{background:var(--card2);border-color:var(--border2);}
+.pl-num{
+  font-size:12px;color:var(--text-faint);
+  width:18px;text-align:center;flex-shrink:0;
+}
+.pl-item.active .pl-num{color:var(--rose2);}
+.pl-thumb{
+  width:44px;height:44px;border-radius:10px;
+  flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;font-size:20px;
+}
+.pl-info{flex:1;overflow:hidden;}
+.pl-name{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pl-artist{font-size:12px;color:var(--text-soft);margin-top:1px;}
+.pl-dur{font-size:12px;color:var(--text-faint);flex-shrink:0;}
+.pl-item.active .pl-name{color:var(--rose2);}
+
+/* ══ STREAMING LINKS ══ */
+.stream-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-top:14px;
+}
+.stream-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 14px;border-radius:16px;
+  border:1px solid var(--border2);background:var(--card);
+  text-decoration:none;color:var(--text);
+  transition:background 0.15s,border-color 0.15s;
+  cursor:pointer;
+}
+.stream-btn:active{background:var(--card2);}
+.stream-icon{font-size:22px;flex-shrink:0;}
+.stream-name{font-size:13px;font-weight:600;}
+.stream-sub{font-size:11px;color:var(--text-soft);margin-top:1px;}
+
+/* ══ SHOPPING ══ */
+.shop-row{
+  display:flex;flex-direction:column;gap:8px;margin-top:12px;
+}
+.shop-card{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 16px;border-radius:18px;
+  border:1px solid var(--border2);background:var(--card);
+  text-decoration:none;color:var(--text);
+  transition:background 0.15s;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.shop-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  border-radius:3px 0 0 3px;
+}
+.shop-card.rose::before{background:linear-gradient(180deg,var(--rose),var(--plum));}
+.shop-card.gold::before{background:linear-gradient(180deg,var(--gold2),var(--gold));}
+.shop-card.afro::before{background:linear-gradient(180deg,var(--afro2),var(--afro));}
+.shop-card.plum::before{background:linear-gradient(180deg,var(--plum2),var(--plum));}
+.shop-card:active{background:var(--card2);}
+.shop-icon{font-size:26px;flex-shrink:0;}
+.shop-info{flex:1;}
+.shop-name{font-size:15px;font-weight:600;color:var(--text);}
+.shop-sub{font-size:12px;color:var(--text-soft);margin-top:2px;line-height:1.3;}
+.shop-arr{font-size:16px;color:var(--text-faint);}
+
+/* ══ MOOD BOARD ══ */
+.mood-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:10px;margin-top:12px;
+}
+.mood-card{
+  border-radius:18px;padding:18px 16px;
+  border:1px solid var(--border);
+  cursor:pointer;transition:transform 0.14s;
+  position:relative;overflow:hidden;
+  text-decoration:none;display:block;
+}
+.mood-card:active{transform:scale(0.97);}
+.mood-card .mc-icon{font-size:28px;margin-bottom:8px;}
+.mood-card .mc-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);}
+.mood-card .mc-sub{font-size:11px;color:var(--text-soft);margin-top:3px;line-height:1.3;}
+.mood-card.late-night{background:linear-gradient(135deg,rgba(123,79,166,0.25),rgba(17,17,24,0.8));}
+.mood-card.workout{background:linear-gradient(135deg,rgba(42,170,106,0.25),rgba(17,17,24,0.8));}
+.mood-card.chill{background:linear-gradient(135deg,rgba(212,88,122,0.25),rgba(17,17,24,0.8));}
+.mood-card.nyc{background:linear-gradient(135deg,rgba(200,150,42,0.2),rgba(17,17,24,0.8));}
+.mood-glow{
+  position:absolute;top:-20px;right:-20px;
+  width:80px;height:80px;border-radius:50%;
+  filter:blur(25px);opacity:0.5;
+}
+.late-night .mood-glow{background:var(--plum2);}
+.workout .mood-glow{background:var(--afro2);}
+.chill .mood-glow{background:var(--rose2);}
+.nyc .mood-glow{background:var(--gold2);}
+
+/* ══ BOTTOM NAV ══ */
+.bottom-nav{
+  position:sticky;bottom:0;z-index:50;
+  background:linear-gradient(180deg,transparent,rgba(10,10,15,0.98) 30%);
+  padding:16px 24px 36px;
+  display:flex;justify-content:space-around;align-items:center;
+  margin-top:auto;
+}
+.nav-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  cursor:pointer;padding:8px 16px;border-radius:16px;
+  transition:background 0.15s;border:none;background:none;
+  color:var(--text-faint);
+}
+.nav-item.active{color:var(--rose2);}
+.nav-icon{font-size:22px;}
+.nav-label{font-size:10px;font-weight:600;letter-spacing:0.5px;}
+
+/* ══ FLOATING EQ VISUALIZER ══ */
+.eq-fab{
+  position:fixed;bottom:100px;right:20px;z-index:100;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose),var(--plum));
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(212,88,122,0.4);
+  transition:transform 0.15s;
+}
+.eq-fab:active{transform:scale(0.92);}
+
+/* ══ MODAL ══ */
+.ov{
+  position:fixed;inset:0;background:rgba(0,0,0,0.7);
+  z-index:300;display:none;align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(8px);
+}
+.ov.open{display:flex;}
+.modal{
+  background:linear-gradient(180deg,#16161F,#0A0A0F);
+  border-radius:28px 28px 0 0;
+  width:100%;max-width:480px;
+  max-height:88vh;overflow-y:auto;
+  border-top:1px solid var(--border2);
+  animation:slideUp 0.32s cubic-bezier(0.32,0.72,0,1);
+}
+@keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.modal-drag{
+  width:40px;height:4px;background:var(--border2);
+  border-radius:2px;margin:12px auto 0;
+}
+.modal-head{
+  padding:16px 20px 14px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:space-between;
+}
+.modal-head h2{
+  font-family:'Syne',sans-serif;
+  font-size:22px;font-weight:700;color:var(--text);
+}
+.modal-head p{font-size:13px;color:var(--text-soft);margin-top:3px;}
+.modal-close{
+  background:var(--card2);border:1px solid var(--border);
+  color:var(--text-soft);width:30px;height:30px;
+  border-radius:50%;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.modal-body{padding:16px 20px 40px;}
+
+/* action rows in modal */
+.m-action{
+  display:flex;align-items:center;gap:14px;
+  padding:15px 16px;border-radius:16px;
+  border:1px solid var(--border);background:var(--card);
+  text-decoration:none;color:var(--text);
+  margin-bottom:8px;transition:background 0.15s;cursor:pointer;
+}
+.m-action:active{background:var(--card2);}
+.m-ai{font-size:22px;flex-shrink:0;}
+.m-at{flex:1;}
+.m-al{font-size:15px;font-weight:600;}
+.m-as{font-size:12px;color:var(--text-soft);margin-top:2px;}
+.m-arr{font-size:16px;color:var(--text-faint);}
+.m-div{
+  font-family:'Syne',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--text-faint);
+  padding:14px 0 8px;border-top:1px solid var(--border);margin-top:8px;
+}
+.back-btn{
+  width:100%;padding:14px;border-radius:14px;
+  border:1px solid var(--border2);background:transparent;
+  color:var(--text-soft);font-family:'DM Sans',sans-serif;
+  font-size:15px;font-weight:600;cursor:pointer;margin-top:12px;
+}
+
+.bottom-space{height:140px;}
+</style>
+</head>
+<body>
+
+<div class="mesh"></div>
+<div class="grain"></div>
+
+<div class="wrap">
+
+  <!-- NOW PLAYING BAR -->
+  <div style="padding:16px 24px 0; position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(10,10,15,0.95),transparent);">
+    <div class="np-bar" onclick="open_modal('player')">
+      <div class="np-eq" id="np-eq">
+        <div class="np-bar-line"></div>
+        <div class="np-bar-line"></div>
+        <div class="np-bar-line"></div>
+        <div class="np-bar-line"></div>
+        <div class="np-bar-line"></div>
+      </div>
+      <div class="np-info">
+        <div class="np-track" id="np-track">Essence (feat. Tems)</div>
+        <div class="np-artist" id="np-artist">WizKid · Made in Lagos</div>
+      </div>
+      <div class="np-open">›</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Your Space · NYC</div>
+    <div class="hero-name">Soma's<br>Place</div>
+    <div class="hero-tagline">Music, style & everything that moves you</div>
+    <div class="hero-line"></div>
+  </div>
+
+  <!-- GENRE PILLS -->
+  <div class="section" style="padding-top:0;">
+    <div class="genre-row" id="genre-row">
+      <button class="gpill afro on" onclick="setGenre(this,'afro')">Afrobeats</button>
+      <button class="gpill rnb" onclick="setGenre(this,'rnb')">R&B</button>
+      <button class="gpill gold" onclick="setGenre(this,'gold')">Neo Soul</button>
+      <button class="gpill rnb" onclick="setGenre(this,'rnb')">Hip-Hop</button>
+      <button class="gpill afro" onclick="setGenre(this,'afro')">Amapiano</button>
+      <button class="gpill gold" onclick="setGenre(this,'gold')">Dancehall</button>
+    </div>
+  </div>
+
+  <!-- MUSIC SECTION -->
+  <div class="section">
+    <div class="section-label">Now Playing</div>
+    <div class="player-card">
+      <div class="player-vis">
+        <canvas id="vis-canvas"></canvas>
+        <div class="player-vis-overlay"></div>
+      </div>
+      <div class="player-body">
+        <div class="player-track" id="pt-track">Essence (feat. Tems)</div>
+        <div class="player-artist" id="pt-artist">WizKid · Made in Lagos · 2021</div>
+        <div class="player-controls">
+          <button class="pc-btn" onclick="prevTrack()">⏮</button>
+          <button class="pc-btn" onclick="toggleShuffle(this)" id="shuffle-btn" title="Shuffle">🔀</button>
+          <button class="pc-play playing" id="play-btn" onclick="togglePlay()">⏸</button>
+          <button class="pc-btn pc-like">♥</button>
+          <button class="pc-btn" onclick="nextTrack()">⏭</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYLIST -->
+  <div class="section">
+    <div class="section-label">Soma's Playlist</div>
+    <div class="playlist" id="playlist"></div>
+  </div>
+
+  <!-- STREAMING -->
+  <div class="section">
+    <div class="section-label">Stream On</div>
+    <div class="stream-grid">
+      <a class="stream-btn" href="https://open.spotify.com/search/afrobeats%20r%26b" target="_blank">
+        <span class="stream-icon">💚</span>
+        <div><div class="stream-name">Spotify</div><div class="stream-sub">Afrobeats & R&B</div></div>
+      </a>
+      <a class="stream-btn" href="https://music.apple.com/us/playlist/afrobeats-essentials/pl.f4d106fed2bd41149eded98e8b8978cd" target="_blank">
+        <span class="stream-icon">🎵</span>
+        <div><div class="stream-name">Apple Music</div><div class="stream-sub">Afrobeats Essentials</div></div>
+      </a>
+      <a class="stream-btn" href="https://www.youtube.com/results?search_query=afrobeats+r%26b+mix+2024" target="_blank">
+        <span class="stream-icon">▶️</span>
+        <div><div class="stream-name">YouTube</div><div class="stream-sub">Live Mixes</div></div>
+      </a>
+      <a class="stream-btn" href="https://www.youtube.com/results?search_query=wizkid+burna+boy+tems+playlist+2024" target="_blank">
+        <span class="stream-icon">🔥</span>
+        <div><div class="stream-name">YouTube</div><div class="stream-sub">WizKid · Burna · Tems</div></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MOODS -->
+  <div class="section">
+    <div class="section-label">Mood</div>
+    <div class="mood-row">
+      <a class="mood-card late-night" href="https://www.youtube.com/results?search_query=late+night+r%26b+playlist+2024" target="_blank">
+        <div class="mood-glow"></div>
+        <div class="mc-icon">🌙</div>
+        <div class="mc-name">Late Night</div>
+        <div class="mc-sub">R&B slow jams</div>
+      </a>
+      <a class="mood-card workout" href="https://www.youtube.com/results?search_query=afrobeats+workout+gym+mix+2024" target="_blank">
+        <div class="mood-glow"></div>
+        <div class="mc-icon">⚡</div>
+        <div class="mc-name">Energy</div>
+        <div class="mc-sub">Afrobeats workout</div>
+      </a>
+      <a class="mood-card chill" href="https://www.youtube.com/results?search_query=neo+soul+chill+playlist+sza+jhene+aiko" target="_blank">
+        <div class="mood-glow"></div>
+        <div class="mc-icon">☁️</div>
+        <div class="mc-name">Chill</div>
+        <div class="mc-sub">Neo soul · SZA · Jhené</div>
+      </a>
+      <a class="mood-card nyc" href="https://www.youtube.com/results?search_query=new+york+r%26b+hip+hop+playlist" target="_blank">
+        <div class="mood-glow"></div>
+        <div class="mc-icon">🗽</div>
+        <div class="mc-name">NYC Mode</div>
+        <div class="mc-sub">City hip-hop & soul</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SHOPPING -->
+  <div class="section">
+    <div class="section-label">Shop · Style</div>
+    <div class="shop-row">
+      <a class="shop-card rose" href="https://www.net-a-porter.com/en-us/shop/clothing" target="_blank">
+        <span class="shop-icon">👗</span>
+        <div class="shop-info">
+          <div class="shop-name">Net-a-Porter</div>
+          <div class="shop-sub">Designer women's · Luxury fashion</div>
+        </div>
+        <span class="shop-arr">↗</span>
+      </a>
+      <a class="shop-card gold" href="https://www.ssense.com/en-us/women" target="_blank">
+        <span class="shop-icon">✨</span>
+        <div class="shop-info">
+          <div class="shop-name">SSENSE</div>
+          <div class="shop-sub">High fashion · Emerging designers</div>
+        </div>
+        <span class="shop-arr">↗</span>
+      </a>
+      <a class="shop-card afro" href="https://www.asos.com/women/new-in/cat/?cid=2623" target="_blank">
+        <span class="shop-icon">🛍️</span>
+        <div class="shop-info">
+          <div class="shop-name">ASOS</div>
+          <div class="shop-sub">New arrivals · Every day looks</div>
+        </div>
+        <span class="shop-arr">↗</span>
+      </a>
+      <a class="shop-card plum" href="https://www.amazon.com/s?k=women+fashion+nyc+style+2024&ref=nb_sb_noss" target="_blank">
+        <span class="shop-icon">📦</span>
+        <div class="shop-info">
+          <div class="shop-name">Amazon Fashion</div>
+          <div class="shop-sub">Fast delivery · NYC style finds</div>
+        </div>
+        <span class="shop-arr">↗</span>
+      </a>
+      <a class="shop-card rose" href="https://www.zara.com/us/en/woman-new-in-l1180.html" target="_blank">
+        <span class="shop-icon">🧥</span>
+        <div class="shop-info">
+          <div class="shop-name">Zara</div>
+          <div class="shop-sub">New collection · Curated basics</div>
+        </div>
+        <span class="shop-arr">↗</span>
+      </a>
+      <a class="shop-card gold" href="https://www.farfetch.com/shopping/women/clothing-2/items.aspx" target="_blank">
+        <span class="shop-icon">💎</span>
+        <div class="shop-info">
+          <div class="shop-name">Farfetch</div>
+          <div class="shop-sub">Luxury boutiques worldwide</div>
+        </div>
+        <span class="shop-arr">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ARTISTS -->
+  <div class="section">
+    <div class="section-label">Artists She Loves</div>
+    <div class="stream-grid" style="grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;">
+      <a class="stream-btn" style="flex-direction:column;align-items:center;padding:14px 8px;text-align:center;" href="https://www.youtube.com/results?search_query=WizKid+best+songs+2024" target="_blank">
+        <span class="stream-icon">🌟</span>
+        <div style="margin-top:6px;"><div class="stream-name" style="font-size:12px;">WizKid</div></div>
+      </a>
+      <a class="stream-btn" style="flex-direction:column;align-items:center;padding:14px 8px;text-align:center;" href="https://www.youtube.com/results?search_query=Burna+Boy+best+playlist" target="_blank">
+        <span class="stream-icon">🔥</span>
+        <div style="margin-top:6px;"><div class="stream-name" style="font-size:12px;">Burna Boy</div></div>
+      </a>
+      <a class="stream-btn" style="flex-direction:column;align-items:center;padding:14px 8px;text-align:center;" href="https://www.youtube.com/results?search_query=Tems+best+songs" target="_blank">
+        <span class="stream-icon">💫</span>
+        <div style="margin-top:6px;"><div class="stream-name" style="font-size:12px;">Tems</div></div>
+      </a>
+      <a class="stream-btn" style="flex-direction:column;align-items:center;padding:14px 8px;text-align:center;" href="https://www.youtube.com/results?search_query=SZA+best+songs+playlist" target="_blank">
+        <span class="stream-icon">🌹</span>
+        <div style="margin-top:6px;"><div class="stream-name" style="font-size:12px;">SZA</div></div>
+      </a>
+      <a class="stream-btn" style="flex-direction:column;align-items:center;padding:14px 8px;text-align:center;" href="https://www.youtube.com/results?search_query=Davido+best+songs+afrobeats" target="_blank">
+        <span class="stream-icon">⚡</span>
+        <div style="margin-top:6px;"><div class="stream-name" style="font-size:12px;">Davido</div></div>
+      </a>
+      <a class="stream-btn" style="flex-direction:column;align-items:center;padding:14px 8px;text-align:center;" href="https://www.youtube.com/results?search_query=Jhene+Aiko+best+songs" target="_blank">
+        <span class="stream-icon">🌸</span>
+        <div style="margin-top:6px;"><div class="stream-name" style="font-size:12px;">Jhené Aiko</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="bottom-space"></div>
+
+</div><!-- /wrap -->
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="nav-item active" onclick="scrollTo(0,0)">
+    <span class="nav-icon">🎵</span>
+    <span class="nav-label">Music</span>
+  </button>
+  <button class="nav-item" onclick="open_modal('shopping')">
+    <span class="nav-icon">🛍️</span>
+    <span class="nav-label">Shop</span>
+  </button>
+  <button class="nav-item" onclick="open_modal('artists')">
+    <span class="nav-icon">⭐</span>
+    <span class="nav-label">Artists</span>
+  </button>
+  <button class="nav-item" onclick="open_modal('family')">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Family</span>
+  </button>
+</div>
+
+<!-- ═══ MODALS ═══ -->
+
+<!-- PLAYER MODAL -->
+<div class="ov" id="ov-player">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🎵 Now Playing</h2><p>Soma's Queue</p></div>
+      <button class="modal-close" onclick="close_modal('player')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-div">STREAM THIS TRACK</div>
+      <a class="m-action" id="modal-spotify" href="https://open.spotify.com/search/Essence%20WizKid" target="_blank">
+        <span class="m-ai">💚</span>
+        <div class="m-at"><div class="m-al">Play on Spotify</div><div class="m-as">Open in Spotify app</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" id="modal-yt" href="https://www.youtube.com/results?search_query=Essence+WizKid+Tems" target="_blank">
+        <span class="m-ai">▶️</span>
+        <div class="m-at"><div class="m-al">Watch on YouTube</div><div class="m-as">Official video & live versions</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" id="modal-apple" href="https://music.apple.com/us/search?term=Essence+WizKid" target="_blank">
+        <span class="m-ai">🎵</span>
+        <div class="m-at"><div class="m-al">Play on Apple Music</div><div class="m-as">Full track · Apple Music</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('player')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- SHOPPING MODAL -->
+<div class="ov" id="ov-shopping">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🛍️ Shop</h2><p>Soma's style picks · NYC Edition</p></div>
+      <button class="modal-close" onclick="close_modal('shopping')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-div">LUXURY & DESIGNER</div>
+      <a class="m-action" href="https://www.net-a-porter.com/en-us/shop/new-in" target="_blank">
+        <span class="m-ai">👗</span>
+        <div class="m-at"><div class="m-al">Net-a-Porter — New In</div><div class="m-as">Designer women's · Free returns</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.ssense.com/en-us/women/sale" target="_blank">
+        <span class="m-ai">✨</span>
+        <div class="m-at"><div class="m-al">SSENSE — Women's Sale</div><div class="m-as">Up to 50% off luxury brands</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.farfetch.com/shopping/women/clothing-2/items.aspx" target="_blank">
+        <span class="m-ai">💎</span>
+        <div class="m-at"><div class="m-al">Farfetch</div><div class="m-as">Global luxury boutiques · Rare finds</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <div class="m-div">EVERYDAY STYLE</div>
+      <a class="m-action" href="https://www.asos.com/women/new-in/cat/?cid=2623" target="_blank">
+        <span class="m-ai">🛍️</span>
+        <div class="m-at"><div class="m-al">ASOS New In</div><div class="m-as">On-trend · Fast shipping to NYC</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.zara.com/us/en/woman-new-in-l1180.html" target="_blank">
+        <span class="m-ai">🧥</span>
+        <div class="m-at"><div class="m-al">Zara — New Collection</div><div class="m-as">NYC stores + delivery</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <div class="m-div">AMAZON FINDS</div>
+      <a class="m-action" href="https://www.amazon.com/s?k=r%26b+concert+outfit+women&ref=nb_sb_noss" target="_blank">
+        <span class="m-ai">🎤</span>
+        <div class="m-at"><div class="m-al">Concert & Event Outfits</div><div class="m-as">Amazon · Fast Prime delivery</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.amazon.com/s?k=african+print+women+dress+fashion" target="_blank">
+        <span class="m-ai">🌍</span>
+        <div class="m-at"><div class="m-al">Afro-inspired Fashion</div><div class="m-as">African prints · Ankara · Kente</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('shopping')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- ARTISTS MODAL -->
+<div class="ov" id="ov-artists">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>⭐ Artists</h2><p>Soma's favourites · R&B & Afrobeats</p></div>
+      <button class="modal-close" onclick="close_modal('artists')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-div">AFROBEATS</div>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=WizKid+playlist+2024+best+songs" target="_blank">
+        <span class="m-ai">🌟</span>
+        <div class="m-at"><div class="m-al">WizKid</div><div class="m-as">Afrobeats legend · Made in Lagos</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=Burna+Boy+playlist+African+Giant" target="_blank">
+        <span class="m-ai">🔥</span>
+        <div class="m-at"><div class="m-al">Burna Boy</div><div class="m-as">African Giant · Grammy winner</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=Tems+best+songs+playlist" target="_blank">
+        <span class="m-ai">💫</span>
+        <div class="m-at"><div class="m-al">Tems</div><div class="m-as">Born in the Wild · Afro soul</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=Davido+30BG+afrobeats+hits" target="_blank">
+        <span class="m-ai">⚡</span>
+        <div class="m-at"><div class="m-al">Davido</div><div class="m-as">30BG · Afrobeats hits</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=Amaarae+sad+girlz+luv+money+playlist" target="_blank">
+        <span class="m-ai">🌙</span>
+        <div class="m-at"><div class="m-al">Amaarae</div><div class="m-as">Sad Girlz Luv Money · Afro alt</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <div class="m-div">R&B & SOUL</div>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=SZA+SOS+playlist+best+songs" target="_blank">
+        <span class="m-ai">🌹</span>
+        <div class="m-at"><div class="m-al">SZA</div><div class="m-as">SOS · Good Days · Ctrl</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=Jhene+Aiko+best+songs+playlist" target="_blank">
+        <span class="m-ai">🌸</span>
+        <div class="m-at"><div class="m-al">Jhené Aiko</div><div class="m-as">Chilombo · Trip · R&B soul</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=H.E.R+best+songs+r%26b+playlist" target="_blank">
+        <span class="m-ai">🎸</span>
+        <div class="m-at"><div class="m-al">H.E.R</div><div class="m-as">Focus · Best Part · Grammy</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <a class="m-action" href="https://www.youtube.com/results?search_query=Ari+Lennox+best+songs+shea+butter+baby" target="_blank">
+        <span class="m-ai">🍯</span>
+        <div class="m-at"><div class="m-al">Ari Lennox</div><div class="m-as">Shea Butter Baby · Age/Sex/Location</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('artists')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAMILY MODAL -->
+<div class="ov" id="ov-family">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🏠 Family</h2><p>Choudhury Home · Quick access</p></div>
+      <button class="modal-close" onclick="close_modal('family')">✕</button>
+    </div>
+    <div class="modal-body">
+      <a class="m-action" href="tel:2025218700">
+        <span class="m-ai">👨</span>
+        <div class="m-at"><div class="m-al">Call Sonny (Bhai)</div><div class="m-as">202-521-8700 · Rockville, MD</div></div>
+        <span class="m-arr">›</span>
+      </a>
+      <a class="m-action" href="tel:911">
+        <span class="m-ai">🚨</span>
+        <div class="m-at"><div class="m-al">Emergency — 911</div><div class="m-as">Call immediately</div></div>
+        <span class="m-arr">›</span>
+      </a>
+      <div class="m-div">PARENTS' APP</div>
+      <a class="m-action" href="choudhury-home.vercel.app" target="_blank">
+        <span class="m-ai">🏡</span>
+        <div class="m-at"><div class="m-al">Open Choudhury Home</div><div class="m-as">Ma & Baba's companion app</div></div>
+        <span class="m-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('family')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+//  PLAYLIST DATA
+// ══════════════════════════════════════════
+const TRACKS = [
+  { title:'Essence (feat. Tems)', artist:'WizKid', year:'2021', genre:'afro', color:'#2AAA6A', emoji:'🌿',
+    sp:'https://open.spotify.com/search/Essence%20WizKid', yt:'https://www.youtube.com/results?search_query=Essence+WizKid+Tems', ap:'https://music.apple.com/us/search?term=Essence+WizKid' },
+  { title:'Last Last', artist:'Burna Boy', year:'2022', genre:'afro', color:'#D4587A', emoji:'🔥',
+    sp:'https://open.spotify.com/search/Last%20Last%20Burna%20Boy', yt:'https://www.youtube.com/results?search_query=Burna+Boy+Last+Last', ap:'https://music.apple.com/us/search?term=Last+Last+Burna+Boy' },
+  { title:'Kill Bill', artist:'SZA', year:'2022', genre:'rnb', color:'#7B4FA6', emoji:'🌹',
+    sp:'https://open.spotify.com/search/Kill%20Bill%20SZA', yt:'https://www.youtube.com/results?search_query=SZA+Kill+Bill+official', ap:'https://music.apple.com/us/search?term=Kill+Bill+SZA' },
+  { title:'Woman (feat. Doja Cat)', artist:'Doja Cat · Doja', year:'2021', genre:'rnb', color:'#E8B84B', emoji:'👑',
+    sp:'https://open.spotify.com/search/Woman%20Doja%20Cat', yt:'https://www.youtube.com/results?search_query=Doja+Cat+Woman+official', ap:'https://music.apple.com/us/search?term=Woman+Doja+Cat' },
+  { title:'Calm Down', artist:'Rema & Selena Gomez', year:'2022', genre:'afro', color:'#2AAA6A', emoji:'🌊',
+    sp:'https://open.spotify.com/search/Calm%20Down%20Rema', yt:'https://www.youtube.com/results?search_query=Rema+Selena+Gomez+Calm+Down', ap:'https://music.apple.com/us/search?term=Calm+Down+Rema' },
+  { title:'Beautiful', artist:'Ari Lennox', year:'2023', genre:'rnb', color:'#D4587A', emoji:'🍯',
+    sp:'https://open.spotify.com/search/Ari%20Lennox%20Beautiful', yt:'https://www.youtube.com/results?search_query=Ari+Lennox+Beautiful', ap:'https://music.apple.com/us/search?term=Ari+Lennox+Beautiful' },
+  { title:'Peru', artist:'Fireboy DML & Ed Sheeran', year:'2021', genre:'afro', color:'#E8B84B', emoji:'✨',
+    sp:'https://open.spotify.com/search/Peru%20Fireboy%20DML', yt:'https://www.youtube.com/results?search_query=Fireboy+DML+Peru+Ed+Sheeran', ap:'https://music.apple.com/us/search?term=Peru+Fireboy+DML' },
+  { title:'Good Days', artist:'SZA', year:'2020', genre:'rnb', color:'#7B4FA6', emoji:'☀️',
+    sp:'https://open.spotify.com/search/Good%20Days%20SZA', yt:'https://www.youtube.com/results?search_query=SZA+Good+Days+official', ap:'https://music.apple.com/us/search?term=Good+Days+SZA' },
+];
+
+let currentIdx = 0;
+let isPlaying = true;
+let shuffled = false;
+
+function renderPlaylist() {
+  const el = document.getElementById('playlist');
+  el.innerHTML = TRACKS.map((t,i) => `
+    <div class="pl-item ${i===currentIdx?'active':''}" onclick="playTrack(${i})">
+      <div class="pl-num">${i===currentIdx?'♪':i+1}</div>
+      <div class="pl-thumb" style="background:${t.color}22;">${t.emoji}</div>
+      <div class="pl-info">
+        <div class="pl-name">${t.title}</div>
+        <div class="pl-artist">${t.artist}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateNowPlaying() {
+  const t = TRACKS[currentIdx];
+  document.getElementById('pt-track').textContent = t.title;
+  document.getElementById('pt-artist').textContent = t.artist + ' · ' + t.year;
+  document.getElementById('np-track').textContent = t.title;
+  document.getElementById('np-artist').textContent = t.artist;
+  document.getElementById('modal-spotify').href = t.sp;
+  document.getElementById('modal-yt').href = t.yt;
+  document.getElementById('modal-apple').href = t.ap;
+  renderPlaylist();
+}
+
+function playTrack(i) {
+  currentIdx = i;
+  isPlaying = true;
+  document.getElementById('play-btn').classList.add('playing');
+  document.getElementById('play-btn').textContent = '⏸';
+  updateNowPlaying();
+}
+
+function togglePlay() {
+  isPlaying = !isPlaying;
+  const btn = document.getElementById('play-btn');
+  btn.textContent = isPlaying ? '⏸' : '▶';
+  btn.classList.toggle('playing', isPlaying);
+}
+
+function nextTrack() {
+  currentIdx = shuffled
+    ? Math.floor(Math.random() * TRACKS.length)
+    : (currentIdx + 1) % TRACKS.length;
+  isPlaying = true;
+  updateNowPlaying();
+}
+
+function prevTrack() {
+  currentIdx = (currentIdx - 1 + TRACKS.length) % TRACKS.length;
+  isPlaying = true;
+  updateNowPlaying();
+}
+
+function toggleShuffle(btn) {
+  shuffled = !shuffled;
+  btn.style.color = shuffled ? 'var(--rose2)' : '';
+}
+
+// ══════════════════════════════════════════
+//  GENRE FILTER
+// ══════════════════════════════════════════
+function setGenre(el, type) {
+  document.querySelectorAll('.gpill').forEach(p => p.classList.remove('on'));
+  el.classList.add('on');
+}
+
+// ══════════════════════════════════════════
+//  CANVAS VISUALIZER
+// ══════════════════════════════════════════
+const canvas = document.getElementById('vis-canvas');
+const ctx = canvas.getContext('2d');
+let bars = Array.from({length:40}, () => ({
+  h: Math.random() * 0.6 + 0.1,
+  speed: Math.random() * 0.03 + 0.01,
+  phase: Math.random() * Math.PI * 2
+}));
+let animFrame;
+
+function drawVis(t) {
+  animFrame = requestAnimationFrame(drawVis);
+  const W = canvas.width = canvas.offsetWidth;
+  const H = canvas.height = canvas.offsetHeight;
+  ctx.clearRect(0,0,W,H);
+  if (!isPlaying) return;
+
+  const barW = W / bars.length;
+  bars.forEach((b, i) => {
+    b.phase += b.speed;
+    const h = (Math.sin(b.phase) * 0.3 + 0.5) * b.h * H * 0.85;
+    const x = i * barW + barW * 0.15;
+    const w = barW * 0.7;
+    const progress = i / bars.length;
+    const r = Math.round(42 + progress * 170);
+    const g = Math.round(170 - progress * 80);
+    const bl = Math.round(106 + progress * 70);
+    ctx.fillStyle = `rgba(${r},${g},${bl},0.7)`;
+    ctx.beginPath();
+    ctx.roundRect(x, H - h, w, h, [3,3,0,0]);
+    ctx.fill();
+  });
+}
+drawVis(0);
+
+// ══════════════════════════════════════════
+//  MODAL
+// ══════════════════════════════════════════
+function open_modal(id) {
+  document.getElementById('ov-'+id).classList.add('open');
+}
+function close_modal(id) {
+  document.getElementById('ov-'+id).classList.remove('open');
+}
+document.querySelectorAll('.ov').forEach(ov => {
+  ov.addEventListener('click', e => { if(e.target===ov) ov.classList.remove('open'); });
+});
+
+// ══════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════
+renderPlaylist();
+</script>
+</body>
+</html>
