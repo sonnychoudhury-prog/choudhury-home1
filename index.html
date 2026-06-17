@@ -877,6 +877,40 @@ header{
   </div>
 </div>
 
+
+<!-- SECTION: FOOD & DINING -->
+<div class="section-label" id="sl-food">Food & Dining · খাদ্য</div>
+<div class="tile-grid">
+
+  <!-- UBER EATS -->
+  <div class="tile" onclick="open_modal('ubereats')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#06C167,#04A355)"></div>
+    <div class="tile-icon-wrap" style="background:#E8FBF1;">🛵</div>
+    <div class="tile-name" id="t-ubereats">Food Delivery</div>
+    <div class="tile-sub" id="ts-ubereats">Uber Eats · DoorDash · Grubhub</div>
+  </div>
+
+  <!-- RESTAURANTS -->
+  <div class="tile" onclick="open_modal('restaurants')">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--rose),var(--plum))"></div>
+    <div class="tile-icon-wrap" style="background:var(--rose-lt);">🍽️</div>
+    <div class="tile-name" id="t-restaurants">Restaurants</div>
+    <div class="tile-sub" id="ts-restaurants">Local Guide · Rockville · ভোজনালয়</div>
+  </div>
+
+  <!-- RECIPES -->
+  <div class="tile wide" onclick="open_modal('recipes')" style="background:linear-gradient(135deg,#FBF0D8,#F5E4C0);">
+    <div class="tile-accent" style="background:linear-gradient(90deg,var(--gold-bright),var(--gold))"></div>
+    <div class="tile-icon-wrap" style="background:rgba(232,184,75,0.15);font-size:26px;">👩‍🍳</div>
+    <div class="tile-body" style="margin-left:12px;flex:1;">
+      <div class="tile-name" id="t-recipes">Ma's Kitchen</div>
+      <div class="tile-sub" id="ts-recipes">Bengali & Indian Recipes · রান্নাঘর · Step by step cooking</div>
+    </div>
+    <div class="tile-arrow">›</div>
+  </div>
+
+</div>
+
 <!-- SECTION: CALENDAR & TRAVEL -->
 <div class="section-label" id="sl-travel">Calendar & Travel</div>
 <div class="tile-grid">
@@ -1550,6 +1584,251 @@ header{
   </div>
 </div>
 
+<!-- UBER EATS & DELIVERY -->
+<div class="overlay" id="ov-ubereats">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🛵 Food Delivery</h2><p>Order to your door · ঘরে খাবার</p></div>
+      <button class="modal-close" onclick="close_modal('ubereats')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-divider">ORDER NOW · এখনই অর্ডার করুন</div>
+      <a class="action-btn ab-teal" href="https://www.ubereats.com/feed?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlJvY2t2aWxsZSUyQyUyME1EJTIyJTdE" target="_blank">
+        <span class="ab-icon">🛵</span>
+        <div class="ab-text"><div class="ab-label">Uber Eats — Rockville</div><div class="ab-sub">Indian, Bengali, all cuisines · Fast delivery</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-red" href="https://www.doordash.com/food-delivery/rockville-md-restaurants/" target="_blank">
+        <span class="ab-icon">🔴</span>
+        <div class="ab-text"><div class="ab-label">DoorDash — Rockville</div><div class="ab-sub">Wide restaurant selection · Track your order</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.grubhub.com/delivery/md-rockville" target="_blank">
+        <span class="ab-icon">🟠</span>
+        <div class="ab-text"><div class="ab-label">Grubhub — Rockville</div><div class="ab-sub">Local favourites · Easy reorder</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <div class="m-divider">INDIAN FOOD DELIVERY · ভারতীয় খাবার</div>
+      <a class="action-btn ab-saffron" href="https://www.ubereats.com/feed?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlJvY2t2aWxsZSUyQyUyME1EJTIyJTdE&q=indian" target="_blank">
+        <span class="ab-icon">🍛</span>
+        <div class="ab-text"><div class="ab-label">Indian Food on Uber Eats</div><div class="ab-sub">Curry, biryani, dosa · ভারতীয় খাবার</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.ubereats.com/feed?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlJvY2t2aWxsZSUyQyUyME1EJTIyJTdE&q=bengali" target="_blank">
+        <span class="ab-icon">🐟</span>
+        <div class="ab-text"><div class="ab-label">Bengali Food on Uber Eats</div><div class="ab-sub">Macher jhol, hilsa, mishti · বাংলা রান্না</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.ubereats.com/feed?diningMode=DELIVERY&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlJvY2t2aWxsZSUyQyUyME1EJTIyJTdE&q=biryani" target="_blank">
+        <span class="ab-icon">🍚</span>
+        <div class="ab-text"><div class="ab-label">Biryani Delivery</div><div class="ab-sub">Hyderabadi · Kolkata style · বিরিয়ানি</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('ubereats')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESTAURANTS GUIDE -->
+<div class="overlay" id="ov-restaurants">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🍽️ Restaurant Guide</h2><p>Rockville & DC Metro · Best of 2026</p></div>
+      <button class="modal-close" onclick="close_modal('restaurants')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="m-divider">🏆 TOP INDIAN — ROCKVILLE & NEARBY</div>
+
+      <div class="info-row">
+        <div class="info-dot" style="background:var(--gold)"></div>
+        <div style="flex:1">
+          <div class="info-title">Bombay Bistro</div>
+          <div class="info-sub">Rockville · Classic North Indian · Family favourite since 1991</div>
+        </div>
+        <a href="https://www.opentable.com/r/bombay-bistro-rockville" target="_blank" class="maps-btn" style="margin-top:0;">Book</a>
+      </div>
+      <div style="display:flex;gap:6px;margin:-4px 0 10px;">
+        <a class="maps-btn" href="https://www.google.com/maps/search/Bombay+Bistro+Rockville+MD" target="_blank">🗺️ Map</a>
+        <a class="maps-btn" href="https://www.ubereats.com/store/bombay-bistro/rockville" target="_blank">🛵 Deliver</a>
+      </div>
+
+      <div class="info-row">
+        <div class="info-dot" style="background:var(--jade)"></div>
+        <div style="flex:1">
+          <div class="info-title">RASA — Rockville Pike</div>
+          <div class="info-sub">12033 Rockville Pike · Modern Indian bowls · Eater DC Best 2025</div>
+        </div>
+        <a href="https://www.explorerasa.com" target="_blank" class="maps-btn" style="margin-top:0;">Menu</a>
+      </div>
+      <div style="display:flex;gap:6px;margin:-4px 0 10px;">
+        <a class="maps-btn" href="https://www.google.com/maps/search/RASA+12033+Rockville+Pike" target="_blank">🗺️ Map</a>
+        <a class="maps-btn" href="https://www.ubereats.com/search?q=RASA+rockville" target="_blank">🛵 Deliver</a>
+      </div>
+
+      <div class="info-row">
+        <div class="info-dot" style="background:var(--rose)"></div>
+        <div style="flex:1">
+          <div class="info-title">Commonwealth Indian Restaurant</div>
+          <div class="info-sub">Pike & Rose · Fine dining Indian · Yellow Crab Curry · Upscale</div>
+        </div>
+        <a href="https://www.opentable.com/r/commonwealth-indian-restaurant-rockville" target="_blank" class="maps-btn" style="margin-top:0;">Book</a>
+      </div>
+      <div style="display:flex;gap:6px;margin:-4px 0 10px;">
+        <a class="maps-btn" href="https://www.google.com/maps/search/Commonwealth+Indian+Restaurant+Rockville" target="_blank">🗺️ Map</a>
+        <a class="maps-btn" href="https://www.ubereats.com/search?q=Commonwealth+Indian+Rockville" target="_blank">🛵 Deliver</a>
+      </div>
+
+      <div class="info-row">
+        <div class="info-dot" style="background:var(--copper)"></div>
+        <div style="flex:1">
+          <div class="info-title">OM Fine Indian Cuisine</div>
+          <div class="info-sub">9736 Traville Gateway Dr · Yelp #1 Rockville 2026 · Authentic</div>
+        </div>
+        <a href="https://www.google.com/maps/search/OM+Indian+Cuisine+Rockville+MD" target="_blank" class="maps-btn" style="margin-top:0;">Map</a>
+      </div>
+      <div style="display:flex;gap:6px;margin:-4px 0 10px;">
+        <a class="maps-btn" href="https://www.ubereats.com/search?q=OM+Indian+Rockville" target="_blank">🛵 Deliver</a>
+      </div>
+
+      <div class="info-row">
+        <div class="info-dot" style="background:var(--plum)"></div>
+        <div style="flex:1">
+          <div class="info-title">Chettinadu Indian Cuisine</div>
+          <div class="info-sub">Rockville · South Indian · Dosa specialist · Vegetarian friendly</div>
+        </div>
+        <a href="https://www.google.com/maps/search/Chettinadu+Indian+Cuisine+Rockville" target="_blank" class="maps-btn" style="margin-top:0;">Map</a>
+      </div>
+      <div style="display:flex;gap:6px;margin:-4px 0 10px;">
+        <a class="maps-btn" href="https://www.ubereats.com/search?q=Chettinadu+Rockville" target="_blank">🛵 Deliver</a>
+      </div>
+
+      <div class="info-row">
+        <div class="info-dot" style="background:var(--jade)"></div>
+        <div style="flex:1">
+          <div class="info-title">Woodlands — Gaithersburg</div>
+          <div class="info-sub">555 Quince Orchard Rd · South Indian · Best dosa & idli · Vegetarian</div>
+        </div>
+        <a href="https://www.google.com/maps/search/Woodlands+Restaurant+Gaithersburg+MD" target="_blank" class="maps-btn" style="margin-top:0;">Map</a>
+      </div>
+      <div style="display:flex;gap:6px;margin:-4px 0 10px;">
+        <a class="maps-btn" href="https://www.ubereats.com/search?q=Woodlands+Gaithersburg" target="_blank">🛵 Deliver</a>
+      </div>
+
+      <div class="m-divider">BROWSE MORE · আরও খুঁজুন</div>
+      <a class="action-btn ab-rose" href="https://www.washingtonian.com/2024/07/01/best-indian-restaurants-washington-dc/" target="_blank">
+        <span class="ab-icon">📰</span>
+        <div class="ab-text"><div class="ab-label">Washingtonian — Best Indian DC</div><div class="ab-sub">Curated guide · Updated 2024</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.opentable.com/s?covers=2&dateTime=2026-06-17T19%3A00%3A00&metroId=4&term=indian" target="_blank">
+        <span class="ab-icon">📅</span>
+        <div class="ab-text"><div class="ab-label">OpenTable — Book Indian DC Metro</div><div class="ab-sub">Reserve a table · All areas</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.yelp.com/search?find_desc=Indian+Food&find_loc=Rockville,+MD" target="_blank">
+        <span class="ab-icon">⭐</span>
+        <div class="ab-text"><div class="ab-label">Yelp — Rockville Indian</div><div class="ab-sub">Reviews · Hours · Menus · 2026</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <button class="back-btn" onclick="close_modal('restaurants')">← Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- RECIPES — MA'S KITCHEN -->
+<div class="overlay" id="ov-recipes">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>👩‍🍳 Ma's Kitchen</h2><p>বাংলা ও ভারতীয় রান্না · Bengali & Indian Cooking</p></div>
+      <button class="modal-close" onclick="close_modal('recipes')">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="m-divider">🐟 BENGALI CLASSICS · বাংলা রান্না</div>
+      <a class="action-btn ab-teal" href="https://www.youtube.com/results?search_query=macher+jhol+recipe+bengali+authentic" target="_blank">
+        <span class="ab-icon">🐟</span>
+        <div class="ab-text"><div class="ab-label">Macher Jhol — Fish Curry</div><div class="ab-sub">মাছের ঝোল · Classic Bengali fish curry · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.youtube.com/results?search_query=ilish+bhapa+hilsa+bengali+recipe" target="_blank">
+        <span class="ab-icon">🫧</span>
+        <div class="ab-text"><div class="ab-label">Bhapa Ilish — Steamed Hilsa</div><div class="ab-sub">ভাপা ইলিশ · Mustard steamed hilsa · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.youtube.com/results?search_query=aloo+posto+bengali+recipe+poppy+seed" target="_blank">
+        <span class="ab-icon">🥔</span>
+        <div class="ab-text"><div class="ab-label">Aloo Posto</div><div class="ab-sub">আলু পোস্ত · Potato with poppy seeds · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-rose" href="https://www.youtube.com/results?search_query=chingri+malai+curry+bengali+prawn+coconut" target="_blank">
+        <span class="ab-icon">🦐</span>
+        <div class="ab-text"><div class="ab-label">Chingri Malai Curry</div><div class="ab-sub">চিংড়ি মালাই কারি · Prawn coconut curry</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.youtube.com/results?search_query=dal+bengali+recipe+musur+dal" target="_blank">
+        <span class="ab-icon">🫘</span>
+        <div class="ab-text"><div class="ab-label">Musur Dal — Red Lentil</div><div class="ab-sub">মসুর ডাল · Bengali style lentils</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-ink" href="https://www.youtube.com/results?search_query=shukto+bengali+recipe+bitter+vegetable" target="_blank">
+        <span class="ab-icon">🌿</span>
+        <div class="ab-text"><div class="ab-label">Shukto — Bitter Veggie Medley</div><div class="ab-sub">শুক্তো · Traditional Bengali starter</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">🍛 INDIAN FAVOURITES · ভারতীয় রান্না</div>
+      <a class="action-btn ab-saffron" href="https://www.youtube.com/results?search_query=butter+chicken+recipe+authentic+indian" target="_blank">
+        <span class="ab-icon">🍗</span>
+        <div class="ab-text"><div class="ab-label">Butter Chicken — Murgh Makhani</div><div class="ab-sub">মাখনি চিকেন · Step by step YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.youtube.com/results?search_query=kolkata+biryani+recipe+authentic" target="_blank">
+        <span class="ab-icon">🍚</span>
+        <div class="ab-text"><div class="ab-label">Kolkata Biryani</div><div class="ab-sub">কলকাতা বিরিয়ানি · With potato & egg · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-teal" href="https://www.youtube.com/results?search_query=palak+paneer+recipe+authentic+easy" target="_blank">
+        <span class="ab-icon">🥬</span>
+        <div class="ab-text"><div class="ab-label">Palak Paneer</div><div class="ab-sub">পালক পনির · Spinach & cottage cheese</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-rose" href="https://www.youtube.com/results?search_query=rasgulla+recipe+bengali+sweet+easy" target="_blank">
+        <span class="ab-icon">🍮</span>
+        <div class="ab-text"><div class="ab-label">Rasgulla — Bengali Sweet</div><div class="ab-sub">রসগোল্লা · Classic dessert · YouTube</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-gold" href="https://www.youtube.com/results?search_query=mishti+doi+recipe+bengali+sweet+yogurt" target="_blank">
+        <span class="ab-icon">🫙</span>
+        <div class="ab-text"><div class="ab-label">Mishti Doi — Sweet Yogurt</div><div class="ab-sub">মিষ্টি দই · Bengali dessert classic</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <div class="m-divider">📺 FULL COOKING CHANNELS · রান্না চ্যানেল</div>
+      <a class="action-btn ab-red" href="https://www.youtube.com/@BongEats" target="_blank">
+        <span class="ab-icon">▶️</span>
+        <div class="ab-text"><div class="ab-label">Bong Eats — YouTube Channel</div><div class="ab-sub">Best Bengali cooking channel · All classics</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-red" href="https://www.youtube.com/results?search_query=bengali+recipe+channel+ma+er+ranna" target="_blank">
+        <span class="ab-icon">▶️</span>
+        <div class="ab-text"><div class="ab-label">Bengali Home Cooking Channels</div><div class="ab-sub">মায়ের রান্না · Authentic home recipes</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+      <a class="action-btn ab-saffron" href="https://www.amazon.com/s?k=bengali+cookbook+recipes+book" target="_blank">
+        <span class="ab-icon">📚</span>
+        <div class="ab-text"><div class="ab-label">Bengali Cookbooks — Amazon</div><div class="ab-sub">Order a recipe book · বাংলা রান্নার বই</div></div>
+        <span class="ab-arr">↗</span>
+      </a>
+
+      <button class="back-btn" onclick="close_modal('recipes')">← Back</button>
+    </div>
+  </div>
+</div>
+
 <!-- SECURITY -->
 <div class="overlay" id="ov-security">
   <div class="modal">
@@ -2060,6 +2339,13 @@ const TRANS={
   'ts-golf':['Courses · Tee Times · Lessons · Live Scores','কোর্স · টি টাইম · লাইভ স্কোর'],
   't-security':['Home Security','গৃহ নিরাপত্তা'],
   'ts-security':['Alarm.com · Arm · Disarm · Cameras','Alarm.com · সিকিউরিটি'],
+  'sl-food':['Food & Dining · খাদ্য','খাদ্য ও ভোজন'],
+  't-ubereats':['Food Delivery','খাবার ডেলিভারি'],
+  'ts-ubereats':['Uber Eats · DoorDash · Grubhub','উবার ইটস · ডোরড্যাশ'],
+  't-restaurants':['Restaurants','রেস্তোরাঁ'],
+  'ts-restaurants':['Local Guide · Rockville · ভোজনালয়','স্থানীয় গাইড · Rockville'],
+  't-recipes':["Ma\'s Kitchen",'মায়ের রান্নাঘর'],
+  'ts-recipes':['Bengali & Indian Recipes · রান্নাঘর · Step by step cooking','বাংলা ও ভারতীয় রান্না'],
   'sl-travel':['Calendar & Travel','ক্যালেন্ডার ও ভ্রমণ'],
   't-calendar':['Family Calendar','পারিবারিক ক্যালেন্ডার'],
   'ts-calendar':['Events · Appointments · Add Reminders · পারিবারিক সূচি','ইভেন্ট · অ্যাপয়েন্টমেন্ট · স্মরণ'],
