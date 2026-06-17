@@ -1,0 +1,7 @@
+{
+  "routes": [
+    { "src": "/soma-music", "dest": "/soma-music.html" },
+    { "src": "/soma", "dest": "/soma-music.html" },
+    { "src": "/", "dest": "/index.html" }
+  ]
+}
