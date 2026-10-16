@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="ocean">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Choudhury Home">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#0F1F1A">
+<meta name="theme-color" content="#082A3D">
 <meta name="description" content="The Choudhury Family Home App — গৃহ সহায়ক">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon.png">
@@ -737,7 +737,42 @@ body.big{zoom:1.15;}
 .dose .dt{font-size:13px;color:var(--ink-soft);}
 .dose .tm{margin-left:auto;font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
 .refill{font-size:14px;color:var(--crimson);background:var(--crimson-lt);border-radius:10px;padding:8px 12px;margin:6px 0 4px;}
-</style>
+/* ═══ COLOR THEMES (html[data-theme]) ═══ */
+    html[data-theme]{--bg:var(--t-bg);--bg2:var(--t-bg2);--bg3:var(--t-bg3);--jade:var(--t-pri);--jade2:var(--t-pri2);--jade-lt:var(--t-pri-lt);--gold:var(--t-acc2);--gold-bright:var(--t-acc);--gold-lt:var(--t-acc-lt);--border:var(--t-border);--ink:var(--t-ink);--ink-soft:var(--t-ink2);--shadow-sm:0 2px 14px var(--t-sh);--shadow:0 6px 28px var(--t-sh);}
+  html[data-theme] body{background:var(--t-bg);}
+  html[data-theme] header{background:linear-gradient(180deg,var(--t-head) 0%,var(--t-head2) 100%);border-bottom:1px solid rgba(255,255,255,0.08);}
+  html[data-theme] .alpona{background:repeating-linear-gradient(90deg,var(--t-acc) 0 12px,var(--t-pri-lt2) 12px 24px,var(--t-hot) 24px 36px,var(--t-pri-lt2) 36px 48px);}
+  html[data-theme] .header-brand h1,html[data-theme] .clock-pill .t{color:var(--t-acc);}
+  html[data-theme] .greet-strip{background:linear-gradient(135deg,var(--t-pri) 0%,var(--t-pri3) 100%);}
+  html[data-theme] .emergency{background:linear-gradient(135deg,var(--t-sos) 0%,var(--t-sos2) 100%);box-shadow:0 4px 24px rgba(0,0,0,0.18);}
+html[data-theme] .fest-card{background:linear-gradient(135deg,var(--t-fest) 0%,var(--t-fest2) 100%);}
+  html[data-theme] .section-label{color:var(--t-pri);}
+                 html[data-theme] .section-label::after{background:linear-gradient(90deg,var(--t-pri),transparent);opacity:.3;}
+  html[data-theme] .tile{background:var(--card)!important;border-color:var(--t-border);}
+                      html[data-theme] .tile-accent{background:var(--t-pri)!important;}
+  html[data-theme] .tile-grid .tile:nth-child(even) .tile-accent{background:var(--t-acc)!important;}
+  html[data-theme] .tile-icon-wrap{background:var(--t-pri-lt)!important;}
+                                         html[data-theme] .tile-grid .tile:nth-child(even) .tile-icon-wrap{background:var(--t-acc-lt)!important;}
+  html[data-theme] .tile.wide .tile-accent{background:linear-gradient(90deg,var(--t-pri),var(--t-acc))!important;}
+  html[data-theme] .tile-arrow{color:var(--t-pri);}
+  html[data-theme] .voice-fab{background:linear-gradient(135deg,var(--t-pri) 0%,var(--t-pri2) 100%);box-shadow:0 6px 28px var(--t-sh2);}
+html[data-theme] .med-card h3,html[data-theme] .m-divider{color:var(--t-pri);}
+  html[data-theme] .dose .chk{border-color:var(--t-pri);}
+html[data-theme] .dose.done .chk{background:var(--t-pri);}
+  html[data-theme] .alert-card .acount{background:var(--t-hot);}
+html[data-theme] .lang-toggle{border-color:var(--t-acc);background:rgba(255,255,255,0.10);}
+                             
+  html[data-theme] .farm-crop{background:linear-gradient(135deg,var(--t-pri-lt),var(--t-bg))!important;}
+  html[data-theme] .farm-chip{border-color:var(--t-border);}
+  html[data-theme] .farm-chip.on,html[data-theme] .farm-pill.yes{background:var(--t-pri)!important;border-color:var(--t-pri)!important;color:#fff;}
+  html[data-theme] .tile.wide{background:var(--card)!important;}
+  /* Indigo & Marigold */
+  html[data-theme="indigo"]{--t-bg:#F4F5FB;--t-bg2:#E9ECF8;--t-bg3:#DCE1F3;--t-pri:#2E3A8C;--t-pri2:#1E2766;--t-pri3:#4B55B5;--t-pri-lt:#E6E9FA;--t-pri-lt2:#C9D0F5;--t-acc:#F2A93B;--t-acc2:#C7841E;--t-acc-lt:#FDF1DC;--t-hot:#D9442E;--t-head:#141A45;--t-head2:#1F2763;--t-sos:#C4322A;--t-sos2:#8E1F1A;--t-fest:#2E3A8C;--t-fest2:#C7841E;--t-border:rgba(46,58,140,0.12);--t-ink:#151833;--t-ink2:#454A6B;--t-sh:rgba(30,39,102,0.10);--t-sh2:rgba(46,58,140,0.40);}
+  /* Lotus Plum & Saffron */
+    html[data-theme="lotus"]{--t-bg:#FBF6F7;--t-bg2:#F5EAEE;--t-bg3:#EDDCE3;--t-pri:#7A2E5E;--t-pri2:#561F42;--t-pri3:#A0457D;--t-pri-lt:#F8E6EF;--t-pri-lt2:#EBC4D8;--t-acc:#F59E0B;--t-acc2:#C77C06;--t-acc-lt:#FEF1D6;--t-hot:#E0533D;--t-head:#2B1225;--t-head2:#3F1B36;--t-sos:#C62F2F;--t-sos2:#8C1B1B;--t-fest:#7A2E5E;--t-fest2:#E08A0B;--t-border:rgba(122,46,94,0.12);--t-ink:#24121D;--t-ink2:#5A4352;--t-sh:rgba(86,31,66,0.10);--t-sh2:rgba(122,46,94,0.40);}
+  /* Ocean Calm & Coral */
+                        html[data-theme="ocean"]{--t-bg:#F2F7FA;--t-bg2:#E4EFF5;--t-bg3:#D3E5EF;--t-pri:#0E5E86;--t-pri2:#0A4562;--t-pri3:#1C82AE;--t-pri-lt:#E1F0F8;--t-pri-lt2:#BFDDEC;--t-acc:#F07B5A;--t-acc2:#C9583A;--t-acc-lt:#FDE9E2;--t-hot:#E2483A;--t-head:#082A3D;--t-head2:#0C3A54;--t-sos:#C7352B;--t-sos2:#8F211A;--t-fest:#0E5E86;--t-fest2:#E06C4B;--t-border:rgba(14,94,134,0.12);--t-ink:#0F2230;--t-ink2:#3F5868;--t-sh:rgba(10,69,98,0.10);--t-sh2:rgba(14,94,134,0.40);}
+  </style>
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Noto+Sans+Bengali:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
