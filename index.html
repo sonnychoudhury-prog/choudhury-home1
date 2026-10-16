@@ -690,8 +690,55 @@ header{
   color:white;border:none;font-family:'DM Sans',sans-serif;
   font-size:15px;font-weight:700;cursor:pointer;
 }
+
+.header-inner{flex-wrap:wrap;row-gap:10px;}
+.header-right{gap:6px;flex-wrap:wrap;}
+.alert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow-sm);display:flex;align-items:center;gap:12px;cursor:pointer;}
+.alert-card .ai{font-size:26px;}
+.alert-card b{font-size:16px;display:block;}
+.alert-card span{font-size:13px;color:var(--ink-soft);}
+.alert-card .acount{margin-left:auto;background:var(--crimson);color:#fff;border-radius:999px;min-width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;padding:0 8px;}
+.alert-item{display:flex;gap:12px;padding:14px;border-radius:14px;margin-bottom:10px;background:var(--bg2);align-items:flex-start;text-decoration:none;color:var(--ink);}
+.alert-item .ai{font-size:26px;flex-shrink:0;}
+.alert-item b{font-size:16px;display:block;line-height:1.3;}
+.alert-item span{font-size:13px;color:var(--ink-soft);display:block;margin-top:3px;line-height:1.35;}
+.alert-item.k-weather{background:#FDF0E2;border-left:4px solid #D9741A;}
+.alert-item.k-severe{background:var(--crimson-lt);border-left:4px solid var(--crimson);}
+.alert-item.k-puja{background:var(--gold-lt);border-left:4px solid var(--gold);}
+.alert-item.k-bday{background:var(--rose-lt);border-left:4px solid var(--rose);}
+.alert-item.k-news{background:var(--bg2);border-left:4px solid var(--plum);}
+.notif-btn{width:100%;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:700;padding:14px;border-radius:14px;border:none;background:var(--jade);color:#fff;cursor:pointer;margin:4px 0 12px;}
+/* ═══ 2026 REFRESH: readability for Ma and Baba ═══ */
+body{font-family:'DM Sans','Noto Sans Bengali',sans-serif;}
+.tile-name{font-size:17px;}
+.tile-sub{font-size:13px;color:var(--ink-soft);}
+.tile-grid + .tile-grid{margin-top:12px;}
+.section-label{font-size:12px;padding-top:22px;}
+.info-sub,.modal-head p{color:var(--ink-soft);}
+.lang-toggle{font-size:14px;color:#fff;border-color:rgba(232,184,75,0.5);background:rgba(232,184,75,0.14);}
+.text-toggle{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:#fff;border-radius:20px;padding:7px 12px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+body.big{zoom:1.15;}
+.today-wrap{padding:0 16px;display:flex;flex-direction:column;gap:12px;margin-top:14px;}
+.fest-card{border-radius:var(--r);padding:16px 18px;background:linear-gradient(135deg,#7A1F1F,#B8862A);color:#fff;box-shadow:var(--shadow-sm);display:flex;gap:14px;align-items:center;position:relative;overflow:hidden;}
+.fest-card .fi{font-size:34px;flex-shrink:0;}
+.fest-card h3{font-family:'Playfair Display','Noto Sans Bengali',serif;font-size:20px;line-height:1.15;}
+.fest-card p{font-size:14px;opacity:0.9;margin-top:3px;}
+.fest-card .fb{font-family:'Tiro Bangla',serif;font-size:15px;opacity:0.95;margin-top:2px;}
+.med-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 16px 10px;box-shadow:var(--shadow-sm);}
+.med-card h3{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--jade);margin-bottom:8px;display:flex;justify-content:space-between;}
+.med-card h3 span{color:var(--ink-soft);letter-spacing:0;text-transform:none;font-weight:600;}
+.dose{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--border);cursor:pointer;}
+.dose:first-of-type{border-top:none;}
+.dose .chk{width:30px;height:30px;border-radius:50%;border:2px solid var(--jade);display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0;}
+.dose.done .chk{background:var(--jade);}
+.dose.done .dn{text-decoration:line-through;color:var(--ink-faint);}
+.dose.next{background:var(--jade-lt);margin:0 -10px;padding:11px 10px;border-radius:12px;border-top-color:transparent;}
+.dose .dn{font-size:17px;font-weight:600;}
+.dose .dt{font-size:13px;color:var(--ink-soft);}
+.dose .tm{margin-left:auto;font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+.refill{font-size:14px;color:var(--crimson);background:var(--crimson-lt);border-radius:10px;padding:8px 12px;margin:6px 0 4px;}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Noto+Sans+Bengali:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -714,7 +761,8 @@ header{
         <div class="t" id="ist-clock" style="color:var(--gold-bright);font-size:16px;">--:--</div>
         <div class="ap" style="color:rgba(232,184,75,0.6);">IST 🇮🇳</div>
       </div>
-      <button class="lang-toggle" onclick="toggleLang()">বাং / EN</button>
+      <button class="text-toggle" onclick="toggleBig()" aria-label="Bigger text">A+</button>
+      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">বাংলা</button>
     </div>
   </div>
 </header>
@@ -740,6 +788,20 @@ header{
     <p id="em-p">Tap to call Sonny or 911 immediately</p>
   </div>
   <div class="em-pulse"></div>
+</div>
+
+<!-- TODAY: festival + medicines -->
+<div class="today-wrap">
+  <div class="fest-card" id="fest-card" hidden></div>
+  <div class="alert-card" onclick="openAlerts()">
+    <div class="ai">🔔</div>
+    <div><b id="al-h">Alerts &amp; Reminders</b><span id="al-sub">Puja · Birthdays · Weather · News</span></div>
+    <div class="acount" id="al-count" hidden>0</div>
+  </div>
+  <div class="med-card" onclick="event.stopPropagation()">
+    <h3><b id="med-h">Today's Medicines</b><span id="med-count"></span></h3>
+    <div id="med-today"></div>
+  </div>
 </div>
 
 <!-- SECTION: DAILY NEEDS -->
@@ -896,6 +958,17 @@ header{
     <div class="tile-icon-wrap" style="background:var(--rose-lt);">🍽️</div>
     <div class="tile-name" id="t-restaurants">Restaurants</div>
     <div class="tile-sub" id="ts-restaurants">Local Guide · Rockville · ভোজনালয়</div>
+  </div>
+
+  <!-- FRESH FARM FOOD -->
+  <div class="tile wide" onclick="open_modal('farm')" style="background:linear-gradient(135deg,#E6F4EA,#D4ECDC);">
+    <div class="tile-accent" style="background:linear-gradient(90deg,#2F7A4A,#5FAF6E)"></div>
+    <div class="tile-icon-wrap" style="background:rgba(47,122,74,0.12);font-size:26px;">🥬</div>
+    <div class="tile-body" style="margin-left:12px;flex:1;">
+      <div class="tile-name" id="t-farm">Fresh Farm Food</div>
+      <div class="tile-sub" id="ts-farm">Farmers Markets · Farms · In Season · তাজা খাবার</div>
+    </div>
+    <div class="tile-arrow">›</div>
   </div>
 
   <!-- RECIPES -->
@@ -1630,6 +1703,117 @@ header{
   </div>
 </div>
 
+<!-- FRESH FARM FOOD -->
+<style>
+.farm-chips{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 12px;}
+.farm-chip{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;padding:9px 14px;border-radius:999px;border:1px solid rgba(47,122,74,0.25);background:#fff;color:var(--ink);cursor:pointer;}
+.farm-chip.on{background:#2F7A4A;border-color:#2F7A4A;color:#fff;}
+.farm-card{background:#fff;border:1px solid rgba(22,18,16,0.08);border-radius:14px;padding:14px;margin-bottom:10px;}
+.farm-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+.farm-name{font-size:17px;font-weight:700;line-height:1.25;}
+.farm-mi{font-size:14px;font-weight:600;color:var(--ink-soft);white-space:nowrap;}
+.farm-meta{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+.farm-note{font-size:14px;margin-top:6px;line-height:1.4;}
+.farm-pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:6px;margin-top:6px;}
+.farm-pill.yes{background:#2F7A4A;color:#fff;}
+.farm-pill.no{background:#EEE8E0;color:var(--ink-soft);}
+.farm-acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.farm-crops{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
+.farm-crop{background:linear-gradient(135deg,#E6F4EA,#F2F8F0);border-radius:12px;padding:10px 12px;}
+.farm-crop b{display:block;font-size:15px;}
+.farm-crop span{font-size:12px;color:var(--ink-soft);}
+</style>
+<div class="overlay" id="ov-farm">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2>🥬 Fresh Farm Food</h2><p id="farm-subhead">Real farms and markets near Rockville · তাজা খামারের খাবার</p></div>
+      <button class="modal-close" onclick="close_modal('farm')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-divider" id="farm-season-h">IN SEASON NOW · এখন মৌসুমে</div>
+      <div class="farm-crops" id="farm-crops"></div>
+      <div class="m-divider" id="farm-list-h">FARMS & MARKETS · খামার ও বাজার</div>
+      <div class="farm-chips" id="farm-chips"></div>
+      <div id="farm-list"></div>
+      <p style="font-size:12px;color:var(--ink-faint);margin:6px 0 12px;" id="farm-foot">Hours change with the season. Call or check online before going. Powered by Harvest Intell.</p>
+      <button class="back-btn" onclick="close_modal('farm')">← Back</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const HOME=[39.084,-77.153];
+  const ALLM=[1,2,3,4,5,6,7,8,9,10,11,12],EVERY=[0,1,2,3,4,5,6];
+  const MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MNB=['জানু','ফেব্রু','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টে','অক্টো','নভে','ডিসে'];
+  // t: m market, f farm / pick your own, c CSA. days 0 Sun to 6 Sat.
+  const P=[
+   ['Rockville Farmers Market','রকভিল কৃষক বাজার','m','Rockville Town Center',39.0838,-77.1528,[6],'Sat mornings','শনিবার সকাল',[5,6,7,8,9,10,11],['snap'],'Closest market to home with Montgomery County growers.','বাড়ির সবচেয়ে কাছের বাজার।'],
+   ['Bethesda Central Farm Market','বেথেসডা ফার্ম মার্কেট','m','Bethesda, MD',38.983,-77.098,[0],'Sun mornings','রবিবার সকাল',ALLM,['organic','meat'],'Large Sunday market with grass fed meat, cheese, and vegetables.','বড় রবিবারের বাজার, তাজা সবজি ও মাংস।'],
+   ['Takoma Park Farmers Market','টাকোমা পার্ক বাজার','m','Takoma Park, MD',38.9776,-77.008,[0],'Sun mornings','রবিবার সকাল',ALLM,['snap','organic'],'Year round, all local producers.','সারা বছর, সব স্থানীয় চাষি।'],
+   ['FRESHFARM Silver Spring','সিলভার স্প্রিং বাজার','m','Silver Spring, MD',38.9967,-77.0262,[6],'Sat mornings','শনিবার সকাল',ALLM,['snap','meat'],'Downtown Silver Spring on Ellsworth Drive.','সিলভার স্প্রিং ডাউনটাউন।'],
+   ['FRESHFARM Dupont Circle','ডুপন্ট সার্কেল বাজার','m','Washington, DC',38.9104,-77.044,[0],'Sun mornings','রবিবার সকাল',ALLM,['snap','organic','meat'],'The flagship DC market with dozens of farms.','ডিসির সবচেয়ে বড় কৃষক বাজার।'],
+   ['Arlington Farmers Market','আর্লিংটন কৃষক বাজার','m','Arlington, VA',38.8907,-77.0848,[6],'Sat mornings','শনিবার সকাল',ALLM,['snap','organic'],'Virginia farms and pastured eggs.','ভার্জিনিয়ার খামার ও ডিম।'],
+   ['Butler\'s Orchard','বাটলার্স অর্চার্ড','f','Germantown, MD',39.2003,-77.2531,EVERY,'Daily in season','মৌসুমে প্রতিদিন',[5,6,7,8,9,10,11,12],['pick'],'Pick your own apples and pumpkins now, plus a farm market.','নিজে আপেল ও কুমড়ো তুলুন, খামারের দোকানও আছে।'],
+   ['Homestead Farm','হোমস্টেড ফার্ম','f','Poolesville, MD',39.1225,-77.3926,EVERY,'Daily in season','মৌসুমে প্রতিদিন',[5,6,7,8,9,10,11,12],['pick','meat'],'Family farm with fruit picking and pasture raised meat.','পারিবারিক খামার, ফল তোলা ও মাংস।'],
+   ['Larriland Farm','ল্যারিল্যান্ড ফার্ম','f','Woodbine, MD',39.322,-77.049,EVERY,'Daily in season','মৌসুমে প্রতিদিন',[5,6,7,8,9,10,11],['pick'],'Big pick your own farm with many crops.','অনেক ফসল নিজে তোলার বড় খামার।'],
+   ['Potomac Vegetable Farms','পটোম্যাক ভেজিটেবল ফার্ম','f','Vienna, VA',38.938,-77.282,[2,3,4,5,6,0],'Farm stand, seasonal','খামারের দোকান',[5,6,7,8,9,10,11],['organic'],'Chemical free family farm stand with a CSA.','রাসায়নিক মুক্ত পারিবারিক খামার।'],
+   ['Clagett Farm CSA','ক্ল্যাগেট ফার্ম','c','Upper Marlboro, MD',38.83,-76.73,[2,6],'CSA pickup days','সাপ্তাহিক সবজির বাক্স',[5,6,7,8,9,10,11],['organic','snap','meat'],'Weekly vegetable box with sliding scale prices.','সাপ্তাহিক সবজির বাক্স, সাশ্রয়ী মূল্য।']
+  ];
+  const CROPS=[['Apples','আপেল',[8,9,10,11]],['Pumpkins','কুমড়ো',[9,10]],['Winter Squash','মিষ্টি কুমড়ো',[9,10,11]],['Sweet Potatoes','মিষ্টি আলু',[9,10,11]],['Spinach','পালং শাক',[3,4,5,9,10,11]],['Kale','কেল শাক',[4,5,6,9,10,11,12]],['Cabbage','বাঁধাকপি',[6,7,9,10,11]],['Cauliflower','ফুলকপি',[9,10,11]],['Radish','মূলো',[4,5,9,10]],['Carrots','গাজর',[6,7,9,10,11]],['Beets','বিট',[6,7,9,10,11]],['Peppers','লঙ্কা ও ক্যাপসিকাম',[7,8,9,10]],['Eggplant','বেগুন',[7,8,9]],['Tomatoes','টমেটো',[7,8,9]],['Okra','ঢেঁড়স',[7,8,9]],['Sweet Corn','ভুট্টা',[7,8,9]],['Peaches','পিচ',[7,8,9]],['Strawberries','স্ট্রবেরি',[5,6]],['Pears','নাশপাতি',[8,9,10]],['Brussels Sprouts','ব্রাসেলস স্প্রাউট',[10,11,12]],['Asparagus','অ্যাসপারাগাস',[4,5]],['Eggs','ডিম',ALLM]];
+  let filt='all';
+  const B=()=>typeof isBn!=='undefined'&&isBn;
+  function mi(a,b){const R=3958.8,r=Math.PI/180,dl=(a-HOME[0])*r,dn=(b-HOME[1])*r,x=Math.sin(dl/2)**2+Math.cos(HOME[0]*r)*Math.cos(a*r)*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(x));}
+  function render(){
+    const now=new Date(),d=now.getDay(),m=now.getMonth()+1,bn=B();
+    document.getElementById('farm-crops').innerHTML=CROPS.filter(c=>c[2].includes(m)).map(c=>`<div class="farm-crop"><b>${bn?c[1]:c[0]}</b><span>${bn?c[0]:c[1]}</span></div>`).join('');
+    const F=[['all','All','সব'],['open','Open today','আজ খোলা'],['m','Markets','বাজার'],['f','Farms','খামার'],['organic','Organic','জৈব']];
+    document.getElementById('farm-chips').innerHTML=F.map(f=>`<button class="farm-chip${filt===f[0]?' on':''}" onclick="farmFilter('${f[0]}')">${bn?f[2]:f[1]}</button>`).join('');
+    const open=p=>p[9].includes(m)&&p[6].includes(d);
+    let L=P.map(p=>({p,d:mi(p[4],p[5])}));
+    if(filt==='open')L=L.filter(x=>open(x.p));
+    else if(filt==='m'||filt==='f')L=L.filter(x=>x.p[2]===filt||(filt==='f'&&x.p[2]==='c'));
+    else if(filt==='organic')L=L.filter(x=>x.p[10].includes('organic'));
+    L.sort((a,b)=>(open(b.p)-open(a.p))||a.d-b.d);
+    document.getElementById('farm-list').innerHTML=L.length?L.map(({p,d:dist})=>{
+      const o=open(p),q=encodeURIComponent(p[0]+' '+p[3]);
+      const pill=o?(bn?'আজ খোলা':'Open today'):p[9].includes(m)?(bn?'আজ বন্ধ':'Not today'):(bn?'মৌসুম শেষ':'Off season');
+      return `<div class="farm-card"><div class="farm-top"><div class="farm-name">${bn?p[1]:p[0]}</div><div class="farm-mi">${dist.toFixed(1)} mi</div></div>
+      <div class="farm-meta">${p[3]} · ${bn?p[8]:p[7]}</div><span class="farm-pill ${o?'yes':'no'}">${pill}</span>
+      <div class="farm-note">${bn?p[12]:p[11]}</div>
+      <div class="farm-acts"><a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank">🗺️ ${bn?'মানচিত্র':'Map'}</a>
+      <a class="maps-btn" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${q}" target="_blank">🚗 Uber</a></div></div>`;
+    }).join(''):`<p style="font-size:15px;color:var(--ink-soft);padding:8px 0 14px;">${bn?'আজ কিছু খোলা নেই। "সব" দেখুন।':'Nothing open today. Tap All to see every spot.'}</p>`;
+    document.getElementById('farm-subhead').textContent=bn?'রকভিলের কাছে আসল খামার ও বাজার':'Real farms and markets near Rockville · তাজা খামারের খাবার';
+    document.getElementById('farm-season-h').textContent=bn?`এখন মৌসুমে · ${MNB[m-1]}`:`IN SEASON NOW · ${MN[m-1].toUpperCase()}`;
+    document.getElementById('farm-list-h').textContent=bn?'খামার ও বাজার':'FARMS & MARKETS · খামার ও বাজার';
+    document.getElementById('farm-foot').textContent=bn?'মৌসুম অনুযায়ী সময় বদলায়। যাওয়ার আগে ফোন করে নিন।':'Hours change with the season. Call or check online before going. Powered by Harvest Intell.';
+  }
+  window.farmFilter=f=>{filt=f;render();};
+  window.renderFarm=render;
+  render();
+})();
+</script>
+
+<!-- ALERTS -->
+<div class="overlay" id="ov-alerts">
+  <div class="modal">
+    <div class="modal-drag"></div>
+    <div class="modal-head">
+      <div><h2 id="alm-h">🔔 Alerts</h2><p id="alm-p">Puja · Birthdays · Weather · News · সতর্কবার্তা</p></div>
+      <button class="modal-close" onclick="close_modal('alerts')">✕</button>
+    </div>
+    <div class="modal-body">
+      <button class="notif-btn" id="notif-btn" onclick="enableNotif()" hidden>Turn on phone alerts</button>
+      <div id="alerts-list"></div>
+      <div class="m-divider" id="news-h">TOP NEWS · প্রধান খবর</div>
+      <div id="news-list"><p style="font-size:14px;color:var(--ink-soft);padding:6px 0 12px;">Loading headlines…</p></div>
+      <button class="back-btn" onclick="close_modal('alerts')">← Back</button>
+    </div>
+  </div>
+</div>
+
 <!-- RESTAURANTS GUIDE -->
 <div class="overlay" id="ov-restaurants">
   <div class="modal">
@@ -2344,6 +2528,8 @@ const TRANS={
   'ts-ubereats':['Uber Eats · DoorDash · Grubhub','উবার ইটস · ডোরড্যাশ'],
   't-restaurants':['Restaurants','রেস্তোরাঁ'],
   'ts-restaurants':['Local Guide · Rockville · ভোজনালয়','স্থানীয় গাইড · Rockville'],
+  't-farm':['Fresh Farm Food','তাজা খামারের খাবার'],
+  'ts-farm':['Farmers Markets · Farms · In Season · তাজা খাবার','কৃষক বাজার · খামার · মৌসুমি সবজি'],
   't-recipes':["Ma\'s Kitchen",'মায়ের রান্নাঘর'],
   'ts-recipes':['Bengali & Indian Recipes · রান্নাঘর · Step by step cooking','বাংলা ও ভারতীয় রান্না'],
   'sl-travel':['Calendar & Travel','ক্যালেন্ডার ও ভ্রমণ'],
@@ -2367,6 +2553,9 @@ function toggleLang(){
   for(const[id,vals]of Object.entries(TRANS)){
     const el=document.getElementById(id);if(el)el.textContent=vals[i];
   }
+  if(window.renderFarm)renderFarm();
+  if(window.renderToday)renderToday();
+  if(window.renderAlerts)renderAlerts();
 }
 
 // ══════════════════════════════════════════
@@ -2374,7 +2563,7 @@ function toggleLang(){
 // ══════════════════════════════════════════
 function open_modal(id){
   const ov=document.getElementById('ov-'+id);
-  if(ov){ov.classList.add('open');if(id==='weather')loadWeather();}
+  if(ov){ov.classList.add('open');if(id==='weather')loadWeather();if(id==='farm'&&window.renderFarm)renderFarm();}
 }
 function close_modal(id){
   const ov=document.getElementById('ov-'+id);if(ov)ov.classList.remove('open');
@@ -2526,7 +2715,7 @@ const DEFAULTS = {
 };
 
 function loadData(key){ try{ const v=localStorage.getItem('ch_'+key); return v?JSON.parse(v):DEFAULTS[key]; }catch(e){ return DEFAULTS[key]; } }
-function saveData(key,val){ try{ localStorage.setItem('ch_'+key,JSON.stringify(val)); }catch(e){} }
+function saveData(key,val){ try{ localStorage.setItem('ch_'+key,JSON.stringify(val)); }catch(e){} if(window.renderToday)renderToday(); }
 
 // ── SETTINGS TABS ──
 function switchSettingsTab(tab, el){
@@ -2928,6 +3117,139 @@ function dismissBanner() {
 window.addEventListener('appinstalled', () => {
   document.getElementById('pwa-banner').style.display = 'none';
 });
+</script>
+<script>
+// ═══ TODAY CARDS, TEXT SIZE, FESTIVALS ═══
+(function(){
+  const FEST=[
+    ['2026-10-16','2026-10-16','Durga Puja · Shashthi','দুর্গাপূজা · ষষ্ঠী','🪔'],
+    ['2026-10-17','2026-10-18','Durga Puja · Saptami','দুর্গাপূজা · সপ্তমী','🌺'],
+    ['2026-10-19','2026-10-19','Durga Puja · Maha Ashtami','দুর্গাপূজা · মহাষ্টমী','🌺'],
+    ['2026-10-20','2026-10-20','Durga Puja · Navami','দুর্গাপূজা · নবমী','🌺'],
+    ['2026-10-21','2026-10-21','Bijoya Dashami','বিজয়া দশমী','🙏'],
+    ['2026-10-25','2026-10-25','Kojagari Lakshmi Puja','কোজাগরী লক্ষ্মীপূজা','🌕'],
+    ['2026-11-08','2026-11-08','Kali Puja · Diwali','কালীপূজা · দীপাবলি','🪔']
+  ];
+  const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const bn=()=>typeof isBn!=='undefined'&&isBn;
+  const BND='০১২৩৪৫৬৭৮৯';const toBn=n=>String(n).replace(/\d/g,x=>BND[x]);
+  function renderFest(){
+    const el=document.getElementById('fest-card');if(!el)return;
+    const t=ymd(new Date()),B=bn();
+    const cur=FEST.find(f=>t>=f[0]&&t<=f[1]);
+    let h='';
+    if(cur){h=`<div class="fi">${cur[4]}</div><div><h3>${B?'আজ ':'Today · '}${B?cur[3]:cur[2]}</h3><div class="fb">${B?'শুভ পূজা! পুজোর গান শুনুন →':cur[3]+' · শুভ পূজা'}</div><p>${B?'':'Tap for puja music and aarti'}</p></div>`;}
+    else{const nx=FEST.find(f=>f[0]>t);
+      if(nx){const days=Math.round((new Date(nx[0]+'T12:00')-new Date(t+'T12:00'))/864e5);
+        if(days<=21)h=`<div class="fi">${nx[4]}</div><div><h3>${B?nx[3]:nx[2]}</h3><div class="fb">${B?toBn(days)+' দিন বাকি':nx[3]}</div><p>${B?'':days===1?'Tomorrow':'In '+days+' days'}</p></div>`;}}
+    el.innerHTML=h;el.hidden=!h;el.onclick=()=>open_modal('puja');
+  }
+  function mins(s){if(!s)return 9999;const m=String(s).trim().match(/(\d{1,2}):(\d{2})\s*(AM|PM)?/i);if(!m)return 9999;let h=+m[1];const ap=(m[3]||'').toUpperCase();if(ap==='PM'&&h<12)h+=12;if(ap==='AM'&&h===12)h=0;return h*60+ +m[2];}
+  function fmt(s){const v=mins(s);if(v===9999)return s||'';let h=Math.floor(v/60),m=v%60,ap=h>=12?'PM':'AM';h=h%12||12;return h+':'+String(m).padStart(2,'0')+' '+ap;}
+  const key=()=>'ch_taken_'+ymd(new Date());
+  function taken(){try{return JSON.parse(localStorage.getItem(key())||'[]')}catch(e){return[]}}
+  function setTaken(a){try{localStorage.setItem(key(),JSON.stringify(a))}catch(e){}}
+  function renderMedsToday(){
+    const box=document.getElementById('med-today');if(!box)return;
+    const B=bn();let meds=[];try{meds=loadData('meds')||[]}catch(e){}
+    const tk=taken();const nowM=new Date().getHours()*60+new Date().getMinutes();
+    const L=meds.map((m,i)=>({m,i,t:mins(m.schedule),k:(m.name||'')+'|'+(m.schedule||'')})).sort((a,b)=>a.t-b.t);
+    const nextK=(L.find(x=>!tk.includes(x.k))||{}).k;
+    document.getElementById('med-h').textContent=B?'আজকের ওষুধ':"Today's Medicines";
+    const done=L.filter(x=>tk.includes(x.k)).length;
+    document.getElementById('med-count').textContent=L.length?(B?toBn(done)+'/'+toBn(L.length)+' খাওয়া হয়েছে':done+' of '+L.length+' taken'):'';
+    let refill='';const soon=meds.filter(m=>m.refillDate&&(new Date(m.refillDate+'T12:00')-new Date())/864e5<=5);
+    if(soon.length)refill=`<div class="refill">💊 ${B?'শীঘ্রই রিফিল লাগবে: ':'Refill due soon: '}${soon.map(m=>m.name).join(', ')}</div>`;
+    box.innerHTML=refill+(L.length?L.map(x=>{const d=tk.includes(x.k);const late=!d&&x.t<nowM;
+      return `<div class="dose${d?' done':''}${x.k===nextK?' next':''}" data-k="${encodeURIComponent(x.k)}"><div class="chk">${d?'✓':''}</div><div><div class="dn">${x.m.name}</div><div class="dt">${x.m.instructions||''}${late?(B?' · সময় পেরিয়েছে':' · Time passed'):''}</div></div><div class="tm">${fmt(x.m.schedule)}</div></div>`}).join('')
+      :`<div class="dt" style="padding:6px 0 10px;">${B?'প্রোফাইলে ওষুধ যোগ করুন।':'Add medicines in My Profile & Settings.'}</div>`);
+    box.querySelectorAll('.dose').forEach(el=>el.onclick=()=>{const k=decodeURIComponent(el.dataset.k);let a=taken();a=a.includes(k)?a.filter(z=>z!==k):a.concat(k);setTaken(a);renderMedsToday();});
+  }
+  window.toggleBig=function(){const on=document.body.classList.toggle('big');try{localStorage.setItem('ch_big',on?'1':'0')}catch(e){}};
+  try{if(localStorage.getItem('ch_big')==='1')document.body.classList.add('big')}catch(e){}
+  window.renderToday=function(){renderFest();renderMedsToday();const lb=document.getElementById('lang-btn');if(lb)lb.textContent=bn()?'English':'বাংলা';};
+  renderToday();
+  setInterval(renderMedsToday,60000);
+  try{loadWeather()}catch(e){}
+})();
+</script>
+<script>
+// ═══ ALERTS: puja, birthdays, weather, news ═══
+(function(){
+  const LAT=39.084,LON=-77.153;
+  const bn=()=>typeof isBn!=='undefined'&&isBn;
+  const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const PUJA=[['2026-10-16','Durga Puja begins · Shashthi','দুর্গাপূজা শুরু · ষষ্ঠী'],['2026-10-17','Durga Puja · Saptami','দুর্গাপূজা · সপ্তমী'],['2026-10-19','Maha Ashtami · Anjali','মহাষ্টমী · অঞ্জলি'],['2026-10-20','Maha Navami','মহানবমী'],['2026-10-21','Bijoya Dashami · Sindoor Khela','বিজয়া দশমী · সিঁদুর খেলা'],['2026-10-25','Kojagari Lakshmi Puja','কোজাগরী লক্ষ্মীপূজা'],['2026-11-08','Kali Puja · Diwali','কালীপূজা · দীপাবলি']];
+  let weatherAlerts=[],newsItems=[];
+  function dayDiff(iso){const a=new Date(ymd(new Date())+'T12:00'),b=new Date(iso+'T12:00');return Math.round((b-a)/864e5);}
+  function collect(){
+    const B=bn(),out=[];
+    PUJA.forEach(p=>{const d=dayDiff(p[0]);if(d>=0&&d<=2)out.push({id:'puja-'+p[0],k:'puja',i:'🪔',t:(B?p[2]:p[1]),s:d===0?(B?'আজ · শুভ পূজা':'Today · Shubho Puja'):d===1?(B?'আগামীকাল':'Tomorrow'):(B?'২ দিন পরে':'In 2 days'),go:'puja'});});
+    let fam=[];try{fam=loadData('family')||[]}catch(e){}
+    fam.forEach(f=>{if(!f.birthday||!f.name)return;const b=f.birthday.split('-');if(b.length<3)return;
+      const now=new Date();let iso=now.getFullYear()+'-'+b[1]+'-'+b[2];let d=dayDiff(iso);if(d<0){iso=(now.getFullYear()+1)+'-'+b[1]+'-'+b[2];d=dayDiff(iso);}
+      if(d<=3)out.push({id:'bday-'+f.name+iso,k:'bday',i:'🎂',t:(B?f.name+'-এর জন্মদিন':f.name+"'s Birthday"),s:d===0?(B?'আজ! ফোন করে শুভেচ্ছা জানান':'Today! Call to wish them'):d===1?(B?'আগামীকাল':'Tomorrow'):(B?String(d).replace(/\d/g,x=>'০১২৩৪৫৬৭৮৯'[x])+' দিন পরে':'In '+d+' days'),tel:f.phone});});
+    return weatherAlerts.concat(out);
+  }
+  function seenKey(){return 'ch_seen_'+ymd(new Date());}
+  function seen(){try{return JSON.parse(localStorage.getItem(seenKey())||'[]')}catch(e){return[]}}
+  function markSeen(ids){try{localStorage.setItem(seenKey(),JSON.stringify([...new Set(seen().concat(ids))]))}catch(e){}}
+  function render(){
+    const B=bn(),L=collect();
+    const fresh=L.filter(a=>!seen().includes(a.id));
+    const c=document.getElementById('al-count');if(c){c.textContent=L.length;c.hidden=!L.length;}
+    const set=(id,t)=>{const e=document.getElementById(id);if(e)e.textContent=t;};
+    set('al-h',B?'সতর্কবার্তা ও স্মরণ':'Alerts & Reminders');
+    set('al-sub',L.length?(B?String(L.length).replace(/\d/g,x=>'০১২৩৪৫৬৭৮৯'[x])+'টি নতুন বার্তা':L.length+' active · tap to view'):(B?'পূজা · জন্মদিন · আবহাওয়া · খবর':'Puja · Birthdays · Weather · News'));
+    set('alm-h',B?'🔔 সতর্কবার্তা':'🔔 Alerts');set('news-h',B?'প্রধান খবর':'TOP NEWS · প্রধান খবর');
+    const list=document.getElementById('alerts-list');
+    if(list)list.innerHTML=L.length?L.map(a=>`<a class="alert-item k-${a.k}" ${a.url?`href="${esc(a.url)}" target="_blank"`:a.tel?`href="tel:${esc(a.tel)}"`:`href="#" onclick="event.preventDefault();close_modal('alerts');open_modal('${a.go||'weather'}')"`}><div class="ai">${a.i}</div><div><b>${esc(a.t)}</b><span>${esc(a.s)}</span></div></a>`).join('')
+      :`<p style="font-size:15px;color:var(--ink-soft);padding:4px 0 12px;">${B?'আজ কোনো সতর্কবার্তা নেই। সব ঠিক আছে 🙏':'No alerts today. All clear 🙏'}</p>`;
+    const nb=document.getElementById('notif-btn');
+    if(nb){const ok='Notification' in window&&Notification.permission==='default';nb.hidden=!ok;nb.textContent=B?'ফোনে সতর্কবার্তা চালু করুন':'Turn on phone alerts';}
+    return fresh;
+  }
+  function renderNews(){
+    const box=document.getElementById('news-list');if(!box)return;
+    if(!newsItems.length){box.innerHTML=`<a class="alert-item k-news" href="https://news.google.com" target="_blank"><div class="ai">📰</div><div><b>${bn()?'খবর দেখুন':'Open Google News'}</b><span>US · India · Bengal</span></div></a>`;return;}
+    const pick=[];['US','Maryland','India','Bengal'].forEach(t=>newsItems.filter(n=>n.tag===t).slice(0,2).forEach(n=>pick.push(n)));
+    box.innerHTML=pick.map(n=>`<a class="alert-item k-news" href="${esc(n.link)}" target="_blank"><div class="ai">📰</div><div><b>${esc(n.title)}</b><span>${esc(n.tag)} · ${esc(n.source||'')}</span></div></a>`).join('');
+  }
+  function notify(items){
+    if(!('Notification' in window)||Notification.permission!=='granted')return;
+    items.slice(0,3).forEach(a=>{try{new Notification(a.t,{body:a.s,tag:a.id})}catch(e){}});
+  }
+  window.enableNotif=async function(){try{const r=await Notification.requestPermission();if(r==='granted')notify(collect());}catch(e){}render();};
+  window.openAlerts=function(){render();renderNews();open_modal('alerts');markSeen(collect().map(a=>a.id));};
+  async function loadWx(){
+    try{
+      const r=await fetch(`https://api.weather.gov/alerts/active?point=${LAT},${LON}`,{headers:{Accept:'application/geo+json'}});
+      const j=await r.json();
+      (j.features||[]).slice(0,4).forEach(f=>{const p=f.properties||{};const sev=/Extreme|Severe/.test(p.severity||'');
+        weatherAlerts.push({id:'nws-'+(p.id||p.event),k:sev?'severe':'weather',i:sev?'⚠️':'🌦️',t:p.event||'Weather Alert',s:(p.headline||'').slice(0,140),url:'https://forecast.weather.gov/MapClick.php?lat='+LAT+'&lon='+LON});});
+    }catch(e){}
+    try{
+      const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode&temperature_unit=fahrenheit&timezone=America%2FNew_York&forecast_days=2`);
+      const d=(await r.json()).daily;const B=bn();
+      [0,1].forEach(i=>{const hi=d.temperature_2m_max[i],lo=d.temperature_2m_min[i],pp=d.precipitation_probability_max[i],wc=d.weathercode[i];const when=i?(B?'আগামীকাল':'Tomorrow'):(B?'আজ':'Today');
+        if(hi>=93)weatherAlerts.push({id:'heat'+i,k:'weather',i:'🥵',t:(B?'প্রচণ্ড গরম':'Heat')+' · '+when,s:Math.round(hi)+'°F · '+(B?'জল খান, ঘরে থাকুন':'Drink water and stay indoors in the afternoon')});
+        if(lo<=32)weatherAlerts.push({id:'frz'+i,k:'weather',i:'🥶',t:(B?'হিমশীতল':'Freezing')+' · '+when,s:Math.round(lo)+'°F · '+(B?'গরম জামা পরুন, রাস্তায় সাবধান':'Dress warmly, watch for ice on walkways')});
+        if(wc>=95)weatherAlerts.push({id:'ts'+i,k:'severe',i:'⛈️',t:(B?'বজ্রঝড়':'Thunderstorms')+' · '+when,s:B?'বাইরে যাওয়া এড়িয়ে চলুন':'Plan to stay inside during storms'});
+        else if(pp>=70)weatherAlerts.push({id:'rain'+i,k:'weather',i:'☔',t:(B?'বৃষ্টি':'Rain likely')+' · '+when,s:pp+'% · '+(B?'ছাতা নিন':'Take an umbrella')});
+        if(wc>=71&&wc<=77)weatherAlerts.push({id:'snow'+i,k:'severe',i:'🌨️',t:(B?'তুষারপাত':'Snow')+' · '+when,s:B?'রাস্তা পিচ্ছিল হতে পারে':'Roads may be slippery'});});
+    }catch(e){}
+  }
+  async function loadNews(){try{const r=await fetch('/api/news');if(r.ok){newsItems=(await r.json()).items||[];renderNews();}}catch(e){}}
+  window.renderAlerts=render;
+  (async function boot(){
+    render();
+    await loadWx();
+    const fresh=render();
+    loadNews();
+    if(fresh.length){notify(fresh);setTimeout(()=>{if(!document.querySelector('.overlay.open'))openAlerts();},1500);}
+  })();
+})();
 </script>
 </body>
 </html>
